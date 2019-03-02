@@ -15,20 +15,29 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
   returnUrl: string;
+  showSpinner: boolean;
+  showLoginError: boolean;
 
   ngOnInit() {
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.showSpinner = false;
   }
 
   login(): void {
+    this.showLoginError = false;
+    this.showSpinner = true;
+
     this.authService.login(this.username, this.password)
       .pipe(first())
       .subscribe(
         data => {
           this.router.navigate([this.returnUrl]);
+          this.showSpinner = false;
         },
         error => {
+          this.showSpinner = false;
+          this.showLoginError = true;
         });
   }
 }
