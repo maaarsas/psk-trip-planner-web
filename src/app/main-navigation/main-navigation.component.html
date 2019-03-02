@@ -1,10 +1,11 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <span>Trip planner</span>
-    <span class="example-fill-remaining-space"></span>
-    <span class="align-center"></span>
-    <span class="example-spacer"></span>
-    <!--<button mat-button>About</button>-->
+
+    <!-- This fills the remaining space of the current row -->
+    <span class="fill-space"></span>
+
+    <button mat-button (click)="logout()">Logout</button>
     <!--<button mat-button>Contact</button>-->
     <!--<button mat-icon-button [matMenuTriggerFor]="menu">-->
       <!--<mat-icon>more_vert</mat-icon>-->
