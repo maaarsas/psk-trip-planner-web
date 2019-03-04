@@ -1,0 +1,10 @@
+services:
+  - docker
+script:
+  - docker build -t marsas/trip-planner-web
+
+deploy:
+  provider: script
+  script: bash docker_push.sh
+  on:
+    branch: master
