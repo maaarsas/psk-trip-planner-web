@@ -1,7 +1,7 @@
 services:
   - docker
 script:
-  - docker build -t marsas/trip-planner-web
+  - docker build . -t marsas/trip-planner-web
 
 deploy:
   provider: script
