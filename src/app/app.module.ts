@@ -13,13 +13,16 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import {JwtInterceptor} from './_helpers/jwt.interceptor';
 import {ErrorInterceptor} from './_helpers/error.interceptor';
+import { TripListComponent } from './trip-list/trip-list.component';
+import {TripService} from './_services/trip.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavigationComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    TripListComponent
   ],
   imports: [
     BrowserModule,
@@ -28,9 +31,10 @@ import {ErrorInterceptor} from './_helpers/error.interceptor';
     CustomMaterialModule,
     LayoutModule,
     FormsModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [
+    TripService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
