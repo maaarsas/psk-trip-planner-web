@@ -1,26 +1,19 @@
-<mat-card>Your trips</mat-card>
-<mat-accordion *ngFor="let trip of trips">
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        {{trip.destination}}
-      </mat-panel-title>
-      <mat-panel-description>
-        {{trip.startDate}} to {{trip.endDate}}
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <mat-list>
-      <mat-list-item><strong>Destination:</strong> {{trip.destination}}</mat-list-item>
-      <mat-list-item><strong>Start date:</strong> {{trip.startDate}}</mat-list-item>
-      <mat-list-item><strong>End date:</strong> {{trip.endDate}}</mat-list-item>
-      <mat-list-item><strong>Status:</strong> {{trip.status}}</mat-list-item>
-      <mat-list-item><strong>Accommodation:</strong> {{trip.accommodation}}</mat-list-item>
-      <mat-list-item><strong>Organizer:</strong> {{trip.organizer}}</mat-list-item>
-      <mat-list-item><strong>Type:</strong> {{trip.type}}</mat-list-item>
-      <mat-list-item><strong>Rental car booking needed:</strong> {{trip.requiresVehicle ? 'yes' : 'no'}}
-      </mat-list-item>
-      <mat-list-item><strong>Plane tickets booking needed:</strong> {{trip.requiresTickets ? 'yes' : 'no'}}
-      </mat-list-item>
-    </mat-list>
-  </mat-expansion-panel>
-</mat-accordion>
+<h1>Your trips</h1>
+
+<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+  <ngb-panel title="{{trip.destination}}" *ngFor="let trip of trips">
+    <ng-template ngbPanelContent>
+      <ul>
+        <li><strong>Destination:</strong> {{trip.destination}}</li>
+        <li><strong>Start date:</strong> {{trip.startDate}}</li>
+        <li><strong>End date:</strong> {{trip.endDate}}</li>
+        <li><strong>Status:</strong> {{trip.status}}</li>
+        <li><strong>Accommodation:</strong> {{trip.accommodation}}</li>
+        <li><strong>Organizer:</strong> {{trip.organizer}}</li>
+        <li><strong>Type:</strong> {{trip.type}}</li>
+        <li><strong>Rental car booking needed:</strong> {{trip.requiresVehicle ? 'yes' : 'no'}}</li>
+        <li><strong>Plane tickets booking needed:</strong> {{trip.requiresTickets ? 'yes' : 'no'}}</li>
+      </ul>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>
