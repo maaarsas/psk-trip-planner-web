@@ -10,7 +10,10 @@
         <a class="nav-link" routerLink="myTrips">My trips</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
+    <span class="navbar-text mr-4" *ngIf="isLoggedIn()">
+      Logged in as <b>{{ authService.getCurrentUserEmail() }}</b>
+    </span>
+    <form class="form-inline my-2 my-lg-0" *ngIf="isLoggedIn()">
       <button class="btn btn-danger my-2 my-sm-0" type="submit" (click)="logout()">Logout</button>
     </form>
   </div>
