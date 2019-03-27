@@ -1,20 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { CustomMaterialModule } from './core/material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavigationComponent } from './main-navigation/main-navigation.component';
-import { LayoutModule } from '@angular/cdk/layout';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
-import {JwtInterceptor} from './_helpers/jwt.interceptor';
-import {ErrorInterceptor} from './_helpers/error.interceptor';
+import { JwtInterceptor } from './_helpers/jwt.interceptor';
+import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { TripListComponent } from './trip-list/trip-list.component';
-import {TripService} from './_services/trip.service';
+import { TripService } from './_services/trip.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -27,11 +25,9 @@ import {TripService} from './_services/trip.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    CustomMaterialModule,
-    LayoutModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [
     TripService,

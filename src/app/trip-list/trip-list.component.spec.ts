@@ -2,7 +2,6 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {TripListComponent} from './trip-list.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
-import {CustomMaterialModule} from '../core/material.module';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -13,7 +12,7 @@ describe('TripListComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [TripListComponent],
-      imports: [CustomMaterialModule, HttpClientTestingModule, BrowserAnimationsModule],
+      imports: [HttpClientTestingModule, BrowserAnimationsModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
       .compileComponents();

@@ -2,7 +2,6 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {LoginComponent} from './login.component';
 import {RouterTestingModule} from '@angular/router/testing';
-import {CustomMaterialModule} from '../core/material.module';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {FormsModule} from '@angular/forms';
@@ -15,7 +14,7 @@ describe('LoginComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [LoginComponent],
-      imports: [RouterTestingModule, CustomMaterialModule, HttpClientTestingModule, FormsModule, BrowserAnimationsModule],
+      imports: [RouterTestingModule, HttpClientTestingModule, FormsModule, BrowserAnimationsModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
       .compileComponents();
