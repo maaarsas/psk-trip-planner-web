@@ -10,34 +10,37 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthenticationService, private router: Router, private route: ActivatedRoute) { }
-
-  username: string;
-  password: string;
+  credentials: any = {
+    email: '',
+    password: '',
+  };
   returnUrl: string;
-  showSpinner: boolean;
-  showLoginError: boolean;
+  loading = false;
+  showLoginErrorMessage = false;
+
+  constructor(private authService: AuthenticationService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-    this.showSpinner = false;
   }
 
-  login(): void {
-    this.showLoginError = false;
-    this.showSpinner = true;
-
-    this.authService.login(this.username, this.password)
+  onLoginSubmit(): void {
+    // indicate loading so the form can be disabled and loading animations shown
+    this.loading = true;
+    // using AuthService send a login request with user email and password
+    this.authService.login(this.credentials.email, this.credentials.password)
       .pipe(first())
       .subscribe(
         data => {
+          // successful login, return user to the page where he came from to this form
           this.router.navigate([this.returnUrl]);
-          this.showSpinner = false;
+          this.loading = false;
         },
         error => {
-          this.showSpinner = false;
-          this.showLoginError = true;
-        });
+          this.showLoginErrorMessage = true;
+          this.loading = false;
+        }
+      );
   }
 }

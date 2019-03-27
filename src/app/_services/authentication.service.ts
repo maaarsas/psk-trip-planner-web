@@ -7,8 +7,8 @@ import {environment} from '../../environments/environment';
 export class AuthenticationService {
   constructor(private http: HttpClient) { }
 
-  login(username: string, password: string) {
-    return this.http.post<any>(`${environment.apiUrl}/auth/login`, { username, password })
+  login(email: string, password: string) {
+    return this.http.post<any>(`${environment.apiUrl}/auth/login`, { username: email, password })
       .pipe(map(user => {
         // login successful if there's a jwt token in the response
         if (user && user.token) {
