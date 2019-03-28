@@ -54,7 +54,7 @@ export class MainNavigationComponent {
     return this.authService.isLoggedIn();
   }
 
-  getSecondaryNavigationLinks(): object {
+  getSecondaryNavigationLinks(): object[] {
     let links = [];
     this.secondaryNavigationLinks.forEach(obj => {
       if (this.router.isActive(obj.route, false)) {
