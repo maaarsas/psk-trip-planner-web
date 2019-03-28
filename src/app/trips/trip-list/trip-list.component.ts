@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {TripService} from '../_services/trip.service';
-import {Trip} from '../_models/trip';
+import {TripService} from '../../_services/trip.service';
+import {Trip} from '../../_models/trip';
 
 @Component({
   selector: 'app-trip-list',
