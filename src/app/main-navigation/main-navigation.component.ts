@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class MainNavigationComponent {
 
+  isNavbarCollapsed = true;
+  
   readonly primaryNavigationLinks = [
     { route: 'trips', name: 'Trips'},
     { route: 'planning', name: 'Planning'},
