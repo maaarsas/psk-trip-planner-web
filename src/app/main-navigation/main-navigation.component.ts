@@ -34,7 +34,7 @@ export class MainNavigationComponent {
       ]},
   ];
 
-  currentSecondaryNavigationLinks = null;
+  currentSecondaryNavigationLinks = [];
 
   constructor(
     private authService: AuthenticationService,
@@ -55,7 +55,7 @@ export class MainNavigationComponent {
   }
 
   getSecondaryNavigationLinks(): object {
-    let links = null;
+    let links = [];
     this.secondaryNavigationLinks.forEach(obj => {
       if (this.router.isActive(obj.route, false)) {
         links = obj.secondaryLinks;
