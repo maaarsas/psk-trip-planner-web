@@ -21,4 +21,8 @@ export class MainNavigationComponent {
     this.router.navigate(['/login']);
   }
 
+  isLoggedIn() {
+    return this.authService.isLoggedIn();
+  }
+
 }
