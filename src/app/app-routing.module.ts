@@ -3,13 +3,25 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './_guards/auth.guard';
-import {TripListComponent} from './trip-list/trip-list.component';
+import {TripListComponent} from './trips/trip-list/trip-list.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent, canActivate: [AuthGuard]},
-  {path: 'login', component: LoginComponent },
-  {path: 'myTrips', component: TripListComponent},
-
+  {
+    path: '',
+    canActivate: [AuthGuard],
+    component: HomeComponent,
+    children: [
+      {
+        path: 'trips',
+        children: [
+          { path: 'my-trips', component: MyTripsComponent },
+          { path: 'invitations', component: InvitationsComponent },
+          { path: '', pathMatch: 'full', redirectTo: 'my-trips' },
+        ]
+      },
+    ]
+  },
+  { path: 'login', component: LoginComponent },
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 ];
