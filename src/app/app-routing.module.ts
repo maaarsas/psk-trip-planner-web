@@ -10,8 +10,8 @@ const routes: Routes = [
   {
     path: '',
     canActivate: [AuthGuard],
-    component: HomeComponent,
     children: [
+      { path: '', component: HomeComponent },
       {
         path: 'trips',
         children: [
