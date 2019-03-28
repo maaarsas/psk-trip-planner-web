@@ -13,6 +13,8 @@ import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { TripListComponent } from './trips/trip-list/trip-list.component';
 import { TripService } from './_services/trip.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MyTripsComponent } from './trips/my-trips/my-trips.component';
+import { InvitationsComponent } from './trips/invitations/invitations.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MainNavigationComponent,
     LoginComponent,
     HomeComponent,
-    TripListComponent
+    TripListComponent,
+    MyTripsComponent,
+    InvitationsComponent
   ],
   imports: [
     BrowserModule,
