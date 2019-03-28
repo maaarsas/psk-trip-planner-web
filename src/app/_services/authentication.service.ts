@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import {environment} from '../../environments/environment';
-import { User } from '../_models/user';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
 
   localStorageItemName = 'currentUser';
-  currentUser: User;
 
   constructor(private http: HttpClient) { }
 
@@ -19,8 +17,6 @@ export class AuthenticationService {
         if (user && user.token) {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem(this.localStorageItemName, JSON.stringify(user));
-          this.currentUser = new User();
-          this.currentUser.email = username;
         }
 
         return user;
@@ -33,10 +29,14 @@ export class AuthenticationService {
   }
 
   isLoggedIn(): boolean {
-    return (localStorage.getItem(this.localStorageItemName));
+    return !!localStorage.getItem(this.localStorageItemName);
   }
 
   getCurrentUserEmail(): string {
-    return this.currentUser.email;
+    const currentUser = JSON.parse(localStorage.getItem(this.localStorageItemName));
+    if (currentUser && currentUser.username) {
+      return currentUser.username;
+    }
+    return '';
   }
 }
