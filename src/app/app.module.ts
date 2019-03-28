@@ -15,6 +15,12 @@ import { TripService } from './_services/trip.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MyTripsComponent } from './trips/my-trips/my-trips.component';
 import { InvitationsComponent } from './trips/invitations/invitations.component';
+import { TripCreateComponent } from './planning/trip-create/trip-create.component';
+import { TripEditComponent } from './planning/trip-edit/trip-edit.component';
+import { MyOrganizedTripsComponent } from './planning/my-organized-trips/my-organized-trips.component';
+import { AllTripsComponent } from './planning/all-trips/all-trips.component';
+import { UsersComponent } from './admin/users/users.component';
+import { OfficesComponent } from './admin/offices/offices.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +30,13 @@ import { InvitationsComponent } from './trips/invitations/invitations.component'
     HomeComponent,
     TripListComponent,
     MyTripsComponent,
-    InvitationsComponent
+    InvitationsComponent,
+    TripCreateComponent,
+    TripEditComponent,
+    MyOrganizedTripsComponent,
+    AllTripsComponent,
+    UsersComponent,
+    OfficesComponent
   ],
   imports: [
     BrowserModule,
