@@ -11,6 +11,13 @@ import { Router } from '@angular/router';
 })
 export class MainNavigationComponent {
 
+  primaryNavigationLinks = [
+    { route: 'trips', name: 'Trips'},
+    { route: 'planning', name: 'Planning'},
+    { route: 'admin', name: 'Administration'},
+    { route: 'statistics', name: 'Statistics'},
+  ];
+
   constructor(
     private authService: AuthenticationService,
     private router: Router

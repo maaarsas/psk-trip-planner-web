@@ -5,18 +5,9 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarMain">
     <a class="navbar-brand" routerLink="">Trip planner</a>
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="trips">My trips</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="planning">Planning</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="admin">Administration</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="statistics">Statistics</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0" routerLinkActive="active">
+      <li class="nav-item" *ngFor="let link of primaryNavigationLinks" routerLinkActive="active">
+        <a class="nav-link" routerLink="{{ link.route }}">{{ link.name}}</a>
       </li>
     </ul>
     <span class="navbar-text mr-4" *ngIf="isLoggedIn()">
