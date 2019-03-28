@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class MainNavigationComponent {
 
-  private isNavbarCollapsed = true;
+  isNavbarCollapsed = true;
 
   constructor(
     private authService: AuthenticationService,
