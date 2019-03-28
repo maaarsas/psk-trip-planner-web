@@ -17,7 +17,30 @@ const routes: Routes = [
         children: [
           { path: 'my-trips', component: MyTripsComponent },
           { path: 'invitations', component: InvitationsComponent },
-          { path: '', pathMatch: 'full', redirectTo: 'my-trips' },
+          { path: '', pathMatch: 'full', redirectTo: 'my-trips' }, // default route
+        ]
+      },
+      {
+        path: 'planning',
+        children: [
+          { path: 'create', component: TripCreateComponent },
+          { path: 'edit/:id', component: TripEditComponent },
+          { path: 'my-organized', component: MyOrganizedTripsComponent },
+          { path: 'all', component: AllTripsComponent },
+          { path: '', pathMatch: 'full', redirectTo: 'my-organized' }, // default route
+        ]
+      },
+      {
+        path: 'admin',
+        children: [
+          { path: 'users', component: UsersComponent },
+          { path: 'offices', component: OfficesComponenet },
+          { path: '', pathMatch: 'full', redirectTo: 'users' }, // default route
+        ]
+      },
+      {
+        path: 'statistics',
+        children: [
         ]
       },
     ]
