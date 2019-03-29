@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
-import {Trip} from '../_models/trip';
+import {Trip, TripParams, TripResponse} from '../_models/trip';
+import {MY_TRIPS} from '../_mocks/my-trips';
 
-//const GET_MY_TRIPS = 'my-trips.json';
 
 @Injectable({
   providedIn: 'root'
@@ -13,61 +13,32 @@ export class TripService {
   constructor(private http: HttpClient) {
   }
 
+  getMyTrips(params: TripParams): Observable<TripResponse> {
+    return of({totalResultsCount: 100, results: MY_TRIPS});
+    // TODO actual backend call
+    // return this.http.get(API_URL, {
+    //   params: new HttpParams()
+    //     .set('page', params.page.toString())
+    //     .set('pageSize', params.pageSize.toString())
+    // }
+  }
 
-  getMyTrips(): Observable<Trip[]> {
-    //return this.http.get<Trip[]>(GET_MY_TRIPS);
-    return of([{
-      destination: 'Vilnius',
-      startDate: '2018-05-03',
-      endDate: '2018-05-08',
-      status: 'completed',
-      accommodation: 'Office apartments',
-      organizer: 'Supreme Manager',
-      type: 'individual',
-      requiresVehicle: false,
-      requiresTickets: false
-    },
-      {
-        destination: 'Kaunas',
-        startDate: '2018-06-18',
-        endDate: '2018-07-01',
-        status: 'completed',
-        accommodation: 'Cozy B&B',
-        organizer: 'Manny Manager',
-        type: 'group',
-        requiresVehicle: true,
-        requiresTickets: false
-      }, {
-        destination: 'Toronto',
-        startDate: '2019-02-03',
-        endDate: '2018-03-20',
-        status: 'ongoing',
-        accommodation: 'Plaza hotel',
-        organizer: 'Manageria Mannuel',
-        type: 'group',
-        requiresVehicle: true,
-        requiresTickets: true
-      }, {
-        destination: 'Warsaw',
-        startDate: '2019-05-01',
-        endDate: '2019-05-23',
-        status: 'pending',
-        accommodation: 'Office apartments',
-        organizer: 'Manager Manager',
-        type: 'individual',
-        requiresVehicle: false,
-        requiresTickets: false
-      }, {
-        destination: 'London',
-        startDate: '2020-02-03',
-        endDate: '2020-03-08',
-        status: 'pending',
-        accommodation: 'Premium hotel',
-        organizer: 'Karen Smith',
-        type: 'individual',
-        requiresVehicle: true,
-        requiresTickets: false
-      }]);
+  getMyInvitations(params: TripParams): Observable<TripResponse> {
+    return of({totalResultsCount: 100, results: MY_TRIPS});
+    // TODO actual backend call
+    // return this.http.get(API_URL, {
+    //   params: new HttpParams()
+    //     .set('page', params.page.toString())
+    //     .set('pageSize', params.pageSize.toString())
+    // }
+  }
+
+  acceptInvitation(inviteToAccept: Trip) {
+    // TODO
+  }
+
+  declineInvitation(inviteToDecline: Trip) {
+    // TODO
   }
 
 }

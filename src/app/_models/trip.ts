@@ -9,3 +9,14 @@ export interface Trip {
   requiresVehicle: boolean;
   requiresTickets: boolean;
 }
+
+export interface  TripResponse {
+  totalPageCount?: number;
+  totalResultsCount: number;
+  results: Trip[];
+}
+
+export interface TripParams {
+  page: number;
+  pageSize: number;
+}
