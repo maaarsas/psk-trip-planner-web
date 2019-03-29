@@ -13,7 +13,7 @@ export class LanguageService {
 
   getLanguage(): string {
     const lang = localStorage.getItem(this.localStorageItemName);
-    if (lang || this.translate.getLangs().includes(lang)) {
+    if (lang && this.translate.getLangs().includes(lang)) {
       return lang;
     }
     return this.defaultLanguage;
