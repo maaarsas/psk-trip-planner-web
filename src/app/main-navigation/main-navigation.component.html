@@ -11,6 +11,14 @@
         <a class="nav-link" routerLink="{{ link.route }}">{{ link.name}}</a>
       </li>
     </ul>
+    <ul class="navbar-nav mr-5 mt-2 mt-lg-0">
+      <li class="nav-item" *ngFor="let lang of translate.getLangs()"
+          [ngClass]="{'active': lang === translate.currentLang}">
+        <a class="nav-link" (click)="changeLanguage(lang)">
+          {{ lang | uppercase}}
+        </a>
+      </li>
+    </ul>
     <span class="navbar-text mr-4" *ngIf="isLoggedIn()">
       Logged in as <b>{{ authService.getCurrentUserEmail() }}</b>
     </span>

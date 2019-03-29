@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { AuthenticationService } from '../_services/authentication.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LanguageService } from '../_services/language.service';
 
 @Component({
   selector: 'app-main-navigation',
@@ -40,7 +42,10 @@ export class MainNavigationComponent {
 
   constructor(
     private authService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private translate: TranslateService,
+    private languageService: LanguageService
   ) {
     this.router.events.subscribe(() => {
       this.currentSecondaryNavigationLinks = this.getSecondaryNavigationLinks();
@@ -65,6 +70,10 @@ export class MainNavigationComponent {
       }
     });
     return links;
+  }
+
+  changeLanguage(newLanguage: string): void {
+    this.languageService.setLanguage(newLanguage);
   }
 
 }
