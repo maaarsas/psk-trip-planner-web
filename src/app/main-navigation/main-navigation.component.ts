@@ -12,27 +12,27 @@ import { LanguageService } from '../_services/language.service';
 export class MainNavigationComponent {
 
   isNavbarCollapsed = true;
-  
+
   readonly primaryNavigationLinks = [
-    { route: 'trips', name: 'Trips'},
-    { route: 'planning', name: 'Planning'},
-    { route: 'admin', name: 'Administration'},
-    { route: 'statistics', name: 'Statistics'},
+    { route: 'trips', name: 'navigation.primary.trips'},
+    { route: 'planning', name: 'navigation.primary.planning'},
+    { route: 'admin', name: 'navigation.primary.administration'},
+    { route: 'statistics', name: 'navigation.primary.statistics'},
   ];
 
   readonly secondaryNavigationLinks = [
     { route: 'trips', secondaryLinks: [
-        { route: 'trips/my-trips', name: 'My trips' },
-        { route: 'trips/invitations', name: 'Invitations' },
+        { route: 'trips/my-trips', name: 'navigation.secondary.my-trips' },
+        { route: 'trips/invitations', name: 'navigation.secondary.invitations' },
       ]},
     { route: 'planning', secondaryLinks: [
-        { route: 'planning/create', name: 'Create trip' },
-        { route: 'planning/my-organized', name: 'My organized trips' },
-        { route: 'planning/all', name: 'All trips' },
+        { route: 'planning/create', name: 'navigation.secondary.create-trip' },
+        { route: 'planning/my-organized', name: 'navigation.secondary.my-organized-trips' },
+        { route: 'planning/all', name: 'navigation.secondary.all-trips' },
       ]},
     { route: 'admin', secondaryLinks: [
-        { route: 'admin/users', name: 'All users' },
-        { route: 'admin/offices', name: 'All offices' },
+        { route: 'admin/users', name: 'navigation.secondary.all-users' },
+        { route: 'admin/offices', name: 'navigation.secondary.all-offices' },
       ]},
     { route: 'statistics', secondaryLinks: [
       ]},
@@ -44,7 +44,7 @@ export class MainNavigationComponent {
     private authService: AuthenticationService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private translate: TranslateService,
+    public translate: TranslateService,
     private languageService: LanguageService
   ) {
     this.router.events.subscribe(() => {

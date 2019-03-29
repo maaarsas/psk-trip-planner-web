@@ -1,3 +1,46 @@
 {
-  "page-title": "Kelionių planuotojas"
+  "page-title": "Kelionių planuotojas",
+  "headings": {
+    "offices": "Ofisai",
+    "users": "Vartotojai",
+    "login": "Prisijungti",
+    "all-trips": "Visos kelionės",
+    "my-organized-trips": "Mano organizuojamos kelionės",
+    "create-trip": "Sukurti kelionę",
+    "edit-trip": "Redaguoti kelionę",
+    "invitations": "Pakvietimai į keliones",
+    "my-trips": "Mano kelionės"
+  },
+  "alerts" : {
+    "login-info": "Prašome prisijungti su savo el. pašto adresu ir slaptažodžiu",
+    "login-failed": "Neteisingas el. pašto adresas arba slaptažodis. Bandykite dar kartą"
+  },
+  "inputs": {
+    "email": "El. pašto adresas",
+    "password": "Slaptažodis"
+  },
+  "buttons": {
+    "login": "Prisijungti",
+    "logout": "Atsijungti"
+  },
+  "texts": {
+    "logged-in-as": "Prisijungta kaip"
+  },
+  "navigation": {
+    "primary": {
+      "trips": "Kelionės",
+      "planning": "Planavimas",
+      "administration": "Administravimas",
+      "statistics": "Statistika"
+    },
+    "secondary": {
+      "all-offices": "Visi ofisai",
+      "all-users": "Visi vartotojai",
+      "all-trips": "Visos kelionės",
+      "my-organized-trips": "Mano organizuojamos kelionės",
+      "create-trip": "Sukurti kelionę",
+      "invitations": "Pakvietimai",
+      "my-trips": "Mano kelionės"
+    }
+  }
 }

@@ -1,3 +1,46 @@
 {
-  "page-title": "Trip planner"
+  "page-title": "Trip planner",
+  "headings": {
+    "offices": "Offices",
+    "users": "Users",
+    "login": "Login",
+    "all-trips": "All trips",
+    "my-organized-trips": "My organized trips",
+    "create-trip": "Create trip",
+    "edit-trip": "Edit trip",
+    "invitations": "Invitations to trips",
+    "my-trips": "My trips"
+  },
+  "alerts" : {
+    "login-info": "Please log in using your email and password",
+    "login-failed": "Wrong email or password. Please try again"
+  },
+  "inputs": {
+    "email": "Email address",
+    "password": "Password"
+  },
+  "buttons": {
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "texts": {
+    "logged-in-as": "Logged in as"
+  },
+  "navigation": {
+    "primary": {
+      "trips": "Trips",
+      "planning": "Planning",
+      "administration": "Administration",
+      "statistics": "Statistics"
+    },
+    "secondary": {
+      "all-offices": "All offices",
+      "all-users": "All users",
+      "all-trips": "All trips",
+      "my-organized-trips": "My organized trips",
+      "create-trip": "Create trip",
+      "invitations": "Invitations",
+      "my-trips": "My trips"
+    }
+  }
 }
