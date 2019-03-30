@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" routerLink="">Trip planner</a>
+  <a class="navbar-brand" routerLink="">{{ 'page-title' | translate }}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain"
           aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation"
           (click)="isNavbarCollapsed = !isNavbarCollapsed">
@@ -8,14 +8,22 @@
   <div class="collapse navbar-collapse" id="navbarMain" [ngbCollapse]="isNavbarCollapsed">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item" *ngFor="let link of primaryNavigationLinks" routerLinkActive="active">
-        <a class="nav-link" routerLink="{{ link.route }}">{{ link.name}}</a>
+        <a class="nav-link" routerLink="{{ link.route }}">{{ link.name | translate }}</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav mr-5 mt-2 mt-lg-0">
+      <li class="nav-item" *ngFor="let lang of translate.getLangs()"
+          [ngClass]="{'active': lang === translate.currentLang}">
+        <a class="nav-link" (click)="changeLanguage(lang)">
+          {{ lang | uppercase}}
+        </a>
       </li>
     </ul>
     <span class="navbar-text mr-4" *ngIf="isLoggedIn()">
-      Logged in as <b>{{ authService.getCurrentUserEmail() }}</b>
+      {{ 'texts.logged-in-as' | translate }} <b>{{ authService.getCurrentUserEmail() }}</b>
     </span>
     <form class="form-inline my-2 my-lg-0" *ngIf="isLoggedIn()">
-      <button class="btn btn-danger my-2 my-sm-0" type="submit" (click)="logout()">Logout</button>
+      <button class="btn btn-danger my-2 my-sm-0" type="submit" (click)="logout()">{{ 'buttons.logout' | translate }}</button>
     </form>
   </div>
 </nav>
@@ -24,7 +32,7 @@
   <div class="container">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" *ngFor="let link of currentSecondaryNavigationLinks" routerLinkActive="active">
-        <a class="nav-link" routerLink="{{ link.route }}">{{ link.name}}</a>
+        <a class="nav-link" routerLink="{{ link.route }}">{{ link.name | translate }}</a>
       </li>
     </ul>
   </div>
