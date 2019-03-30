@@ -21,6 +21,7 @@ import { MyOrganizedTripsComponent } from './planning/my-organized-trips/my-orga
 import { AllTripsComponent } from './planning/all-trips/all-trips.component';
 import { UsersComponent } from './admin/users/users.component';
 import { OfficesComponent } from './admin/offices/offices.component';
+import { TripFormComponent } from './trip-form/trip-form.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { OfficesComponent } from './admin/offices/offices.component';
     MyOrganizedTripsComponent,
     AllTripsComponent,
     UsersComponent,
-    OfficesComponent
+    OfficesComponent,
+    TripFormComponent
   ],
   imports: [
     BrowserModule,
