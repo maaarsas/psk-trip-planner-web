@@ -11,7 +11,7 @@ export class AuthenticationService {
   constructor(private http: HttpClient) { }
 
   login(email: string, password: string) {
-    return this.http.post<any>(`${environment.apiUrl}/auth/login`, { username: email, password })
+    return this.http.post<any>(`${environment.apiUrl}/auth/login`, { email, password })
       .pipe(map(user => {
         // login successful if there's a jwt token in the response
         if (user && user.token) {
@@ -34,8 +34,8 @@ export class AuthenticationService {
 
   getCurrentUserEmail(): string {
     const currentUser = JSON.parse(localStorage.getItem(this.localStorageItemName));
-    if (currentUser && currentUser.username) {
-      return currentUser.username;
+    if (currentUser && currentUser.email) {
+      return currentUser.email;
     }
     return '';
   }
