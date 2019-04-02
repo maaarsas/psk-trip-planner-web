@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-trip-form',
@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TripFormComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  onSubmit() {
+  }
 }

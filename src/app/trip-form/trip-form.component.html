@@ -1,13 +1,44 @@
-<form>
-  <div class="trip-form">
-    <label for="formControlInput1">Add people</label>
-    <input type="text" class="form-control" id="formControlInput1">
+<form (ngSubmit)="onSubmit()">
+  <div class="people trip-form">
+    <label for="formControlSearch">Add people</label>
+    <input type="text" class="form-control people-input" id="formControlSearch">
   </div>
-  <div>
+  <div class="trip-form">
     <!--display added users-->
   </div>
-  <div>
-    <label for="formControlDateInput1">Date from:</label>
-    <input type="date" class="form-control" id="formControlDateInput1">
+  <div class="dates trip-form d-flex">
+    <div>
+      <label for="formControlDateFrom">Date from:</label>
+      <input type="date" class="form-control" id="formControlDateFrom">
+    </div>
+    <div>
+      <label for="formControlDateTo">Date to:</label>
+      <input type="date" class="form-control" id="formControlDateTo">
+    </div>
   </div>
+  <div class="offices trip-form d-flex">
+    <div>
+      <label for="formControlOfficeFrom">From office:</label>
+      <input type="text" class="form-control" id="formControlOfficeFrom">
+    </div>
+    <div>
+      <label for="formControlOfficeTo">To office:</label>
+      <input type="text" class="form-control" id="formControlOfficeTo">
+    </div>
+  </div>
+  <div class="custom-control custom-checkbox">
+    <div>
+      <input type="checkbox" class="custom-control-input" id="formControlPlane">
+      <label class="custom-control-label" for="formControlPlane">Plane tickets required</label>
+    </div>
+    <div>
+      <input type="checkbox" class="custom-control-input" id="formControlAuto">
+      <label class="custom-control-label" for="formControlAuto">Rental car required</label>
+    </div>
+    <div>
+      <input type="checkbox" class="custom-control-input" id="formControlAccommodation">
+      <label class="custom-control-label" for="formControlAccommodation">Accommodation required</label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-success" [disabled]="!tripFrom.form.valid">Submit</button>
 </form>
