@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Trip, TripParams} from '../../_models/trip';
+import {TripService} from '../../_services/trip.service';
+import {DEFAULT_PAGE, DEFAULT_PAGE_SIZE} from '../../_constants/trip-list.const';
 
 @Component({
   selector: 'app-my-trips',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyTripsComponent implements OnInit {
 
-  constructor() { }
+  trips: Trip[];
+  availableTrips: number;
+
+  constructor(private tripService: TripService) {
+    this.onParamsChange({pageSize: DEFAULT_PAGE_SIZE, page: DEFAULT_PAGE});
+  }
 
   ngOnInit() {
+  }
+
+  onParamsChange(params: TripParams) {
+    this.tripService.getMyTrips(params).subscribe(tripData => {
+      this.trips = tripData.results;
+      this.availableTrips = tripData.totalResultsCount;
+    });
   }
 
 }

@@ -1,3 +1,20 @@
-.mat-list-item{
+.mat-list-item {
   white-space: pre-wrap;
+}
+
+.pagination-row {
+  margin: 20px 0;
+}
+
+ngb-pagination {
+  display: inline-block;
+}
+
+select {
+  width: 60px;
+  margin-left: 12px;
+}
+
+.page-size-container {
+  display: block;
 }
