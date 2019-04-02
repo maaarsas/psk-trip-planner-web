@@ -1,4 +1,5 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {TripFormComponent} from './trip-form.component';
 
@@ -8,7 +9,8 @@ describe('TripFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TripFormComponent]
+      declarations: [TripFormComponent],
+      imports: [ReactiveFormsModule, FormsModule]
     })
       .compileComponents();
   }));
