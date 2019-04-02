@@ -1,17 +1,23 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
-import { environment } from '../../environments/environment';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {map} from 'rxjs/operators';
+import {environment} from '../../environments/environment';
+import {Router} from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
 
   localStorageItemName = 'currentUser';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) {
+    window.addEventListener('storage', (event) => {
+      if (event.storageArea === localStorage && !localStorage.getItem('currentUser')) {
+          this.router.navigate(['/login']);
+      }
+    }, false);
+  }
 
   login(email: string, password: string) {
-    console.log({ email, password });
     return this.http.post<any>(`${environment.apiUrl}/auth/login`, { email, password })
       .pipe(map(user => {
         // login successful if there's a jwt token in the response
