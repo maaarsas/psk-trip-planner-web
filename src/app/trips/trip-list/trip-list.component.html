@@ -1,17 +1,41 @@
 <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
-  <ngb-panel title="{{trip.destination}}" *ngFor="let trip of trips">
+  <ngb-panel *ngFor="let trip of trips">
+    <ng-template ngbPanelHeader>
+      <div class="d-flex align-items-center justify-content-between">
+        <button ngbPanelToggle class="btn btn-link m-0">{{trip.toOffice.title}}</button>
+        <div *ngIf="showInvitationButtons">
+          <button (click)="onAccept(trip)" class="btn btn-sm btn-primary ml-2">Accept</button>
+          <button (click)="onDecline(trip)" class="btn btn-sm btn-danger ml-2">Decline</button>
+        </div>
+      </div>
+    </ng-template>
     <ng-template ngbPanelContent>
       <ul>
-        <li><strong>Destination:</strong> {{trip.destination}}</li>
+        <li><strong>Destination:</strong> {{trip.toOffice.title}}</li>
         <li><strong>Start date:</strong> {{trip.startDate}}</li>
         <li><strong>End date:</strong> {{trip.endDate}}</li>
-        <li><strong>Status:</strong> {{trip.status}}</li>
-        <li><strong>Accommodation:</strong> {{trip.accommodation}}</li>
-        <li><strong>Organizer:</strong> {{trip.organizer}}</li>
-        <li><strong>Type:</strong> {{trip.type}}</li>
-        <li><strong>Rental car booking needed:</strong> {{trip.requiresVehicle ? 'yes' : 'no'}}</li>
-        <li><strong>Plane tickets booking needed:</strong> {{trip.requiresTickets ? 'yes' : 'no'}}</li>
+        <li><strong>Organizer:</strong> {{trip.organizer.name}} {{trip.organizer.surname}}</li>
+        <li><strong>Number of participants:</strong> {{trip.tripParticipations.length}}</li>
+        <li><strong>Flight ticket status:</strong> {{trip.flightTicketStatus}}</li>
+        <li><strong>Car rental status:</strong> {{trip.carRentalStatus}}</li>
+        <li><strong>Accommodation status:</strong> {{trip.accomodationStatus}}</li>
       </ul>
     </ng-template>
   </ngb-panel>
 </ngb-accordion>
+
+<div class="row pagination-row">
+  <div class="offset-md-7 col-md-5">
+    <ngb-pagination (pageChange)="onPageChange($event)" [collectionSize]="collectionSize" [pageSize]="pageSize"
+                    [(page)]="page" [maxSize]="5"
+                    [rotate]="true"
+                    [boundaryLinks]="true"></ngb-pagination>
+    <div class="page-size-container">
+      <label>Items per page</label>
+      <select (change)="onPageSizeChange($event.target.value)" class="browser-default custom-select">
+        <option *ngFor="let pageSize of pageSizeOptions" value="{{pageSize}}">{{pageSize}}</option>
+      </select>
+    </div>
+  </div>
+</div>
+
