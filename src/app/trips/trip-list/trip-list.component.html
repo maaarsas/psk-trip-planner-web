@@ -2,7 +2,7 @@
   <ngb-panel *ngFor="let trip of trips">
     <ng-template ngbPanelHeader>
       <div class="d-flex align-items-center justify-content-between">
-        <button ngbPanelToggle class="btn btn-link m-0">{{trip.destination}}</button>
+        <button ngbPanelToggle class="btn btn-link m-0">{{trip.toOffice.title}}</button>
         <div *ngIf="showInvitationButtons">
           <button (click)="onAccept(trip)" class="btn btn-sm btn-primary ml-2">Accept</button>
           <button (click)="onDecline(trip)" class="btn btn-sm btn-danger ml-2">Decline</button>
@@ -11,15 +11,14 @@
     </ng-template>
     <ng-template ngbPanelContent>
       <ul>
-        <li><strong>Destination:</strong> {{trip.destination}}</li>
+        <li><strong>Destination:</strong> {{trip.toOffice.title}}</li>
         <li><strong>Start date:</strong> {{trip.startDate}}</li>
         <li><strong>End date:</strong> {{trip.endDate}}</li>
-        <li><strong>Status:</strong> {{trip.status}}</li>
-        <li><strong>Accommodation:</strong> {{trip.accommodation}}</li>
-        <li><strong>Organizer:</strong> {{trip.organizer}}</li>
-        <li><strong>Type:</strong> {{trip.type}}</li>
-        <li><strong>Rental car booking needed:</strong> {{trip.requiresVehicle ? 'yes' : 'no'}}</li>
-        <li><strong>Plane tickets booking needed:</strong> {{trip.requiresTickets ? 'yes' : 'no'}}</li>
+        <li><strong>Organizer:</strong> {{trip.organizer.name}} {{trip.organizer.surname}}</li>
+        <li><strong>Number of participants:</strong> {{trip.tripParticipations.length}}</li>
+        <li><strong>Flight ticket status:</strong> {{trip.flightTicketStatus}}</li>
+        <li><strong>Car rental status:</strong> {{trip.carRentalStatus}}</li>
+        <li><strong>Accommodation status:</strong> {{trip.accomodationStatus}}</li>
       </ul>
     </ng-template>
   </ngb-panel>

@@ -1,17 +1,40 @@
+export interface Person {
+  id: number;
+  name: string;
+  surname: string;
+}
+
+export interface TripParticipation {
+  id: number;
+  participant: Person;
+  status: string;
+  createdDateTime: string;
+  lastEditedDateTime: string;
+}
+
+export interface Office {
+  id: number;
+  title: string;
+  maxCapacity: number;
+}
+
 export interface Trip {
-  destination: string;
+  id?: number;
+  organizer?: Person;
+  tripParticipations: TripParticipation[];
   startDate: string;
   endDate: string;
-  status: string;
-  accommodation: string;
-  organizer: string;
-  type: string;
-  requiresVehicle: boolean;
-  requiresTickets: boolean;
+  fromOffice: Office;
+  toOffice: Office;
+  flightTicketStatus: string;
+  carRentalStatus: string;
+  accomodationStatus: string;
+  createdDateTime: string;
+  lastEditDateTime: string;
 }
 
 export interface  TripResponse {
-  totalPageCount?: number;
+  totalPageCount: number;
   totalResultsCount: number;
   results: Trip[];
 }
