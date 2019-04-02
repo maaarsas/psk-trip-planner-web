@@ -3,7 +3,8 @@ WORKDIR /usr/src/app
 COPY package*.json package-lock.json ./
 RUN npm install
 COPY . .
-RUN npm run ng test --watch=false
+RUN npm install -g @angular/cli@7.3.4
+RUN ng test --watch=false
 RUN npm run ng build -- --prod --output-path=dist
 
 FROM nginx:1.14.2-alpine
