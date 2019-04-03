@@ -24,6 +24,7 @@ import { AllTripsComponent } from './planning/all-trips/all-trips.component';
 import { UsersComponent } from './admin/users/users.component';
 import { OfficesComponent } from './admin/offices/offices.component';
 import { TripFormComponent } from './forms/trip-form/trip-form.component';
+import { UserSearchComponent } from './user-search/user-search.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { TripFormComponent } from './forms/trip-form/trip-form.component';
     AllTripsComponent,
     UsersComponent,
     OfficesComponent,
-    TripFormComponent
+    TripFormComponent,
+    UserSearchComponent
   ],
   imports: [
     BrowserModule,
