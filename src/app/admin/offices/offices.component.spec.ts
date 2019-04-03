@@ -2,8 +2,8 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {OfficesComponent} from './offices.component';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {HttpClient} from "@angular/common/http";
-import {HttpLoaderFactory} from "../../app.module";
+import {HttpClient} from '@angular/common/http';
+import {HttpLoaderFactory} from '../../app.module';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('OfficesComponent', () => {
@@ -12,8 +12,8 @@ describe('OfficesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OfficesComponent ],
-      imports: [ TranslateModule.forRoot({
+      declarations: [OfficesComponent],
+      imports: [TranslateModule.forRoot({
         loader: {
           provide: TranslateLoader,
           useFactory: HttpLoaderFactory,
@@ -21,7 +21,7 @@ describe('OfficesComponent', () => {
         }
       }), HttpClientTestingModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
