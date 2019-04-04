@@ -20,9 +20,11 @@ export class UserSearchService {
   }
 
   searchEntries(term: string): Observable<Person[]> {
-    return this.httpClient.get<Person[]>(environment.apiUrl + '/user/search', {
-      params: new HttpParams()
-        .set('query', term)
-    });
+    if (term !== '') {
+      return this.httpClient.get<Person[]>(environment.apiUrl + '/user/search', {
+        params: new HttpParams()
+          .set('query', term)
+      });
+    }
   }
 }
