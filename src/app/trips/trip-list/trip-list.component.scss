@@ -18,3 +18,13 @@ select {
 .page-size-container {
   display: block;
 }
+
+.white-readonly-input input[readonly] {
+  background-color: white ;
+}
+
+.filter-container{
+  display: flex;
+  align-items: flex-end;
+}
+

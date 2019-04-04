@@ -15,18 +15,26 @@ export class TripService {
 
   getMyTrips(params: TripParams): Observable<TripResponse> {
 
+    let httpParams = new HttpParams()
+      .set('page', params.page.toString())
+      .set('pageSize', params.pageSize.toString());
+
+    if(params.startDateFrom != null) httpParams = httpParams.set('startDateFrom', params.startDateFrom);
+    if(params.startDateTo != null) httpParams = httpParams.set('startDateTo', params.startDateTo);
+    if(params.endDateFrom != null) httpParams = httpParams.set('endDateFrom', params.endDateFrom);
+    if(params.endDateTo != null) httpParams = httpParams.set('endDateTo', params.endDateTo);
+
     return this.http.get<TripResponse>(`${environment.apiUrl}/trip/my`, {
-      params: new HttpParams()
-        .set('page', params.page.toString())
-        .set('resultsPerPage', params.pageSize.toString())
+      params: httpParams
     });
   }
 
   getMyInvitations(params: TripParams): Observable<TripResponse> {
+
     return this.http.get<TripResponse>(`${environment.apiUrl}/trip/invitation`, {
       params: new HttpParams()
         .set('page', params.page.toString())
-        .set('pageSize', params.pageSize.toString())
+        .set('resultsPerPage', params.pageSize.toString())
     });
   }
 

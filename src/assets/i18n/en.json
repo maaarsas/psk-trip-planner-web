@@ -26,6 +26,15 @@
   "texts": {
     "logged-in-as": "Logged in as"
   },
+  "trip-filters": {
+    "start-date-from": "Start date from",
+    "start-date-to": "Start date to",
+    "end-date-from": "End date from",
+    "end-date-to": "End date to",
+    "previous": "Previous",
+    "current": "Current",
+    "upcoming": "Upcoming"
+  },
   "navigation": {
     "primary": {
       "trips": "Trips",
