@@ -40,7 +40,6 @@ export class TripListComponent {
   pageSize = DEFAULT_PAGE_SIZE;
   pageSizeOptions = PAGE_SIZE_OPTIONS;
 
-  //trip date params
   startDateFrom = DEFAULT_START_DATE_FROM;
   startDateTo: string;
   endDateFrom: string;
@@ -92,8 +91,8 @@ export class TripListComponent {
   onCurrentSelect(){
     let today = new Date();
 
-    this.startDateFromModel = {year: today.getFullYear(), month: today.getMonth()+1, day: today.getDay()};
-    this.startDateToModel = null;
+    this.startDateFromModel = null;
+    this.startDateToModel = {year: today.getFullYear(), month: today.getMonth()+1, day: today.getDay()};
     this.endDateFromModel = {year: today.getFullYear(), month: today.getMonth()+1, day: today.getDay()};
     this.endDateToModel = null;
 

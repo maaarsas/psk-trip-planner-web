@@ -3,7 +3,7 @@
   <div class="col-sm">
     <label>{{ 'trip-filters.start-date-from' | translate }}:</label>
     <div class="input-group">
-      <input class="form-control" [readOnly]="true" name="startDateFrom"
+      <input class="form-control" [readOnly]="true" name="startDateFromFilter"
              [(ngModel)]="startDateFromModel" ngbDatepicker #dp1="ngbDatepicker"
              (click)="dp1.toggle()" (dateSelect)="onDateSelect()">
       <div class="input-group-append">
@@ -14,7 +14,7 @@
   <div class="col-sm">
     <label>{{ 'trip-filters.start-date-to' | translate }}:</label>
     <div class="input-group">
-      <input class="form-control" [readOnly]="true" name="startDateTo"
+      <input class="form-control" [readOnly]="true" name="startDateToFilter"
              [(ngModel)]="startDateToModel" ngbDatepicker #dp2="ngbDatepicker"
              (click)="dp2.toggle()" (dateSelect)="onDateSelect()">
       <div class="input-group-append">
@@ -25,7 +25,7 @@
   <div class="col-sm">
     <label>{{ 'trip-filters.end-date-from' | translate }}:</label>
     <div class="input-group">
-      <input class="form-control" [readOnly]="true" name="endDateFrom"
+      <input class="form-control" [readOnly]="true" name="endDateFromFilter"
              [(ngModel)]="endDateFromModel" ngbDatepicker #dp3="ngbDatepicker"
              (click)="dp3.toggle()" (dateSelect)="onDateSelect()">
       <div class="input-group-append">
@@ -36,7 +36,7 @@
   <div class="col-sm">
     <label>{{ 'trip-filters.end-date-to' | translate }}:</label>
     <div class="input-group">
-      <input class="form-control" [readOnly]="true" name="endDateTo"
+      <input class="form-control" [readOnly]="true" name="endDateToFilter"
              [(ngModel)]="endDateToModel" ngbDatepicker #dp4="ngbDatepicker"
              (click)="dp4.toggle()" (dateSelect)="onDateSelect()">
       <div class="input-group-append">
