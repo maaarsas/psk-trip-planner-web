@@ -26,6 +26,15 @@
   "texts": {
     "logged-in-as": "Prisijungta kaip"
   },
+  "trip-filters": {
+    "start-date-from": "Pradžios data nuo",
+    "start-date-to": "Pradžios data iki",
+    "end-date-from": "Pabaigos data nuo",
+    "end-date-to": "Pabaigos data iki",
+    "previous": "Praėjusios",
+    "current": "Vykstančios",
+    "upcoming": "Ateinančios"
+  },
   "navigation": {
     "primary": {
       "trips": "Kelionės",

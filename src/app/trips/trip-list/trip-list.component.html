@@ -1,3 +1,63 @@
+<div class="row white-readonly-input filter-container mt-5 mb-3">
+
+  <div class="col-sm">
+    <label>{{ 'trip-filters.start-date-from' | translate }}:</label>
+    <div class="input-group">
+      <input class="form-control" [readOnly]="true" name="startDateFromFilter"
+             [(ngModel)]="startDateFromModel" ngbDatepicker #dp1="ngbDatepicker"
+             (click)="dp1.toggle()" (dateSelect)="onDateSelect()">
+      <div class="input-group-append">
+        <button class="btn btn-secondary" (click)="startDateFromModel=null; onDateSelect()">X</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm">
+    <label>{{ 'trip-filters.start-date-to' | translate }}:</label>
+    <div class="input-group">
+      <input class="form-control" [readOnly]="true" name="startDateToFilter"
+             [(ngModel)]="startDateToModel" ngbDatepicker #dp2="ngbDatepicker"
+             (click)="dp2.toggle()" (dateSelect)="onDateSelect()">
+      <div class="input-group-append">
+        <button class="btn btn-secondary" (click)="startDateToModel=null; onDateSelect()">X</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm">
+    <label>{{ 'trip-filters.end-date-from' | translate }}:</label>
+    <div class="input-group">
+      <input class="form-control" [readOnly]="true" name="endDateFromFilter"
+             [(ngModel)]="endDateFromModel" ngbDatepicker #dp3="ngbDatepicker"
+             (click)="dp3.toggle()" (dateSelect)="onDateSelect()">
+      <div class="input-group-append">
+        <button class="btn btn-secondary" (click)="endDateFromModel=null; onDateSelect()">X</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm">
+    <label>{{ 'trip-filters.end-date-to' | translate }}:</label>
+    <div class="input-group">
+      <input class="form-control" [readOnly]="true" name="endDateToFilter"
+             [(ngModel)]="endDateToModel" ngbDatepicker #dp4="ngbDatepicker"
+             (click)="dp4.toggle()" (dateSelect)="onDateSelect()">
+      <div class="input-group-append">
+        <button class="btn btn-secondary" (click)="endDateToModel=null; onDateSelect()">X</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-auto">
+    <button class="btn btn-secondary" (click)="onPreviousSelect()">{{ 'trip-filters.previous' | translate }}</button>
+  </div>
+  <div class="col-sm-auto">
+    <button class="btn btn-secondary" (click)="onCurrentSelect()">{{ 'trip-filters.current' | translate }}</button>
+  </div>
+  <div class="col-sm-auto">
+    <button class="btn btn-secondary" (click)="onUpcomingSelect()">{{ 'trip-filters.upcoming' | translate }}</button>
+  </div>
+
+</div>
+
+
 <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
   <ngb-panel *ngFor="let trip of trips">
     <ng-template ngbPanelHeader>

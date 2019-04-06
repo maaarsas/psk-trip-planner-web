@@ -42,4 +42,8 @@ export interface  TripResponse {
 export interface TripParams {
   page: number;
   pageSize: number;
+  startDateFrom?: string;
+  startDateTo?: string;
+  endDateFrom?: string;
+  endDateTo?: string;
 }
