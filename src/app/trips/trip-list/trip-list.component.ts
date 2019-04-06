@@ -30,7 +30,7 @@ export class TripListComponent {
   @Output()
   paramsChange = new EventEmitter<TripParams>();
 
-  //datePickers' date models
+  // datePickers' date models
   startDateFromModel = DEFAULT_START_DATE_FROM_MODEL;
   startDateToModel;
   endDateFromModel;
@@ -57,8 +57,14 @@ export class TripListComponent {
   }
 
   onParamsChange() {
-    this.paramsChange.emit({pageSize: this.pageSize, page: this.page,
-          startDateFrom: this.startDateFrom, startDateTo: this.startDateTo, endDateFrom: this.endDateFrom, endDateTo: this.endDateTo});
+    this.paramsChange.emit({
+      pageSize: this.pageSize,
+      page: this.page,
+      startDateFrom: this.startDateFrom,
+      startDateTo: this.startDateTo,
+      endDateFrom: this.endDateFrom,
+      endDateTo: this.endDateTo
+    });
   }
 
   onPageSizeChange(pageSize: number) {
@@ -71,45 +77,49 @@ export class TripListComponent {
     this.onParamsChange();
   }
 
-  onDateSelect(){
+  onDateSelect() {
     this.updateDateParams();
     this.onParamsChange();
   }
 
-  onPreviousSelect(){
-    let yesterday = new Date(new Date().getTime() - (24 * 60 * 60 * 1000));
+  onPreviousSelect() {
+    this.resetDateModels();
 
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    this.endDateToModel = {year: yesterday.getFullYear(), month: yesterday.getMonth() + 1, day: yesterday.getDate()};
+
+    this.updateDateParams();
+    this.onParamsChange();
+  }
+
+  onCurrentSelect() {
+    this.resetDateModels();
+
+    const today = new Date();
+    this.startDateToModel = {year: today.getFullYear(), month: today.getMonth() + 1, day: today.getDate()};
+    this.endDateFromModel = {year: today.getFullYear(), month: today.getMonth() + 1, day: today.getDate()};
+
+    this.updateDateParams();
+    this.onParamsChange();
+  }
+
+  onUpcomingSelect() {
+    this.resetDateModels();
+
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    this.startDateFromModel = {year: tomorrow.getFullYear(), month: tomorrow.getMonth() + 1, day: tomorrow.getDate()};
+
+    this.updateDateParams();
+    this.onParamsChange();
+  }
+
+  resetDateModels() {
     this.startDateFromModel = null;
     this.startDateToModel = null;
     this.endDateFromModel = null;
-    this.endDateToModel = {year: yesterday.getFullYear(), month: yesterday.getMonth()+1, day: yesterday.getDay()};
-
-    this.updateDateParams();
-    this.onParamsChange();
-  }
-
-  onCurrentSelect(){
-    let today = new Date();
-
-    this.startDateFromModel = null;
-    this.startDateToModel = {year: today.getFullYear(), month: today.getMonth()+1, day: today.getDay()};
-    this.endDateFromModel = {year: today.getFullYear(), month: today.getMonth()+1, day: today.getDay()};
     this.endDateToModel = null;
-
-    this.updateDateParams();
-    this.onParamsChange();
-  }
-
-  onUpcomingSelect(){
-    let tomorrow = new Date(new Date().getTime() + (24 * 60 * 60 * 1000));
-
-    this.startDateFromModel = {year: tomorrow.getFullYear(), month: tomorrow.getMonth()+1, day: tomorrow.getDay()};
-    this.startDateToModel = null;
-    this.endDateFromModel = null;
-    this.endDateToModel = null;
-
-    this.updateDateParams();
-    this.onParamsChange();
   }
 
   updateDateParams() {
@@ -120,8 +130,11 @@ export class TripListComponent {
 
   }
 
-  fromModelToString(model){
-    if(model!=null)  return model.year + "-" + ("0" + model.month).slice(-2) + "-" + ("0" + model.day).slice(-2);
-    else return null;
+  fromModelToString(model) {
+    if (model != null) {
+      return model.year + '-' + ('0' + model.month).slice(-2) + '-' + ('0' + model.day).slice(-2);
+    } else {
+      return null;
+    }
   }
 }
