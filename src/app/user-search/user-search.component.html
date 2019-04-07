@@ -1,10 +1,12 @@
 <div>
   <label for="formControlSearch">Add people</label>
-  <input [formControl]="queryField"
-         type="text"
+  <input type="text"
          class="form-control people-input"
          id="formControlSearch"
+         [(ngModel)]="model"
+         [ngbTypeahead]="search"
          autofocus/>
+
   <ul *ngIf="results">
     <li class="list-group-item" *ngFor="let result of results | slice:0:9">
       <a target="_blank">
