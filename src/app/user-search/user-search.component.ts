@@ -22,8 +22,8 @@ export class UserSearchComponent implements OnInit {
   ngOnInit() {
     this.queryField.valueChanges.pipe(debounceTime(400),
       distinctUntilChanged(), switchMap((query) => {
-          if (query !== '') {
-            return this.searchService.search(query);
+          if (query.trim() !== '') {
+            return this.searchService.search(query.trim());
           } else {
             return of([]);
           }
