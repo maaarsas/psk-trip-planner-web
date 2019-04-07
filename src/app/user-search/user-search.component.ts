@@ -3,6 +3,7 @@ import {UserSearchService} from '../_services/user-search.service';
 import {Person} from '../_models/trip';
 import {FormControl} from '@angular/forms';
 import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
+import {of} from 'rxjs';
 
 @Component({
   selector: 'app-user-search',
@@ -20,7 +21,14 @@ export class UserSearchComponent implements OnInit {
 
   ngOnInit() {
     this.queryField.valueChanges.pipe(debounceTime(400),
-      distinctUntilChanged(), switchMap((query) => this.searchService.search(query)))
+      distinctUntilChanged(), switchMap((query) => {
+          if (query !== '') {
+            return this.searchService.search(query);
+          } else {
+            return of([]);
+          }
+        }
+      ))
       .subscribe(response => {
           this.results = response;
         }
