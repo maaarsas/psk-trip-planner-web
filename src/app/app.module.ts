@@ -25,6 +25,7 @@ import { UsersComponent } from './admin/users/users.component';
 import { OfficesComponent } from './admin/offices/offices.component';
 import { TripFormComponent } from './forms/trip-form/trip-form.component';
 import { UserSearchComponent } from './user-search/user-search.component';
+import { UserSearchService } from './_services/user-search.service';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { UserSearchComponent } from './user-search/user-search.component';
     }),
   ],
   providers: [
+    UserSearchService,
     TripService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }

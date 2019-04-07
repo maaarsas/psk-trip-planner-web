@@ -1,7 +1,10 @@
 <div>
   <label for="formControlSearch">Add people</label>
-  <input type="text" class="form-control people-input" id="formControlSearch"
-         (keyup)="searchTerm$.next($event.target.value)">
+  <input [formControl]="queryField"
+         type="text"
+         class="form-control people-input"
+         id="formControlSearch"
+         autofocus/>
   <ul *ngIf="results">
     <li class="list-group-item" *ngFor="let result of results | slice:0:9">
       <a target="_blank">
