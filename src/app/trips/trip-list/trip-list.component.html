@@ -156,7 +156,7 @@
 
 <div class="row mt-3">
   <div class="col-12 col-md-8">
-    <ngb-pagination (pageChange)="onPageChange($event)" [collectionSize]="collectionSize" [pageSize]="pageSize"
+    <ngb-pagination (pageChange)="onPageChange($event)" [collectionSize]="collectionSize" [pageSize]="resultsPerPage"
                     [(page)]="page" [maxSize]="5"
                     [rotate]="true">
     </ngb-pagination>
@@ -164,8 +164,8 @@
   <div class="col-12 col-md-4">
     <div class="float-md-right">
       <label>{{ 'trip-list.items-per-page' | translate }}</label>
-      <select (change)="onPageSizeChange($event.target.value)" class="browser-default custom-select">
-        <option *ngFor="let pageSize of pageSizeOptions" value="{{pageSize}}">{{pageSize}}</option>
+      <select (change)="onResultsPerPageChange($event.target.value)" class="browser-default custom-select">
+        <option *ngFor="let resultsPerPage of resultsPerPageOptions" value="{{resultsPerPage}}">{{resultsPerPage}}</option>
       </select>
     </div>
   </div>

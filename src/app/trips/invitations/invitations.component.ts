@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Trip, TripParams} from '../../_models/trip';
 import {TripService} from '../../_services/trip.service';
-import { DEFAULT_PAGE, DEFAULT_PAGE_SIZE, DEFAULT_START_DATE_FROM } from '../../_constants/trip-list.const';
+import { DEFAULT_PAGE, DEFAULT_RESULTS_PER_PAGE, DEFAULT_START_DATE_FROM } from '../../_constants/trip-list.const';
 
 @Component({
   selector: 'app-invitations',
@@ -14,7 +14,7 @@ export class InvitationsComponent implements OnInit {
   availableInvitations: number;
 
   constructor(private tripService: TripService) {
-    this.onParamsChange({pageSize: DEFAULT_PAGE_SIZE, page: DEFAULT_PAGE, startDateFrom: DEFAULT_START_DATE_FROM});
+    this.onParamsChange({resultsPerPage: DEFAULT_RESULTS_PER_PAGE, page: DEFAULT_PAGE, startDateFrom: DEFAULT_START_DATE_FROM});
   }
 
   ngOnInit() {

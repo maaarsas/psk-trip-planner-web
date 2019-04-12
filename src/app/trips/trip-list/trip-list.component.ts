@@ -1,6 +1,11 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Trip, TripParams} from '../../_models/trip';
-import {DEFAULT_PAGE, DEFAULT_PAGE_SIZE, PAGE_SIZE_OPTIONS, DEFAULT_START_DATE_FROM, DEFAULT_START_DATE_FROM_MODEL} from '../../_constants/trip-list.const';
+import {
+  DEFAULT_PAGE,
+  DEFAULT_START_DATE_FROM,
+  DEFAULT_START_DATE_FROM_MODEL,
+  RESULTS_PER_PAGE_OPTIONS, DEFAULT_RESULTS_PER_PAGE,
+} from '../../_constants/trip-list.const';
 
 @Component({
   selector: 'app-trip-list',
@@ -47,8 +52,8 @@ export class TripListComponent {
   endDateToModel;
 
   page = DEFAULT_PAGE;
-  pageSize = DEFAULT_PAGE_SIZE;
-  pageSizeOptions = PAGE_SIZE_OPTIONS;
+  resultsPerPage = DEFAULT_RESULTS_PER_PAGE;
+  resultsPerPageOptions = RESULTS_PER_PAGE_OPTIONS;
 
   startDateFrom = DEFAULT_START_DATE_FROM;
   startDateTo: string;
@@ -69,7 +74,7 @@ export class TripListComponent {
   onParamsChange() {
     this.loading = true;
     this.paramsChange.emit({
-      pageSize: this.pageSize,
+      resultsPerPage: this.resultsPerPage,
       page: this.page,
       startDateFrom: this.startDateFrom,
       startDateTo: this.startDateTo,
@@ -78,8 +83,8 @@ export class TripListComponent {
     });
   }
 
-  onPageSizeChange(pageSize: number) {
-    this.pageSize = pageSize;
+  onResultsPerPageChange(resultsPerPage: number) {
+    this.resultsPerPage = resultsPerPage;
     this.onParamsChange();
   }
 
