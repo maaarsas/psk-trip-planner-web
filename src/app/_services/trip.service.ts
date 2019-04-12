@@ -49,7 +49,7 @@ export class TripService {
   }
 
   private getCurrentUserTripParticipationIdFromTrip(trip: Trip): number {
-    for (const tripParticipation: TripParticipation in trip.tripParticipations) {
+    for (const tripParticipation of trip.tripParticipations) {
       if (tripParticipation.participant.id === this.userService.getCurrentUser().id) {
         return tripParticipation.id;
       }

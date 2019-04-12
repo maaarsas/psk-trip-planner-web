@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NgxdModule } from '@ngxd/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common
 import { HomeComponent } from './home/home.component';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
+import { TripAcceptButtonComponent } from './trips/trip-list/action-buttons/trip-accept-button.component';
 import { TripListComponent } from './trips/trip-list/trip-list.component';
 import { TripService } from './_services/trip.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -24,6 +26,7 @@ import { AllTripsComponent } from './planning/all-trips/all-trips.component';
 import { UsersComponent } from './admin/users/users.component';
 import { OfficesComponent } from './admin/offices/offices.component';
 import { TripFormComponent } from './forms/trip-form/trip-form.component';
+import { TripRejectButtonComponent } from './trips/trip-list/action-buttons/trip-reject-button.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,13 @@ import { TripFormComponent } from './forms/trip-form/trip-form.component';
     AllTripsComponent,
     UsersComponent,
     OfficesComponent,
-    TripFormComponent
+    TripFormComponent,
+    TripAcceptButtonComponent,
+    TripRejectButtonComponent
+  ],
+  entryComponents: [
+    TripAcceptButtonComponent,
+    TripRejectButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +65,7 @@ import { TripFormComponent } from './forms/trip-form/trip-form.component';
         deps: [HttpClient]
       }
     }),
+    NgxdModule
   ],
   providers: [
     TripService,

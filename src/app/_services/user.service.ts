@@ -11,6 +11,7 @@ export class UserService {
   private currentUser: User;
 
   constructor(private http: HttpClient) {
+    this.updateCurrentUser();
   }
 
   getCurrentUser(): User {
@@ -20,7 +21,7 @@ export class UserService {
   updateCurrentUser() {
     this.http.get<User>(`${environment.apiUrl}/user/me`).subscribe(
       user => this.currentUser = user,
-      error => this.currentUser = null;
+      error => this.currentUser = null,
     );
   }
 }

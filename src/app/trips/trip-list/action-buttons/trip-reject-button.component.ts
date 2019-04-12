@@ -1,0 +1,39 @@
+import { Component, Input, OnInit } from '@angular/core';
+import { Trip } from '../../../_models/trip';
+import { TripService } from '../../../_services/trip.service';
+import { TripActionButton } from './trip-action-button';
+
+@Component({
+  selector: 'app-trip-reject-button',
+  template:
+    '<button (click)="onAction()" class="btn btn-sm btn-danger ml-2" [disabled]="loading">' +
+      '<span *ngIf="!done">' +
+        '<span *ngIf="loading" class="spinner-border spinner-border-sm"></span> {{ "trip-list-action.reject" | translate }}' +
+      '</span>' +
+      '<span *ngIf="done">{{ "trip-list-action.reject-done" | translate }}</span>' +
+    '</button>'
+})
+export class TripRejectButtonComponent implements TripActionButton {
+
+  @Input()
+  trip: Trip;
+
+  loading = false;
+  done = false;
+
+  constructor(private tripService: TripService) { }
+
+  onAction() {
+    this.loading = true;
+    this.tripService.declineInvitation(this.trip).subscribe(
+      value => {
+        this.loading = false;
+        this.done = true;
+      },
+      error => {
+        this.loading = false;
+      },
+    );
+  }
+
+}

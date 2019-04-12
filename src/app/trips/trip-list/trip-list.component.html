@@ -63,9 +63,12 @@
     <ng-template ngbPanelHeader>
       <div class="d-flex align-items-center justify-content-between">
         <button ngbPanelToggle class="btn btn-link m-0">{{trip.toOffice.title}}</button>
-        <div *ngIf="showInvitationButtons">
-          <button (click)="onAccept(trip)" class="btn btn-sm btn-primary ml-2">Accept</button>
-          <button (click)="onDecline(trip)" class="btn btn-sm btn-danger ml-2">Decline</button>
+
+        <div>
+          <ng-container *ngFor="let actionButton of actionButtons">
+            <ng-container *ngxComponentOutlet="actionButton; context: { trip: trip }">
+            </ng-container>
+          </ng-container>
         </div>
       </div>
     </ng-template>

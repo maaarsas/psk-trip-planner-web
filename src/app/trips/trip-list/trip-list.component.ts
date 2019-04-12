@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Trip, TripParams} from '../../_models/trip';
 import {DEFAULT_PAGE, DEFAULT_PAGE_SIZE, PAGE_SIZE_OPTIONS, DEFAULT_START_DATE_FROM, DEFAULT_START_DATE_FROM_MODEL} from '../../_constants/trip-list.const';
+import { TripActionButton } from './action-buttons/trip-action-button';
 
 @Component({
   selector: 'app-trip-list',
@@ -13,19 +14,13 @@ export class TripListComponent {
   trips: Trip[];
 
   @Input()
-  showInvitationButtons: boolean;
+  actionButtons: TripActionButton[];
 
   @Input()
   totalNumberOfTrips: number;
 
   @Input()
   collectionSize: number;
-
-  @Output()
-  accept = new EventEmitter<Trip>();
-
-  @Output()
-  decline = new EventEmitter<Trip>();
 
   @Output()
   paramsChange = new EventEmitter<TripParams>();
@@ -46,14 +41,6 @@ export class TripListComponent {
   endDateTo: string;
 
   constructor() {
-  }
-
-  onAccept(tripToAccept: Trip) {
-    this.accept.emit(tripToAccept);
-  }
-
-  onDecline(tripToDecline) {
-    this.decline.emit(tripToDecline);
   }
 
   onParamsChange() {
