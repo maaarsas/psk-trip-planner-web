@@ -6,7 +6,7 @@ import { TripActionButton } from './trip-action-button';
 @Component({
   selector: 'app-trip-reject-button',
   template:
-    '<button (click)="onAction()" class="btn btn-sm btn-danger ml-2" [disabled]="loading">' +
+    '<button (click)="onAction()" class="btn btn-sm btn-danger ml-2" [disabled]="loading || done">' +
       '<span *ngIf="!done">' +
         '<span *ngIf="loading" class="spinner-border spinner-border-sm"></span> {{ "trip-list-action.reject" | translate }}' +
       '</span>' +
