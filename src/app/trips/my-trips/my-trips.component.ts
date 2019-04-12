@@ -10,7 +10,7 @@ import {DEFAULT_PAGE, DEFAULT_PAGE_SIZE, DEFAULT_START_DATE_FROM} from '../../_c
 })
 export class MyTripsComponent implements OnInit {
 
-  trips: Trip[];
+  trips: Trip[] = [];
   availableTrips: number;
 
   constructor(private tripService: TripService) {

@@ -9,7 +9,7 @@ import {DEFAULT_PAGE, DEFAULT_PAGE_SIZE, PAGE_SIZE_OPTIONS, DEFAULT_START_DATE_F
 })
 export class TripListComponent {
 
-  private _trips: Trip[];
+  private _trips: Trip[] = [];
 
   @Input() set trips(value: Trip[]) {
     this._trips = value;

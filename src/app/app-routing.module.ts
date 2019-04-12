@@ -47,6 +47,7 @@ const routes: Routes = [
         children: [
         ]
       },
+      { path: '', pathMatch: 'full', redirectTo: 'trips' }
     ]
   },
   { path: 'login', component: LoginComponent },

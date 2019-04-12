@@ -10,7 +10,7 @@ import {DEFAULT_PAGE, DEFAULT_PAGE_SIZE} from '../../_constants/trip-list.const'
 })
 export class InvitationsComponent implements OnInit {
 
-  invitations: Trip[];
+  invitations: Trip[] = [];
   availableInvitations: number;
 
   constructor(private tripService: TripService) {
