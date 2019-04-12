@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { OfficesComponent } from './admin/offices/offices.component';
 import { UsersComponent } from './admin/users/users.component';
 import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { AllTripsComponent } from './planning/all-trips/all-trips.component';
 import { MyOrganizedTripsComponent } from './planning/my-organized-trips/my-organized-trips.component';
@@ -17,7 +16,6 @@ const routes: Routes = [
     path: '',
     canActivate: [AuthGuard],
     children: [
-      { path: '', component: HomeComponent },
       {
         path: 'trips',
         children: [

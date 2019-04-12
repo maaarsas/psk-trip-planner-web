@@ -9,7 +9,6 @@ import { MainNavigationComponent } from './main-navigation/main-navigation.compo
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './home/home.component';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { TripListComponent } from './trips/trip-list/trip-list.component';
@@ -30,7 +29,6 @@ import { TripFormComponent } from './forms/trip-form/trip-form.component';
     AppComponent,
     MainNavigationComponent,
     LoginComponent,
-    HomeComponent,
     TripListComponent,
     MyTripsComponent,
     InvitationsComponent,
