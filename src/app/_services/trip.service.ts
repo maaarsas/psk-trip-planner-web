@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Trip, TripParams, TripResponse} from '../_models/trip';
+import { Trip, TripParams, TripParticipation, TripResponse } from '../_models/trip';
 import {environment} from '../../environments/environment';
+import { UserService } from './user.service';
 
 
 @Injectable({
@@ -10,18 +11,16 @@ import {environment} from '../../environments/environment';
 })
 export class TripService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private userService: UserService) {
   }
 
   getMyTrips(params: TripParams): Observable<TripResponse> {
-
     return this.http.get<TripResponse>(`${environment.apiUrl}/trip/my`, {
       params: this.createHttpParams(params)
     });
   }
 
   getMyInvitations(params: TripParams): Observable<TripResponse> {
-
     return this.http.get<TripResponse>(`${environment.apiUrl}/trip/invitation`, {
       params: this.createHttpParams(params)
     });
@@ -40,14 +39,25 @@ export class TripService {
   }
 
   acceptInvitation(inviteToAccept: Trip) {
-    // TODO
+    const id = this.getCurrentUserTripParticipationIdFromTrip(inviteToAccept);
+    return this.http.post(`${environment.apiUrl}/tripParticipation/${id}/accept`, null);
   }
 
   declineInvitation(inviteToDecline: Trip) {
-    // TODO
+    const id = this.getCurrentUserTripParticipationIdFromTrip(inviteToDecline);
+    return this.http.post(`${environment.apiUrl}/tripParticipation/${id}/reject`, null);
   }
 
-  createHttpParams(params: TripParams): HttpParams {
+  private getCurrentUserTripParticipationIdFromTrip(trip: Trip): number {
+    for (const tripParticipation: TripParticipation in trip.tripParticipations) {
+      if (tripParticipation.participant.id === this.userService.getCurrentUser().id) {
+        return tripParticipation.id;
+      }
+    }
+    return null;
+  }
+
+  private createHttpParams(params: TripParams): HttpParams {
     let httpParams: HttpParams = new HttpParams();
     Object.keys(params).forEach(param => {
       if (params[param]!=null) {
