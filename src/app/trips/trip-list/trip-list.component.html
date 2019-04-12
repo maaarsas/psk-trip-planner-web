@@ -45,8 +45,8 @@
     </div>
   </div>
 
-  <div class="col-12 col-lg-3 mt-3 mt-lg-0">
-    <div class="btn-group btn-group-sm">
+  <div class="col-12 offset-lg-1 col-lg-3 mt-3 mt-lg-0">
+    <div class="btn-group btn-group-sm float-lg-right">
       <button class="btn btn-outline-secondary" (click)="onPreviousSelect()">{{ 'trip-filters.previous' | translate }}</button>
       <button class="btn btn-outline-secondary" (click)="onCurrentSelect()">{{ 'trip-filters.current' | translate }}</button>
       <button class="btn btn-outline-secondary" (click)="onUpcomingSelect()">{{ 'trip-filters.upcoming' | translate }}</button>
@@ -92,10 +92,12 @@
     </ngb-pagination>
   </div>
   <div class="col-12 col-md-4">
-    <label>{{ 'trip-list.items-per-page' | translate }}</label>
-    <select (change)="onPageSizeChange($event.target.value)" class="browser-default custom-select">
-      <option *ngFor="let pageSize of pageSizeOptions" value="{{pageSize}}">{{pageSize}}</option>
-    </select>
+    <div class="float-md-right">
+      <label>{{ 'trip-list.items-per-page' | translate }}</label>
+      <select (change)="onPageSizeChange($event.target.value)" class="browser-default custom-select">
+        <option *ngFor="let pageSize of pageSizeOptions" value="{{pageSize}}">{{pageSize}}</option>
+      </select>
+    </div>
   </div>
 </div>
 
