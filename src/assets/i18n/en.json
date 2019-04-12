@@ -45,7 +45,28 @@
     "empty-list": "No trips match the selected criteria",
     "items-per-page": "Items per page",
     "more-info": "More info",
-    "less-info": "Less info"
+    "less-info": "Less info",
+    "main-info": "Main information",
+    "from-office": "From office",
+    "to-office": "To office",
+    "start-date": "Trip begins at",
+    "end-date": "Trip ends at",
+    "organizer": "Organizer",
+    "trip-tasks": "Reservations",
+    "flight-ticket-status": "Flight tickets",
+    "car-rental-status": "Car rental",
+    "accomodation-status": "Accomodation",
+    "trip-participants": "Participants in this trip",
+    "trip-participation": {
+      "invited": "Waiting for response",
+      "accepted": "Invitation accepted",
+      "rejected": "Invitation rejected"
+    },
+    "task-status": {
+      "not-needed": "Not needed",
+      "needed": "Needed, yet not ordered",
+      "ordered": "Ordered"
+    }
   },
   "navigation": {
     "primary": {

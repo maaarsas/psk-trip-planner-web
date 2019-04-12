@@ -57,8 +57,8 @@ export class LoginComponent implements OnInit {
   }
 
   private triggerFormValidation(): void {
-    for (const control of this.loginForm.controls) {
-      control.updateValueAndValidity();
+    for (const key in this.loginForm.controls) {
+      this.loginForm.controls[key].updateValueAndValidity();
     }
   }
 }

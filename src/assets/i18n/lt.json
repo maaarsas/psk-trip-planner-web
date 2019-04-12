@@ -45,7 +45,28 @@
     "empty-list": "Pagal pasirinktus paieškos kriterijus kelionių nerasta",
     "items-per-page": "Kelionių skaičius viename puslapyje",
     "more-info": "Daugiau informacijos",
-    "less-info": "Mažiau informacijos"
+    "less-info": "Mažiau informacijos",
+    "main-info": "Pagrindinė kelionės informacija",
+    "from-office": "Iš ofiso",
+    "to-office": "Į ofisą",
+    "start-date": "Kelionė prasideda",
+    "end-date": "Kelionė baigiasi",
+    "organizer": "Kelionės organizatorius",
+    "trip-tasks": "Rezervacijos",
+    "flight-ticket-status": "Skrydžio bilietai",
+    "car-rental-status": "Automobilio nuoma",
+    "accomodation-status": "Apgyvendinimas",
+    "trip-participants": "Kelionės dalyviai",
+    "trip-participation": {
+      "invited": "Laukiama atsakymo",
+      "accepted": "Patvirtino dalyvavimą",
+      "rejected": "Atmetė kvietimą"
+    },
+    "task-status": {
+      "not-needed": "Nereikia",
+      "needed": "Reikia, dar neužsakyta",
+      "ordered": "Užsakyta"
+    }
   },
   "navigation": {
     "primary": {
