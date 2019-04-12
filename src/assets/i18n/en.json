@@ -43,7 +43,9 @@
   },
   "trip-list": {
     "empty-list": "No trips match the selected criteria",
-    "items-per-page": "Items per page"
+    "items-per-page": "Items per page",
+    "more-info": "More info",
+    "less-info": "Less info"
   },
   "navigation": {
     "primary": {

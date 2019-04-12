@@ -43,7 +43,9 @@
   },
   "trip-list": {
     "empty-list": "Pagal pasirinktus paieškos kriterijus kelionių nerasta",
-    "items-per-page": "Kelionių skaičius viename puslapyje"
+    "items-per-page": "Kelionių skaičius viename puslapyje",
+    "more-info": "Daugiau informacijos",
+    "less-info": "Mažiau informacijos"
   },
   "navigation": {
     "primary": {

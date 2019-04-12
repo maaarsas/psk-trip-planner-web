@@ -63,13 +63,23 @@
 
 <div *ngIf="!loading">
   <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
-    <ngb-panel *ngFor="let trip of trips">
+    <ngb-panel *ngFor="let trip of trips, let i = index">
       <ng-template ngbPanelHeader>
-        <div class="d-flex align-items-center justify-content-between">
-          <button ngbPanelToggle class="btn btn-link m-0">{{trip.toOffice.title}}</button>
-          <div *ngIf="showInvitationButtons">
-            <button (click)="onAccept(trip)" class="btn btn-sm btn-primary ml-2">Accept</button>
-            <button (click)="onDecline(trip)" class="btn btn-sm btn-danger ml-2">Decline</button>
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-3">
+            <span>{{ trip.fromOffice.title }} - {{ trip.toOffice.title }}</span>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <span>{{ trip.startDate }} - {{ trip.endDate }}</span>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="float-right">
+              <button *ngIf="showInvitationButtons" (click)="onAccept(trip)" class="btn btn-sm btn-success ml-2">Accept</button>
+              <button *ngIf="showInvitationButtons" (click)="onDecline(trip)" class="btn btn-sm btn-danger ml-2">Decline</button>
+              <button ngbPanelToggle class="btn btn-sm btn-outline-dark ml-2">
+                {{ acc.panels._results[i].isOpen ? ('trip-list.less-info' | translate) : ('trip-list.more-info' | translate) }}
+              </button>
+            </div>
           </div>
         </div>
       </ng-template>
