@@ -11,6 +11,10 @@
     "invitations": "Pakvietimai į keliones",
     "my-trips": "Mano kelionės"
   },
+  "page-summaries": {
+    "my-trips": "Žemiau pateiktas sąrašas kelionių, kurių pakvietimus jūs priėmėte. Galite peržiūrėti tiek suplanuotas, tiek praėjusias keliones.",
+    "invitations": "Žemiau pateiktas sąrašas kelionių, į kurias esate pakviestas. Pakvietimą galite priimti arba atmesti."
+  },
   "alerts" : {
     "login-info": "Prašome prisijungti su savo el. pašto adresu ir slaptažodžiu",
     "login-failed": "Neteisingas el. pašto adresas arba slaptažodis. Bandykite dar kartą"
@@ -34,6 +38,10 @@
     "previous": "Praėjusios",
     "current": "Vykstančios",
     "upcoming": "Ateinančios"
+  },
+  "trip-list": {
+    "empty-list": "Pagal pasirinktus paieškos kriterijus kelionių nerasta",
+    "items-per-page": "Kelionių skaičius viename puslapyje"
   },
   "navigation": {
     "primary": {

@@ -11,6 +11,10 @@
     "invitations": "Invitations to trips",
     "my-trips": "My trips"
   },
+  "page-summaries": {
+    "my-trips": "In the list below there are all your accepted trips. You can view both upcoming and past trips.",
+    "invitations": "In the list below there are all trips where you are invited to participate. You can accept or reject the invitations."
+  },
   "alerts" : {
     "login-info": "Please log in using your email and password",
     "login-failed": "Wrong email or password. Please try again"
@@ -34,6 +38,10 @@
     "previous": "Previous",
     "current": "Current",
     "upcoming": "Upcoming"
+  },
+  "trip-list": {
+    "empty-list": "No trips match the selected criteria",
+    "items-per-page": "Items per page"
   },
   "navigation": {
     "primary": {

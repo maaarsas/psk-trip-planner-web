@@ -1,8 +1,8 @@
-<div class="row white-readonly-input filter-container mt-5 mb-3">
+<div class="row white-readonly-input filter-container mt-4 mb-3">
 
   <div class="col-12 col-sm-6 col-lg-2 mt-3 mt-md-0">
     <label>{{ 'trip-filters.start-date-from' | translate }}:</label>
-    <div class="input-group">
+    <div class="input-group input-group-sm">
       <input class="form-control" [readOnly]="true" name="startDateFromFilter"
              [(ngModel)]="startDateFromModel" ngbDatepicker #dp1="ngbDatepicker"
              (click)="dp1.toggle()" (dateSelect)="onDateSelect()">
@@ -13,7 +13,7 @@
   </div>
   <div class="col-12 col-sm-6 col-lg-2 mt-3 mt-md-0">
     <label>{{ 'trip-filters.start-date-to' | translate }}:</label>
-    <div class="input-group">
+    <div class="input-group input-group-sm">
       <input class="form-control" [readOnly]="true" name="startDateToFilter"
              [(ngModel)]="startDateToModel" ngbDatepicker #dp2="ngbDatepicker"
              (click)="dp2.toggle()" (dateSelect)="onDateSelect()">
@@ -24,7 +24,7 @@
   </div>
   <div class="col-12 col-sm-6 col-lg-2 mt-3 mt-md-0">
     <label>{{ 'trip-filters.end-date-from' | translate }}:</label>
-    <div class="input-group">
+    <div class="input-group input-group-sm">
       <input class="form-control" [readOnly]="true" name="endDateFromFilter"
              [(ngModel)]="endDateFromModel" ngbDatepicker #dp3="ngbDatepicker"
              (click)="dp3.toggle()" (dateSelect)="onDateSelect()">
@@ -35,7 +35,7 @@
   </div>
   <div class="col-12 col-sm-6 col-lg-2 mt-3 mt-md-0">
     <label>{{ 'trip-filters.end-date-to' | translate }}:</label>
-    <div class="input-group">
+    <div class="input-group input-group-sm">
       <input class="form-control" [readOnly]="true" name="endDateToFilter"
              [(ngModel)]="endDateToModel" ngbDatepicker #dp4="ngbDatepicker"
              (click)="dp4.toggle()" (dateSelect)="onDateSelect()">
@@ -79,20 +79,23 @@
       </ul>
     </ng-template>
   </ngb-panel>
+  <div class="alert alert-info" *ngIf="trips.length === 0">
+    {{ 'trip-list.empty-list' | translate }}
+  </div>
 </ngb-accordion>
 
-<div class="row pagination-row">
-  <div class="offset-md-7 col-md-5">
+<div class="row mt-5">
+  <div class="col-12 col-md-8">
     <ngb-pagination (pageChange)="onPageChange($event)" [collectionSize]="collectionSize" [pageSize]="pageSize"
                     [(page)]="page" [maxSize]="5"
-                    [rotate]="true"
-                    [boundaryLinks]="true"></ngb-pagination>
-    <div class="page-size-container">
-      <label>Items per page</label>
-      <select (change)="onPageSizeChange($event.target.value)" class="browser-default custom-select">
-        <option *ngFor="let pageSize of pageSizeOptions" value="{{pageSize}}">{{pageSize}}</option>
-      </select>
-    </div>
+                    [rotate]="true">
+    </ngb-pagination>
+  </div>
+  <div class="col-12 col-md-4">
+    <label>{{ 'trip-list.items-per-page' | translate }}</label>
+    <select (change)="onPageSizeChange($event.target.value)" class="browser-default custom-select">
+      <option *ngFor="let pageSize of pageSizeOptions" value="{{pageSize}}">{{pageSize}}</option>
+    </select>
   </div>
 </div>
 
