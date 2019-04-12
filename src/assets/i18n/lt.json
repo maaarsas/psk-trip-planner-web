@@ -13,7 +13,9 @@
   },
   "page-summaries": {
     "my-trips": "Žemiau pateiktas sąrašas kelionių, kurių pakvietimus jūs priėmėte. Galite peržiūrėti tiek suplanuotas, tiek praėjusias keliones.",
-    "invitations": "Žemiau pateiktas sąrašas kelionių, į kurias esate pakviestas. Pakvietimą galite priimti arba atmesti."
+    "invitations": "Žemiau pateiktas sąrašas kelionių, į kurias esate pakviestas. Pakvietimą galite priimti arba atmesti.",
+    "my-organized-trips": "Žemiau pateiktas sąrašas kelionių, kurias jūs organizuojate. Kiekvieną savo organizuojamą kelionę galite redaguoti.",
+    "all-trips": "Žemiau pateiktas visų sistemoje esančių kelionių sąrašas."
   },
   "alerts" : {
     "login-info": "Prašome prisijungti su savo el. pašto adresu ir slaptažodžiu",

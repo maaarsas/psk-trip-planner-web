@@ -28,13 +28,13 @@ export class TripService {
   }
 
   getMyOrganizedTrips(params: TripParams): Observable<TripResponse>{
-    return this.http.get<TripResponse>(`${environment.apiUrl}/trip`, {
+    return this.http.get<TripResponse>(`${environment.apiUrl}/trip/organized`, {
       params: this.createHttpParams(params)
     });
   }
 
   getAllTrips(params: TripParams): Observable<TripResponse> {
-    return this.http.get<TripResponse>(`${environment.apiUrl}/trip/organized`, {
+    return this.http.get<TripResponse>(`${environment.apiUrl}/trip`, {
       params: this.createHttpParams(params)
     });
   }

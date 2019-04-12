@@ -13,7 +13,9 @@
   },
   "page-summaries": {
     "my-trips": "In the list below there are all your accepted trips. You can view both upcoming and past trips.",
-    "invitations": "In the list below there are all trips where you are invited to participate. You can accept or reject the invitations."
+    "invitations": "In the list below there are all trips where you are invited to participate. You can accept or reject the invitations.",
+    "my-organized-trips": "In the list below there are all your organized trips. You can edit these trips.",
+    "all-trips": "In the list below there are all trips organized by all users."
   },
   "alerts" : {
     "login-info": "Please log in using your email and password",
