@@ -1,6 +1,6 @@
 <div class="row white-readonly-input filter-container mt-5 mb-3">
 
-  <div class="col-sm">
+  <div class="col-12 col-sm-6 col-lg-2 mt-3 mt-md-0">
     <label>{{ 'trip-filters.start-date-from' | translate }}:</label>
     <div class="input-group">
       <input class="form-control" [readOnly]="true" name="startDateFromFilter"
@@ -11,7 +11,7 @@
       </div>
     </div>
   </div>
-  <div class="col-sm">
+  <div class="col-12 col-sm-6 col-lg-2 mt-3 mt-md-0">
     <label>{{ 'trip-filters.start-date-to' | translate }}:</label>
     <div class="input-group">
       <input class="form-control" [readOnly]="true" name="startDateToFilter"
@@ -22,7 +22,7 @@
       </div>
     </div>
   </div>
-  <div class="col-sm">
+  <div class="col-12 col-sm-6 col-lg-2 mt-3 mt-md-0">
     <label>{{ 'trip-filters.end-date-from' | translate }}:</label>
     <div class="input-group">
       <input class="form-control" [readOnly]="true" name="endDateFromFilter"
@@ -33,7 +33,7 @@
       </div>
     </div>
   </div>
-  <div class="col-sm">
+  <div class="col-12 col-sm-6 col-lg-2 mt-3 mt-md-0">
     <label>{{ 'trip-filters.end-date-to' | translate }}:</label>
     <div class="input-group">
       <input class="form-control" [readOnly]="true" name="endDateToFilter"
@@ -45,16 +45,13 @@
     </div>
   </div>
 
-  <div class="col-sm-auto">
-    <button class="btn btn-secondary" (click)="onPreviousSelect()">{{ 'trip-filters.previous' | translate }}</button>
+  <div class="col-12 col-lg-3 mt-3 mt-lg-0">
+    <div class="btn-group btn-group-sm">
+      <button class="btn btn-outline-secondary" (click)="onPreviousSelect()">{{ 'trip-filters.previous' | translate }}</button>
+      <button class="btn btn-outline-secondary" (click)="onCurrentSelect()">{{ 'trip-filters.current' | translate }}</button>
+      <button class="btn btn-outline-secondary" (click)="onUpcomingSelect()">{{ 'trip-filters.upcoming' | translate }}</button>
+    </div>
   </div>
-  <div class="col-sm-auto">
-    <button class="btn btn-secondary" (click)="onCurrentSelect()">{{ 'trip-filters.current' | translate }}</button>
-  </div>
-  <div class="col-sm-auto">
-    <button class="btn btn-secondary" (click)="onUpcomingSelect()">{{ 'trip-filters.upcoming' | translate }}</button>
-  </div>
-
 </div>
 
 
