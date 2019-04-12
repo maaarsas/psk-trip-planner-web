@@ -32,6 +32,9 @@ export class LoginComponent implements OnInit {
   }
 
   onLoginSubmit(): void {
+    // when a mobile browser does autocompletion, form validation is not triggered
+    this.triggerFormValidation();
+
     if (!this.loginForm.valid) {
       return;
     }
@@ -51,5 +54,11 @@ export class LoginComponent implements OnInit {
           this.loading = false;
         }
       );
+  }
+
+  private triggerFormValidation(): void {
+    for (const control of this.loginForm.controls) {
+      control.updateValueAndValidity();
+    }
   }
 }
