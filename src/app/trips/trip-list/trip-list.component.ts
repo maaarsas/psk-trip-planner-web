@@ -9,8 +9,16 @@ import {DEFAULT_PAGE, DEFAULT_PAGE_SIZE, PAGE_SIZE_OPTIONS, DEFAULT_START_DATE_F
 })
 export class TripListComponent {
 
-  @Input()
-  trips: Trip[];
+  private _trips: Trip[];
+
+  @Input() set trips(value: Trip[]) {
+    this._trips = value;
+    this.loading = false;
+  }
+
+  get trips(): Trip[] {
+    return this._trips;
+  }
 
   @Input()
   showInvitationButtons: boolean;
@@ -29,6 +37,8 @@ export class TripListComponent {
 
   @Output()
   paramsChange = new EventEmitter<TripParams>();
+
+  loading = false;
 
   // datePickers' date models
   startDateFromModel = DEFAULT_START_DATE_FROM_MODEL;
@@ -57,6 +67,7 @@ export class TripListComponent {
   }
 
   onParamsChange() {
+    this.loading = true;
     this.paramsChange.emit({
       pageSize: this.pageSize,
       page: this.page,

@@ -54,34 +54,44 @@
   </div>
 </div>
 
-<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
-  <ngb-panel *ngFor="let trip of trips">
-    <ng-template ngbPanelHeader>
-      <div class="d-flex align-items-center justify-content-between">
-        <button ngbPanelToggle class="btn btn-link m-0">{{trip.toOffice.title}}</button>
-        <div *ngIf="showInvitationButtons">
-          <button (click)="onAccept(trip)" class="btn btn-sm btn-primary ml-2">Accept</button>
-          <button (click)="onDecline(trip)" class="btn btn-sm btn-danger ml-2">Decline</button>
-        </div>
-      </div>
-    </ng-template>
-    <ng-template ngbPanelContent>
-      <ul>
-        <li><strong>Destination:</strong> {{trip.toOffice.title}}</li>
-        <li><strong>Start date:</strong> {{trip.startDate}}</li>
-        <li><strong>End date:</strong> {{trip.endDate}}</li>
-        <li><strong>Organizer:</strong> {{trip.organizer.name}} {{trip.organizer.surname}}</li>
-        <li><strong>Number of participants:</strong> {{trip.tripParticipations.length}}</li>
-        <li><strong>Flight ticket status:</strong> {{trip.flightTicketStatus}}</li>
-        <li><strong>Car rental status:</strong> {{trip.carRentalStatus}}</li>
-        <li><strong>Accommodation status:</strong> {{trip.accomodationStatus}}</li>
-      </ul>
-    </ng-template>
-  </ngb-panel>
-</ngb-accordion>
+<div *ngIf="loading">
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border" role="status">
+    </div>
+  </div>
+</div>
 
-<div class="alert alert-warning" *ngIf="trips.length == 0">
-  {{ 'trip-list.empty-list' | translate }}
+<div *ngIf="!loading">
+  <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+    <ngb-panel *ngFor="let trip of trips">
+      <ng-template ngbPanelHeader>
+        <div class="d-flex align-items-center justify-content-between">
+          <button ngbPanelToggle class="btn btn-link m-0">{{trip.toOffice.title}}</button>
+          <div *ngIf="showInvitationButtons">
+            <button (click)="onAccept(trip)" class="btn btn-sm btn-primary ml-2">Accept</button>
+            <button (click)="onDecline(trip)" class="btn btn-sm btn-danger ml-2">Decline</button>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <ul>
+          <li><strong>Destination:</strong> {{trip.toOffice.title}}</li>
+          <li><strong>Start date:</strong> {{trip.startDate}}</li>
+          <li><strong>End date:</strong> {{trip.endDate}}</li>
+          <li><strong>Organizer:</strong> {{trip.organizer.name}} {{trip.organizer.surname}}</li>
+          <li><strong>Number of participants:</strong> {{trip.tripParticipations.length}}</li>
+          <li><strong>Flight ticket status:</strong> {{trip.flightTicketStatus}}</li>
+          <li><strong>Car rental status:</strong> {{trip.carRentalStatus}}</li>
+          <li><strong>Accommodation status:</strong> {{trip.accomodationStatus}}</li>
+        </ul>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+
+  <div class="alert alert-warning" *ngIf="trips.length == 0">
+    {{ 'trip-list.empty-list' | translate }}
+  </div>
+
 </div>
 
 <div class="row mt-3">
