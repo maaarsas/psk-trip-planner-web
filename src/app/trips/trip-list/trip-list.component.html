@@ -74,8 +74,10 @@
           </div>
           <div class="col-12 col-md-6">
             <div class="float-right">
-              <button *ngIf="showInvitationButtons" (click)="onAccept(trip)" class="btn btn-sm btn-success ml-2">Accept</button>
-              <button *ngIf="showInvitationButtons" (click)="onDecline(trip)" class="btn btn-sm btn-danger ml-2">Decline</button>
+              <ng-container *ngFor="let actionButton of actionButtons">
+                <ng-container *ngxComponentOutlet="actionButton; context: { trip: trip }">
+                </ng-container>
+              </ng-container>
               <button ngbPanelToggle class="btn btn-sm btn-outline-dark ml-2">
                 {{ acc.panels._results[i].isOpen ? ('trip-list.less-info' | translate) : ('trip-list.more-info' | translate) }}
               </button>

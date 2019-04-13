@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Trip, TripParams} from '../../_models/trip';
 import {TripService} from '../../_services/trip.service';
 import {DEFAULT_PAGE, DEFAULT_RESULTS_PER_PAGE, DEFAULT_START_DATE_FROM} from '../../_constants/trip-list.const';
+import { TripActionButton } from '../trip-list/action-buttons/trip-action-button';
 
 @Component({
   selector: 'app-my-trips',
@@ -12,6 +13,7 @@ export class MyTripsComponent implements OnInit {
 
   trips: Trip[] = [];
   availableTrips: number;
+  actionButtons: TripActionButton[] = [];
 
   constructor(private tripService: TripService) {
     this.onParamsChange({resultsPerPage: DEFAULT_RESULTS_PER_PAGE, page: DEFAULT_PAGE, startDateFrom: DEFAULT_START_DATE_FROM});

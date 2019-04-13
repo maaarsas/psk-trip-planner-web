@@ -2,4 +2,5 @@
 
 <p>{{ 'page-summaries.my-trips' | translate }}</p>
 
-<app-trip-list [trips]="trips" [collectionSize]="availableTrips" (paramsChange)="onParamsChange($event)"></app-trip-list>
+<app-trip-list [trips]="trips" [collectionSize]="availableTrips" (paramsChange)="onParamsChange($event)"
+               [actionButtons]="actionButtons"></app-trip-list>
