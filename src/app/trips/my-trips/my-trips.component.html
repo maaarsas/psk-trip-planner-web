@@ -1,4 +1,6 @@
 <h1>{{ 'headings.my-trips' | translate }}</h1>
 
+<p>{{ 'page-summaries.my-trips' | translate }}</p>
+
 <app-trip-list [trips]="trips" [collectionSize]="availableTrips" (paramsChange)="onParamsChange($event)"
                [actionButtons]="actionButtons"></app-trip-list>

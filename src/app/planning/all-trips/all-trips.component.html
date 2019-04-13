@@ -1,1 +1,5 @@
 <h1>{{ 'headings.all-trips' | translate }}</h1>
+
+<p>{{ 'page-summaries.all-trips' | translate }}</p>
+
+<app-trip-list [trips]="trips" [collectionSize]="availableTrips" (paramsChange)="onParamsChange($event)"></app-trip-list>

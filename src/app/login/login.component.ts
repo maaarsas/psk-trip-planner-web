@@ -28,10 +28,13 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
   }
 
   onLoginSubmit(): void {
+    // when a mobile browser does autocompletion, form validation is not triggered
+    this.triggerFormValidation();
+
     if (!this.loginForm.valid) {
       return;
     }
@@ -51,5 +54,11 @@ export class LoginComponent implements OnInit {
           this.loading = false;
         }
       );
+  }
+
+  private triggerFormValidation(): void {
+    for (const key in this.loginForm.controls) {
+      this.loginForm.controls[key].updateValueAndValidity();
+    }
   }
 }

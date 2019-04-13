@@ -10,7 +10,6 @@ import { MainNavigationComponent } from './main-navigation/main-navigation.compo
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './home/home.component';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { TripAcceptButtonComponent } from './trips/trip-list/action-buttons/trip-accept-button.component';
@@ -27,13 +26,14 @@ import { UsersComponent } from './admin/users/users.component';
 import { OfficesComponent } from './admin/offices/offices.component';
 import { TripFormComponent } from './forms/trip-form/trip-form.component';
 import { TripRejectButtonComponent } from './trips/trip-list/action-buttons/trip-reject-button.component';
+import { TripParticipationStatusComponent } from './trips/trip-list/trip-participation-status.component';
+import { TripTaskStatusComponent } from './trips/trip-list/trip-task-status.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavigationComponent,
     LoginComponent,
-    HomeComponent,
     TripListComponent,
     MyTripsComponent,
     InvitationsComponent,
@@ -44,6 +44,8 @@ import { TripRejectButtonComponent } from './trips/trip-list/action-buttons/trip
     UsersComponent,
     OfficesComponent,
     TripFormComponent,
+    TripParticipationStatusComponent,
+    TripTaskStatusComponent,
     TripAcceptButtonComponent,
     TripRejectButtonComponent
   ],

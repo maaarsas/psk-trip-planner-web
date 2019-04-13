@@ -11,6 +11,12 @@
     "invitations": "Pakvietimai į keliones",
     "my-trips": "Mano kelionės"
   },
+  "page-summaries": {
+    "my-trips": "Žemiau pateiktas sąrašas kelionių, kurių pakvietimus jūs priėmėte. Galite peržiūrėti tiek suplanuotas, tiek praėjusias keliones.",
+    "invitations": "Žemiau pateiktas sąrašas kelionių, į kurias esate pakviestas. Pakvietimą galite priimti arba atmesti.",
+    "my-organized-trips": "Žemiau pateiktas sąrašas kelionių, kurias jūs organizuojate. Kiekvieną savo organizuojamą kelionę galite redaguoti.",
+    "all-trips": "Žemiau pateiktas visų sistemoje esančių kelionių sąrašas."
+  },
   "alerts" : {
     "login-info": "Prašome prisijungti su savo el. pašto adresu ir slaptažodžiu",
     "login-failed": "Neteisingas el. pašto adresas arba slaptažodis. Bandykite dar kartą"
@@ -34,6 +40,33 @@
     "previous": "Praėjusios",
     "current": "Vykstančios",
     "upcoming": "Ateinančios"
+  },
+  "trip-list": {
+    "empty-list": "Pagal pasirinktus paieškos kriterijus kelionių nerasta",
+    "items-per-page": "Kelionių skaičius viename puslapyje",
+    "more-info": "Daugiau informacijos",
+    "less-info": "Mažiau informacijos",
+    "main-info": "Pagrindinė kelionės informacija",
+    "from-office": "Iš ofiso",
+    "to-office": "Į ofisą",
+    "start-date": "Kelionė prasideda",
+    "end-date": "Kelionė baigiasi",
+    "organizer": "Kelionės organizatorius",
+    "trip-tasks": "Rezervacijos",
+    "flight-ticket-status": "Skrydžio bilietai",
+    "car-rental-status": "Automobilio nuoma",
+    "accomodation-status": "Apgyvendinimas",
+    "trip-participants": "Kelionės dalyviai",
+    "trip-participation": {
+      "invited": "Laukiama atsakymo",
+      "accepted": "Patvirtino dalyvavimą",
+      "rejected": "Atmetė kvietimą"
+    },
+    "task-status": {
+      "not-needed": "Nereikia",
+      "needed": "Reikia, dar neužsakyta",
+      "ordered": "Užsakyta"
+    }
   },
   "navigation": {
     "primary": {
