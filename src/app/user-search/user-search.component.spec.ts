@@ -1,6 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {NgbTypeaheadModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {UserSearchComponent} from './user-search.component';
 
@@ -11,7 +12,7 @@ describe('UserSearchComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [UserSearchComponent],
-      imports: [ReactiveFormsModule, HttpClientModule]
+      imports: [FormsModule, ReactiveFormsModule, HttpClientModule, NgbTypeaheadModule]
     })
       .compileComponents();
   }));
@@ -19,7 +20,6 @@ describe('UserSearchComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(UserSearchComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {

@@ -1,9 +1,10 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {UserSearchComponent} from '../../user-search/user-search.component';
 import {HttpClientModule} from '@angular/common/http';
+import {NgbTypeaheadModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {TripFormComponent} from './trip-form.component';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 describe('TripFormComponent', () => {
   let component: TripFormComponent;
@@ -11,8 +12,9 @@ describe('TripFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TripFormComponent, UserSearchComponent],
-      imports: [ReactiveFormsModule, FormsModule, HttpClientModule]
+      declarations: [TripFormComponent],
+      imports: [NgbTypeaheadModule, ReactiveFormsModule, FormsModule, HttpClientModule],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
       .compileComponents();
   }));

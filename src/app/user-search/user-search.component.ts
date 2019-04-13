@@ -14,7 +14,7 @@ export class UserSearchComponent implements OnInit {
 
   results: Person[];
 
-  search = (text$: Observable<string>) =>
+  search = (text$: Observable<string>) => {
     text$.pipe(
       debounceTime(300),
       distinctUntilChanged(),
@@ -28,7 +28,8 @@ export class UserSearchComponent implements OnInit {
       )
     ).subscribe(response => {
       this.results = response;
-    })
+    });
+  }
 
   constructor(private searchService: UserSearchService) {
   }
