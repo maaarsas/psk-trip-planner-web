@@ -1,8 +1,8 @@
-<div class="row white-readonly-input filter-container mt-5 mb-3">
+<div class="row white-readonly-input filter-container mt-4 mb-3">
 
-  <div class="col-sm">
+  <div class="col-12 col-sm-6 col-lg-2 mt-3 mt-md-0">
     <label>{{ 'trip-filters.start-date-from' | translate }}:</label>
-    <div class="input-group">
+    <div class="input-group input-group-sm">
       <input class="form-control" [readOnly]="true" name="startDateFromFilter"
              [(ngModel)]="startDateFromModel" ngbDatepicker #dp1="ngbDatepicker"
              (click)="dp1.toggle()" (dateSelect)="onDateSelect()">
@@ -11,9 +11,9 @@
       </div>
     </div>
   </div>
-  <div class="col-sm">
+  <div class="col-12 col-sm-6 col-lg-2 mt-3 mt-md-0">
     <label>{{ 'trip-filters.start-date-to' | translate }}:</label>
-    <div class="input-group">
+    <div class="input-group input-group-sm">
       <input class="form-control" [readOnly]="true" name="startDateToFilter"
              [(ngModel)]="startDateToModel" ngbDatepicker #dp2="ngbDatepicker"
              (click)="dp2.toggle()" (dateSelect)="onDateSelect()">
@@ -22,9 +22,9 @@
       </div>
     </div>
   </div>
-  <div class="col-sm">
+  <div class="col-12 col-sm-6 col-lg-2 mt-3 mt-md-0">
     <label>{{ 'trip-filters.end-date-from' | translate }}:</label>
-    <div class="input-group">
+    <div class="input-group input-group-sm">
       <input class="form-control" [readOnly]="true" name="endDateFromFilter"
              [(ngModel)]="endDateFromModel" ngbDatepicker #dp3="ngbDatepicker"
              (click)="dp3.toggle()" (dateSelect)="onDateSelect()">
@@ -33,9 +33,9 @@
       </div>
     </div>
   </div>
-  <div class="col-sm">
+  <div class="col-12 col-sm-6 col-lg-2 mt-3 mt-md-0">
     <label>{{ 'trip-filters.end-date-to' | translate }}:</label>
-    <div class="input-group">
+    <div class="input-group input-group-sm">
       <input class="form-control" [readOnly]="true" name="endDateToFilter"
              [(ngModel)]="endDateToModel" ngbDatepicker #dp4="ngbDatepicker"
              (click)="dp4.toggle()" (dateSelect)="onDateSelect()">
@@ -45,55 +45,129 @@
     </div>
   </div>
 
-  <div class="col-sm-auto">
-    <button class="btn btn-secondary" (click)="onPreviousSelect()">{{ 'trip-filters.previous' | translate }}</button>
+  <div class="col-12 offset-lg-1 col-lg-3 mt-3 mt-lg-0">
+    <div class="btn-group btn-group-sm float-lg-right">
+      <button class="btn btn-outline-secondary" (click)="onPreviousSelect()">{{ 'trip-filters.previous' | translate }}</button>
+      <button class="btn btn-outline-secondary" (click)="onCurrentSelect()">{{ 'trip-filters.current' | translate }}</button>
+      <button class="btn btn-outline-secondary" (click)="onUpcomingSelect()">{{ 'trip-filters.upcoming' | translate }}</button>
+    </div>
   </div>
-  <div class="col-sm-auto">
-    <button class="btn btn-secondary" (click)="onCurrentSelect()">{{ 'trip-filters.current' | translate }}</button>
+</div>
+
+<div *ngIf="loading">
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border" role="status">
+    </div>
   </div>
-  <div class="col-sm-auto">
-    <button class="btn btn-secondary" (click)="onUpcomingSelect()">{{ 'trip-filters.upcoming' | translate }}</button>
+</div>
+
+<div *ngIf="!loading">
+  <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+    <ngb-panel *ngFor="let trip of trips, let i = index">
+      <ng-template ngbPanelHeader>
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-3">
+            <span>{{ trip.fromOffice.title }} - {{ trip.toOffice.title }}</span>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <span>{{ trip.startDate }} - {{ trip.endDate }}</span>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="float-right">
+              <ng-container *ngFor="let actionButton of actionButtons">
+                <ng-container *ngxComponentOutlet="actionButton; context: { trip: trip }">
+                </ng-container>
+              </ng-container>
+              <button ngbPanelToggle class="btn btn-sm btn-outline-dark ml-2">
+                {{ acc.panels._results[i].isOpen ? ('trip-list.less-info' | translate) : ('trip-list.more-info' | translate) }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <h3>{{ 'trip-list.main-info' | translate }}</h3>
+            <table class="table table-sm table-borderless">
+              <tr>
+                <td>{{ 'trip-list.from-office' | translate }}</td>
+                <td><b>{{trip.fromOffice.title}}</b></td>
+              </tr>
+              <tr>
+                <td>{{ 'trip-list.to-office' | translate }}</td>
+                <td><b>{{trip.toOffice.title}}</b></td>
+              </tr>
+              <tr>
+                <td>{{ 'trip-list.start-date' | translate }}</td>
+                <td><b>{{trip.startDate}}</b></td>
+              </tr>
+              <tr>
+                <td>{{ 'trip-list.end-date' | translate }}</td>
+                <td><b>{{trip.endDate}}</b></td>
+              </tr>
+              <tr>
+                <td>{{ 'trip-list.organizer' | translate }}</td>
+                <td><b>{{trip.organizer.name}} {{trip.organizer.surname}}</b></td>
+              </tr>
+            </table>
+
+            <h3>{{ 'trip-list.trip-tasks' | translate }}</h3>
+            <table class="table table-sm table-borderless">
+              <tr>
+                <td>{{ 'trip-list.flight-ticket-status' | translate }}</td>
+                <td [ngSwitch]="trip.flightTicketStatus">
+                  <app-trip-task-status [taskStatus]="trip.flightTicketStatus"></app-trip-task-status>
+                </td>
+              </tr>
+              <tr>
+                <td>{{ 'trip-list.car-rental-status' | translate }}</td>
+                <td [ngSwitch]="trip.carRentalStatus">
+                  <app-trip-task-status [taskStatus]="trip.carRentalStatus"></app-trip-task-status>
+                </td>
+              </tr>
+              <tr>
+                <td>{{ 'trip-list.accomodation-status' | translate }}</td>
+                <td [ngSwitch]="trip.accomodationStatus">
+                  <app-trip-task-status [taskStatus]="trip.accomodationStatus"></app-trip-task-status>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="col-12 col-md-6">
+            <h3>{{ 'trip-list.trip-participants' | translate }} ({{ trip.tripParticipations.length }})</h3>
+            <table class="table table-sm table-borderless">
+              <tr *ngFor="let participation of trip.tripParticipations">
+                <td>{{ participation.participant.name }} {{ participation.participant.surname }}</td>
+                <td>
+                  <app-trip-participation-status [participationStatus]="participation.status"></app-trip-participation-status>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+
+  <div class="alert alert-warning" *ngIf="trips.length == 0">
+    {{ 'trip-list.empty-list' | translate }}
   </div>
 
 </div>
 
-
-<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
-  <ngb-panel *ngFor="let trip of trips">
-    <ng-template ngbPanelHeader>
-      <div class="d-flex align-items-center justify-content-between">
-        <button ngbPanelToggle class="btn btn-link m-0">{{trip.toOffice.title}}</button>
-        <div *ngIf="showInvitationButtons">
-          <button (click)="onAccept(trip)" class="btn btn-sm btn-primary ml-2">Accept</button>
-          <button (click)="onDecline(trip)" class="btn btn-sm btn-danger ml-2">Decline</button>
-        </div>
-      </div>
-    </ng-template>
-    <ng-template ngbPanelContent>
-      <ul>
-        <li><strong>Destination:</strong> {{trip.toOffice.title}}</li>
-        <li><strong>Start date:</strong> {{trip.startDate}}</li>
-        <li><strong>End date:</strong> {{trip.endDate}}</li>
-        <li><strong>Organizer:</strong> {{trip.organizer.name}} {{trip.organizer.surname}}</li>
-        <li><strong>Number of participants:</strong> {{trip.tripParticipations.length}}</li>
-        <li><strong>Flight ticket status:</strong> {{trip.flightTicketStatus}}</li>
-        <li><strong>Car rental status:</strong> {{trip.carRentalStatus}}</li>
-        <li><strong>Accommodation status:</strong> {{trip.accomodationStatus}}</li>
-      </ul>
-    </ng-template>
-  </ngb-panel>
-</ngb-accordion>
-
-<div class="row pagination-row">
-  <div class="offset-md-7 col-md-5">
-    <ngb-pagination (pageChange)="onPageChange($event)" [collectionSize]="collectionSize" [pageSize]="pageSize"
+<div class="row mt-3">
+  <div class="col-12 col-md-8">
+    <ngb-pagination (pageChange)="onPageChange($event)" [collectionSize]="collectionSize" [pageSize]="resultsPerPage"
                     [(page)]="page" [maxSize]="5"
-                    [rotate]="true"
-                    [boundaryLinks]="true"></ngb-pagination>
-    <div class="page-size-container">
-      <label>Items per page</label>
-      <select (change)="onPageSizeChange($event.target.value)" class="browser-default custom-select">
-        <option *ngFor="let pageSize of pageSizeOptions" value="{{pageSize}}">{{pageSize}}</option>
+                    [rotate]="true">
+    </ngb-pagination>
+  </div>
+  <div class="col-12 col-md-4">
+    <div class="float-md-right">
+      <label>{{ 'trip-list.items-per-page' | translate }}</label>
+      <select (change)="onResultsPerPageChange($event.target.value)" class="browser-default custom-select">
+        <option *ngFor="let resultsPerPage of resultsPerPageOptions" value="{{resultsPerPage}}">{{resultsPerPage}}</option>
       </select>
     </div>
   </div>
