@@ -7,10 +7,10 @@
          autofocus/>
 
   <ul *ngIf="results">
-    <li class="list-group-item" *ngFor="let result of results | slice:0:9">
-      <a target="_blank">
+    <li class="list-group-item" *ngFor="let result of results">
+      <span>
         {{ result.name }}
-      </a>
+      </span>
     </li>
   </ul>
 </div>
