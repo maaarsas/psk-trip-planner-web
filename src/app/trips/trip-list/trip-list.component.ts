@@ -1,6 +1,12 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Trip, TripParams} from '../../_models/trip';
-import {DEFAULT_PAGE, DEFAULT_PAGE_SIZE, PAGE_SIZE_OPTIONS, DEFAULT_START_DATE_FROM, DEFAULT_START_DATE_FROM_MODEL} from '../../_constants/trip-list.const';
+import {
+  DEFAULT_PAGE,
+  DEFAULT_START_DATE_FROM,
+  DEFAULT_START_DATE_FROM_MODEL,
+  RESULTS_PER_PAGE_OPTIONS, DEFAULT_RESULTS_PER_PAGE,
+} from '../../_constants/trip-list.const';
+import { TripActionButton } from './action-buttons/trip-action-button';
 
 @Component({
   selector: 'app-trip-list',
@@ -9,11 +15,19 @@ import {DEFAULT_PAGE, DEFAULT_PAGE_SIZE, PAGE_SIZE_OPTIONS, DEFAULT_START_DATE_F
 })
 export class TripListComponent {
 
-  @Input()
-  trips: Trip[];
+  private _trips: Trip[] = [];
+
+  @Input() set trips(value: Trip[]) {
+    this._trips = value;
+    this.loading = false;
+  }
+
+  get trips(): Trip[] {
+    return this._trips;
+  }
 
   @Input()
-  showInvitationButtons: boolean;
+  actionButtons: TripActionButton[];
 
   @Input()
   totalNumberOfTrips: number;
@@ -22,13 +36,9 @@ export class TripListComponent {
   collectionSize: number;
 
   @Output()
-  accept = new EventEmitter<Trip>();
-
-  @Output()
-  decline = new EventEmitter<Trip>();
-
-  @Output()
   paramsChange = new EventEmitter<TripParams>();
+
+  loading = false;
 
   // datePickers' date models
   startDateFromModel = DEFAULT_START_DATE_FROM_MODEL;
@@ -37,8 +47,8 @@ export class TripListComponent {
   endDateToModel;
 
   page = DEFAULT_PAGE;
-  pageSize = DEFAULT_PAGE_SIZE;
-  pageSizeOptions = PAGE_SIZE_OPTIONS;
+  resultsPerPage = DEFAULT_RESULTS_PER_PAGE;
+  resultsPerPageOptions = RESULTS_PER_PAGE_OPTIONS;
 
   startDateFrom = DEFAULT_START_DATE_FROM;
   startDateTo: string;
@@ -48,17 +58,10 @@ export class TripListComponent {
   constructor() {
   }
 
-  onAccept(tripToAccept: Trip) {
-    this.accept.emit(tripToAccept);
-  }
-
-  onDecline(tripToDecline) {
-    this.decline.emit(tripToDecline);
-  }
-
   onParamsChange() {
+    this.loading = true;
     this.paramsChange.emit({
-      pageSize: this.pageSize,
+      resultsPerPage: this.resultsPerPage,
       page: this.page,
       startDateFrom: this.startDateFrom,
       startDateTo: this.startDateTo,
@@ -67,8 +70,8 @@ export class TripListComponent {
     });
   }
 
-  onPageSizeChange(pageSize: number) {
-    this.pageSize = pageSize;
+  onResultsPerPageChange(resultsPerPage: number) {
+    this.resultsPerPage = resultsPerPage;
     this.onParamsChange();
   }
 

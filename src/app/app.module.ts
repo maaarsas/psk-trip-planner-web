@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NgxdModule } from '@ngxd/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,9 +10,9 @@ import { MainNavigationComponent } from './main-navigation/main-navigation.compo
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './home/home.component';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
+import { TripAcceptButtonComponent } from './trips/trip-list/action-buttons/trip-accept-button.component';
 import { TripListComponent } from './trips/trip-list/trip-list.component';
 import { TripService } from './_services/trip.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -27,13 +28,15 @@ import { TripFormComponent } from './forms/trip-form/trip-form.component';
 import { UserSearchComponent } from './user-search/user-search.component';
 import { UserSearchService } from './_services/user-search.service';
 import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
+import { TripRejectButtonComponent } from './trips/trip-list/action-buttons/trip-reject-button.component';
+import { TripParticipationStatusComponent } from './trips/trip-list/trip-participation-status.component';
+import { TripTaskStatusComponent } from './trips/trip-list/trip-task-status.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavigationComponent,
     LoginComponent,
-    HomeComponent,
     TripListComponent,
     MyTripsComponent,
     InvitationsComponent,
@@ -44,7 +47,15 @@ import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
     UsersComponent,
     OfficesComponent,
     TripFormComponent,
-    UserSearchComponent
+    UserSearchComponent,
+    TripParticipationStatusComponent,
+    TripTaskStatusComponent,
+    TripAcceptButtonComponent,
+    TripRejectButtonComponent
+  ],
+  entryComponents: [
+    TripAcceptButtonComponent,
+    TripRejectButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +72,7 @@ import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
         deps: [HttpClient]
       }
     }),
+    NgxdModule
   ],
   providers: [
     UserSearchService,
