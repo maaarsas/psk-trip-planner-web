@@ -27,14 +27,14 @@ export class TripService {
     });
   }
 
-  getMyOrganizedTrips(params: TripParams): Observable<TripResponse>{
-    return this.http.get<TripResponse>(`${environment.apiUrl}/trip`, {
+  getMyOrganizedTrips(params: TripParams): Observable<TripResponse> {
+    return this.http.get<TripResponse>(`${environment.apiUrl}/trip/organized`, {
       params: this.createHttpParams(params)
     });
   }
 
   getAllTrips(params: TripParams): Observable<TripResponse> {
-    return this.http.get<TripResponse>(`${environment.apiUrl}/trip/organized`, {
+    return this.http.get<TripResponse>(`${environment.apiUrl}/trip`, {
       params: this.createHttpParams(params)
     });
   }
@@ -50,7 +50,7 @@ export class TripService {
   createHttpParams(params: TripParams): HttpParams {
     let httpParams: HttpParams = new HttpParams();
     Object.keys(params).forEach(param => {
-      if (params[param]!=null) {
+      if (params[param] != null) {
         httpParams = httpParams.set(param, params[param].toString());
       }
     });

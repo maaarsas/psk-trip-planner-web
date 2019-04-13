@@ -1,5 +1,5 @@
-export const PAGE_SIZE_OPTIONS = [10, 20, 50];
-export const DEFAULT_PAGE_SIZE = 10;
+export const RESULTS_PER_PAGE_OPTIONS = [10, 20, 50];
+export const DEFAULT_RESULTS_PER_PAGE = 10;
 export const DEFAULT_PAGE = 1;
 
 const today = new Date();
