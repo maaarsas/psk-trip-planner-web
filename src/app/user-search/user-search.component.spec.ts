@@ -3,26 +3,23 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {NgbTypeaheadModule} from '@ng-bootstrap/ng-bootstrap';
 
-import {TripFormComponent} from './trip-form.component';
-import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {UserSearchComponent} from './user-search.component';
 
-describe('TripFormComponent', () => {
-  let component: TripFormComponent;
-  let fixture: ComponentFixture<TripFormComponent>;
+describe('UserSearchComponent', () => {
+  let component: UserSearchComponent;
+  let fixture: ComponentFixture<UserSearchComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TripFormComponent],
-      imports: [NgbTypeaheadModule, ReactiveFormsModule, FormsModule, HttpClientModule],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+      declarations: [UserSearchComponent],
+      imports: [FormsModule, ReactiveFormsModule, HttpClientModule, NgbTypeaheadModule]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TripFormComponent);
+    fixture = TestBed.createComponent(UserSearchComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {

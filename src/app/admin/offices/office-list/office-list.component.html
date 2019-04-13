@@ -1,0 +1,33 @@
+<h2>{{ 'headings.office-list' | translate }}:</h2>
+
+<div *ngIf="!loading && offices">
+  <ngb-accordion>
+    <ngb-panel *ngFor="let office of offices">
+      <ng-template ngbPanelHeader>
+        <div class="row">
+          <div class="col-12 col-md-3 col-lg-3">
+            <span>{{ office.title }}</span>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <span>{{ 'office.capacity' | translate }}:
+              <form (ngSubmit)="onOfficeEdit($event, office)">
+                <input name="maxCapacity" class="number-input" type="number" min="0" max="20" value="{{office.maxCapacity}}">
+                <input type="submit" value="{{ 'buttons.save' | translate }}" class="btn btn-sm btn-outline-dark ml-2">
+              </form>
+            </span>
+          </div>
+          <div class="col-12 col-md-3">
+            <div class="float-right">
+              <button (click)="onOfficeDelete(office)" class="btn btn-sm btn-outline-dark">{{ 'buttons.delete' | translate }}</button>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+
+  <div class="alert alert-warning" *ngIf="offices.length === 0">
+    {{ 'office.empty-list' | translate }}
+  </div>
+
+</div>

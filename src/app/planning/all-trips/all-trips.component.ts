@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DEFAULT_PAGE, DEFAULT_RESULTS_PER_PAGE, DEFAULT_START_DATE_FROM } from '../../_constants/trip-list.const';
+import { DEFAULT_START_DATE_FROM } from '../../_constants/trip-list.const';
 import { Trip, TripParams } from '../../_models/trip';
 import { TripService } from '../../_services/trip.service';
+import {DEFAULT_PAGE, DEFAULT_RESULTS_PER_PAGE} from '../../_constants/list.const';
 
 @Component({
   selector: 'app-all-trips',

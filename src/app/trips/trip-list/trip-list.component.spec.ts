@@ -8,6 +8,7 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpLoaderFactory} from '../../app.module';
 import {HttpClient} from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 describe('TripListComponent', () => {
   let component: TripListComponent;
@@ -22,7 +23,7 @@ describe('TripListComponent', () => {
           useFactory: HttpLoaderFactory,
           deps: [HttpClient]
         }
-      }), NgbModule],
+      }), NgbModule, ReactiveFormsModule, FormsModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
       .compileComponents();

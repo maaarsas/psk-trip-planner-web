@@ -1,9 +1,6 @@
 <form (ngSubmit)="onSubmit()">
-  <div class="people trip-form">
-    <label for="formControlSearch">Add people</label>
-    <input type="text" class="form-control people-input" id="formControlSearch">
-  </div>
   <div class="trip-form">
+    <app-user-search></app-user-search>
     <!--display added users-->
   </div>
   <div class="dates trip-form d-flex">

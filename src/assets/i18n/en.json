@@ -9,7 +9,9 @@
     "create-trip": "Create trip",
     "edit-trip": "Edit trip",
     "invitations": "Invitations to trips",
-    "my-trips": "My trips"
+    "my-trips": "My trips",
+    "add-office": "Add a new office",
+    "office-list": "List of offices"
   },
   "page-summaries": {
     "my-trips": "In the list below there are all your accepted trips. You can view both upcoming and past trips.",
@@ -27,7 +29,10 @@
   },
   "buttons": {
     "login": "Login",
-    "logout": "Logout"
+    "logout": "Logout",
+    "delete": "Delete",
+    "add": "Add",
+    "save": "Save"
   },
   "texts": {
     "logged-in-as": "Logged in as"
@@ -84,5 +89,12 @@
       "invitations": "Invitations",
       "my-trips": "My trips"
     }
+  },
+  "office": {
+    "capacity": "Capacity",
+    "empty-list": "No offices match the selected criteria",
+    "items-per-page": "Items per page",
+    "title": "Title",
+    "max-capacity": "Maximum capacity"
   }
 }

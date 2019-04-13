@@ -25,9 +25,14 @@ import { AllTripsComponent } from './planning/all-trips/all-trips.component';
 import { UsersComponent } from './admin/users/users.component';
 import { OfficesComponent } from './admin/offices/offices.component';
 import { TripFormComponent } from './forms/trip-form/trip-form.component';
+import { UserSearchComponent } from './user-search/user-search.component';
+import { UserSearchService } from './_services/user-search.service';
+import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import { TripRejectButtonComponent } from './trips/trip-list/action-buttons/trip-reject-button.component';
 import { TripParticipationStatusComponent } from './trips/trip-list/trip-participation-status.component';
 import { TripTaskStatusComponent } from './trips/trip-list/trip-task-status.component';
+import { OfficeFormComponent } from './admin/offices/office-form/office-form.component';
+import { OfficeListComponent } from './admin/offices/office-list/office-list.component';
 
 @NgModule({
   declarations: [
@@ -44,10 +49,13 @@ import { TripTaskStatusComponent } from './trips/trip-list/trip-task-status.comp
     UsersComponent,
     OfficesComponent,
     TripFormComponent,
+    UserSearchComponent,
     TripParticipationStatusComponent,
     TripTaskStatusComponent,
     TripAcceptButtonComponent,
-    TripRejectButtonComponent
+    TripRejectButtonComponent,
+    OfficeFormComponent,
+    OfficeListComponent
   ],
   entryComponents: [
     TripAcceptButtonComponent,
@@ -60,6 +68,7 @@ import { TripTaskStatusComponent } from './trips/trip-list/trip-task-status.comp
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
+    NgbTypeaheadModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -70,6 +79,7 @@ import { TripTaskStatusComponent } from './trips/trip-list/trip-task-status.comp
     NgxdModule
   ],
   providers: [
+    UserSearchService,
     TripService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }

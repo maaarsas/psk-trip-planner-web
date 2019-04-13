@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Trip, TripParams} from '../../_models/trip';
 import {TripService} from '../../_services/trip.service';
-import {DEFAULT_PAGE, DEFAULT_RESULTS_PER_PAGE, DEFAULT_START_DATE_FROM} from '../../_constants/trip-list.const';
+import {DEFAULT_START_DATE_FROM} from '../../_constants/trip-list.const';
 import { TripActionButton } from '../trip-list/action-buttons/trip-action-button';
+import {DEFAULT_PAGE, DEFAULT_RESULTS_PER_PAGE} from '../../_constants/list.const';
 
 @Component({
   selector: 'app-my-trips',

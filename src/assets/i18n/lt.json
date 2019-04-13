@@ -9,7 +9,9 @@
     "create-trip": "Sukurti kelionę",
     "edit-trip": "Redaguoti kelionę",
     "invitations": "Pakvietimai į keliones",
-    "my-trips": "Mano kelionės"
+    "my-trips": "Mano kelionės",
+    "add-office": "Pridėti naują ofisą",
+    "office-list": "Ofisų sąrašas"
   },
   "page-summaries": {
     "my-trips": "Žemiau pateiktas sąrašas kelionių, kurių pakvietimus jūs priėmėte. Galite peržiūrėti tiek suplanuotas, tiek praėjusias keliones.",
@@ -27,7 +29,10 @@
   },
   "buttons": {
     "login": "Prisijungti",
-    "logout": "Atsijungti"
+    "logout": "Atsijungti",
+    "delete": "Ištrinti",
+    "add": "Pridėti",
+    "save": "Išsaugoti"
   },
   "texts": {
     "logged-in-as": "Prisijungta kaip"
@@ -84,5 +89,12 @@
       "invitations": "Pakvietimai",
       "my-trips": "Mano kelionės"
     }
+  },
+  "office": {
+    "capacity": "Talpa",
+    "empty-list": "Pagal pasirinktus paieškos kriterijus ofisų nerasta",
+    "items-per-page": "Ofisų skaičius viename puslapyje",
+    "title": "Pavadinimas",
+    "max-capacity": "Max talpa"
   }
 }

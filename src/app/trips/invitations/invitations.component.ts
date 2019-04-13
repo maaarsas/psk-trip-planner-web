@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {Trip, TripParams} from '../../_models/trip';
 import {TripService} from '../../_services/trip.service';
-import { DEFAULT_PAGE, DEFAULT_RESULTS_PER_PAGE, DEFAULT_START_DATE_FROM } from '../../_constants/trip-list.const';
+import { DEFAULT_START_DATE_FROM } from '../../_constants/trip-list.const';
 import { TripAcceptButtonComponent } from '../trip-list/action-buttons/trip-accept-button.component';
 import { TripActionButton } from '../trip-list/action-buttons/trip-action-button';
 import { TripRejectButtonComponent } from '../trip-list/action-buttons/trip-reject-button.component';
+import {DEFAULT_PAGE, DEFAULT_RESULTS_PER_PAGE} from '../../_constants/list.const';
 
 @Component({
   selector: 'app-invitations',
