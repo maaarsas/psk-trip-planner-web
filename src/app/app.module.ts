@@ -31,6 +31,7 @@ import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import { TripRejectButtonComponent } from './trips/trip-list/action-buttons/trip-reject-button.component';
 import { TripParticipationStatusComponent } from './trips/trip-list/trip-participation-status.component';
 import { TripTaskStatusComponent } from './trips/trip-list/trip-task-status.component';
+import { TripDeclineButtonComponent } from './trips/trip-list/action-buttons/trip-decline-button.component';
 
 @NgModule({
   declarations: [
@@ -51,11 +52,13 @@ import { TripTaskStatusComponent } from './trips/trip-list/trip-task-status.comp
     TripParticipationStatusComponent,
     TripTaskStatusComponent,
     TripAcceptButtonComponent,
-    TripRejectButtonComponent
+    TripRejectButtonComponent,
+    TripDeclineButtonComponent
   ],
   entryComponents: [
     TripAcceptButtonComponent,
-    TripRejectButtonComponent
+    TripRejectButtonComponent,
+    TripDeclineButtonComponent
   ],
   imports: [
     BrowserModule,

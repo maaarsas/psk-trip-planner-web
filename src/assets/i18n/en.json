@@ -55,7 +55,7 @@
     "trip-tasks": "Reservations",
     "flight-ticket-status": "Flight tickets",
     "car-rental-status": "Car rental",
-    "accomodation-status": "Accomodation",
+    "accommodation-status": "Accommodation",
     "trip-participants": "Participants in this trip",
     "trip-participation": {
       "invited": "Waiting for response",
@@ -67,6 +67,14 @@
       "needed": "Needed, yet not ordered",
       "ordered": "Ordered"
     }
+  },
+  "trip-list-action": {
+    "accept": "Accept",
+    "accept-done": "Accepted",
+    "reject": "Reject",
+    "reject-done": "Rejected",
+    "decline": "Decline",
+    "decline-done": "Decline"
   },
   "navigation": {
     "primary": {
