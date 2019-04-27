@@ -1,38 +1,38 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { NgxdModule } from '@ngxd/core';
+import {AppComponent} from './app.component';
+import {MyOrganizedTripsComponent} from './planning/my-organized-trips/my-organized-trips.component';
+import {MainNavigationComponent} from './main-navigation/main-navigation.component';
+import {TripParticipationStatusComponent} from './trips/trip-list/trip-participation-status.component';
+import {NgxdModule} from "@ngxd/core";
+import {TripListComponent} from "./trips/trip-list/trip-list.component";
+import {MyTripsComponent} from "./trips/my-trips/my-trips.component";
+import {LoginComponent} from "./login/login.component";
+import {InvitationsComponent} from "./trips/invitations/invitations.component";
+import {NgModule} from "@angular/core";
+import {UserSearchComponent} from "./user-search/user-search.component";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {TripAcceptButtonComponent} from "./trips/trip-list/action-buttons/trip-accept-button.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {TripEditComponent} from "./planning/trip-edit/trip-edit.component";
+import {AppRoutingModule} from "./app-routing.module";
+import {ErrorModalComponent} from "./error-modal/error-modal.component";
+import {ErrorInterceptor} from "./_helpers/error.interceptor";
+import {AllTripsComponent} from "./planning/all-trips/all-trips.component";
+import {OfficeFormComponent} from "./admin/offices/office-form/office-form.component";
+import {UsersComponent} from "./admin/users/users.component";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {OfficeListComponent} from "./admin/offices/office-list/office-list.component";
+import {OfficesComponent} from "./admin/offices/offices.component";
+import {UserSearchService} from "./_services/user-search.service";
+import {TripService} from "./_services/trip.service";
+import {TripRejectButtonComponent} from "./trips/trip-list/action-buttons/trip-reject-button.component";
+import {TripFormComponent} from "./forms/trip-form/trip-form.component";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {JwtInterceptor} from "./_helpers/jwt.interceptor";
+import {NgbModule, NgbTypeaheadModule} from "@ng-bootstrap/ng-bootstrap";
+import {BrowserModule} from "@angular/platform-browser";
+import {TripCreateComponent} from "./planning/trip-create/trip-create.component";
+import {TripTaskStatusComponent} from "./trips/trip-list/trip-task-status.component";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { MainNavigationComponent } from './main-navigation/main-navigation.component';
-import { LoginComponent } from './login/login.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
-import { JwtInterceptor } from './_helpers/jwt.interceptor';
-import { ErrorInterceptor } from './_helpers/error.interceptor';
-import { TripAcceptButtonComponent } from './trips/trip-list/action-buttons/trip-accept-button.component';
-import { TripListComponent } from './trips/trip-list/trip-list.component';
-import { TripService } from './_services/trip.service';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MyTripsComponent } from './trips/my-trips/my-trips.component';
-import { InvitationsComponent } from './trips/invitations/invitations.component';
-import { TripCreateComponent } from './planning/trip-create/trip-create.component';
-import { TripEditComponent } from './planning/trip-edit/trip-edit.component';
-import { MyOrganizedTripsComponent } from './planning/my-organized-trips/my-organized-trips.component';
-import { AllTripsComponent } from './planning/all-trips/all-trips.component';
-import { UsersComponent } from './admin/users/users.component';
-import { OfficesComponent } from './admin/offices/offices.component';
-import { TripFormComponent } from './forms/trip-form/trip-form.component';
-import { UserSearchComponent } from './user-search/user-search.component';
-import { UserSearchService } from './_services/user-search.service';
-import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
-import { TripRejectButtonComponent } from './trips/trip-list/action-buttons/trip-reject-button.component';
-import { TripParticipationStatusComponent } from './trips/trip-list/trip-participation-status.component';
-import { TripTaskStatusComponent } from './trips/trip-list/trip-task-status.component';
-import { OfficeFormComponent } from './admin/offices/office-form/office-form.component';
-import { OfficeListComponent } from './admin/offices/office-list/office-list.component';
 
 @NgModule({
   declarations: [
@@ -55,11 +55,13 @@ import { OfficeListComponent } from './admin/offices/office-list/office-list.com
     TripAcceptButtonComponent,
     TripRejectButtonComponent,
     OfficeFormComponent,
-    OfficeListComponent
+    OfficeListComponent,
+    ErrorModalComponent
   ],
   entryComponents: [
     TripAcceptButtonComponent,
-    TripRejectButtonComponent
+    TripRejectButtonComponent,
+    ErrorModalComponent
   ],
   imports: [
     BrowserModule,

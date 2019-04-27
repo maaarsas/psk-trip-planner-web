@@ -11,7 +11,6 @@ export class UserService {
   private currentUser: User;
 
   constructor(private http: HttpClient) {
-    this.updateCurrentUser();
   }
 
   getCurrentUser(): User {

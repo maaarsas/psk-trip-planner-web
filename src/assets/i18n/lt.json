@@ -97,4 +97,21 @@
     "title": "Pavadinimas",
     "max-capacity": "Max talpa"
   }
+  "error": {
+    "BE_FAILURE": "Įvyko netikėta klaida",
+    "OFFICE_VALIDATION_CAPACITY": "Klaida, ofisas privalo turėti dydį",
+    "OFFICE_VALIDATION_TITLE": "Klaida, ofisas privalo turėti pavadinimą",
+    "TRIP_VALIDATION_DATE_NOT_PROVIDED": "Klaida, kelionė privalo turėti pradžios bei pabaigos datas",
+    "TRIP_VALIDATION_DATE_END_BEFORE_NOW": "Klaida, kelionės pabaiga negali būti praeityje",
+    "TRIP_VALIDATION_DATE_START_BEFORE_NOW": "Klaida, kelionės pradžia negali būti praeityje",
+    "TRIP_VALIDATION_DATE_START_AFTER_END": "Klaida, kelionės pradžia negali būti vėliau nei jos pabaiga",
+    "TRIP_VALIDATION_OFFICE_REQUIRED": "Klaida, būtina nurodyti ofisą",
+    "TRIP_VALIDATION_OFFICE_SAME": "Klaida, pradžios bei pabaigos ofisai negali būti tie patys",
+    "TRIP_VALIDATION_OFFICE_DOES_NOT_EXIST": "Klaida, ofisas neegzistuoja",
+    "TRIP_VALIDATION_PARTICIPANT_DOES_NOT_EXIST": "Klaida, kelionės dalyvis neegzistuoja",
+    "OFFICE_NOT_FOUND": "Klaida, ofisas nerastas",
+    "AUTHENTICATION_EMAIL_NOT_FOUND": "Klaida, nerastas el. paštas",
+    "AUTHENTICATION_INVALID_OR_EXPIRED_TOKEN": "Klaida, baigėsi sesijos laikas",
+    "AUTHENTICATION_ERROR": "Autentikacijos klaida"
+  }
 }
