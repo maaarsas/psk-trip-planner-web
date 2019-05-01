@@ -1,3 +1,14 @@
-<p>
-  office-search works!
-</p>
+<div>
+  <input type="text"
+  class="form-control office-input"
+  id="formControlSearch"
+  [ngbTypeahead]="search"
+  autofocus/>
+  <ul *ngIf="results">
+    <li class="list-group-item" *ngFor="let result of results">
+      <span>
+        {{ result.title }}
+      </span>
+    </li>
+  </ul>
+</div>
