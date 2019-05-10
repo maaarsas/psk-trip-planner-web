@@ -55,7 +55,7 @@
     "trip-tasks": "Rezervacijos",
     "flight-ticket-status": "Skrydžio bilietai",
     "car-rental-status": "Automobilio nuoma",
-    "accomodation-status": "Apgyvendinimas",
+    "accommodation-status": "Apgyvendinimas",
     "trip-participants": "Kelionės dalyviai",
     "trip-participation": {
       "invited": "Laukiama atsakymo",
@@ -67,6 +67,14 @@
       "needed": "Reikia, dar neužsakyta",
       "ordered": "Užsakyta"
     }
+  },
+  "trip-list-action": {
+    "accept": "Priimti",
+    "accept-done": "Priimta",
+    "reject": "Atmesti",
+    "reject-done": "Atmesta",
+    "decline": "Atsisakyti",
+    "decline-done": "Atsisakyta"
   },
   "navigation": {
     "primary": {
