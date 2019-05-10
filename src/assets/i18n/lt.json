@@ -80,8 +80,7 @@
     "primary": {
       "trips": "Kelionės",
       "planning": "Planavimas",
-      "administration": "Administravimas",
-      "statistics": "Statistika"
+      "administration": "Administravimas"
     },
     "secondary": {
       "all-offices": "Visi ofisai",

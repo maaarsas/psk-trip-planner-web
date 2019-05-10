@@ -80,8 +80,7 @@
     "primary": {
       "trips": "Trips",
       "planning": "Planning",
-      "administration": "Administration",
-      "statistics": "Statistics"
+      "administration": "Administration"
     },
     "secondary": {
       "all-offices": "All offices",
