@@ -35,7 +35,7 @@ const routes: Routes = [
           { path: 'all', component: AllTripsComponent },
           { path: '', pathMatch: 'full', redirectTo: 'my-organized' }, // default route
         ],
-        data: { roles: ['ORGANIZER', 'ADMIN'] }
+        data: { roles: ['ORGANIZER', 'ADMINISTRATOR'] }
       },
       {
         path: 'admin',
@@ -44,7 +44,7 @@ const routes: Routes = [
           { path: 'offices', component: OfficesComponent },
           { path: '', pathMatch: 'full', redirectTo: 'users' }, // default route
         ],
-        data: { roles: ['ADMIN'] }
+        data: { roles: ['ADMINISTRATOR'] }
       },
       { path: '', pathMatch: 'full', redirectTo: 'trips' }
     ]
