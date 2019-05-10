@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { RoleGuard } from './_guards/role.guard';
 import { OfficesComponent } from './admin/offices/offices.component';
 import { UsersComponent } from './admin/users/users.component';
 import { LoginComponent } from './login/login.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   {
     path: '',
     canActivate: [AuthGuard],
+    canActivateChild: [RoleGuard],
     children: [
       {
         path: 'trips',
@@ -32,7 +34,8 @@ const routes: Routes = [
           { path: 'my-organized', component: MyOrganizedTripsComponent },
           { path: 'all', component: AllTripsComponent },
           { path: '', pathMatch: 'full', redirectTo: 'my-organized' }, // default route
-        ]
+        ],
+        data: { roles: ['ORGANIZER', 'ADMIN'] }
       },
       {
         path: 'admin',
@@ -40,7 +43,8 @@ const routes: Routes = [
           { path: 'users', component: UsersComponent },
           { path: 'offices', component: OfficesComponent },
           { path: '', pathMatch: 'full', redirectTo: 'users' }, // default route
-        ]
+        ],
+        data: { roles: ['ADMIN'] }
       },
       { path: '', pathMatch: 'full', redirectTo: 'trips' }
     ]
