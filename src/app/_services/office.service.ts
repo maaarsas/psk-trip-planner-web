@@ -19,7 +19,11 @@ export class OfficeService {
     return this.http.delete(`${environment.apiUrl}/office/${office.id}`);
   }
 
-  addOrUpdateOffice(office: Office): Observable<any> {
+  addOffice(office: Office): Observable<any> {
     return this.http.post(`${environment.apiUrl}/office`, office);
+  }
+
+  updateOffice(office: Office): Observable<any> {
+    return this.http.put(`${environment.apiUrl}/office`, office);
   }
 }

@@ -32,7 +32,8 @@
     "logout": "Atsijungti",
     "delete": "Ištrinti",
     "add": "Pridėti",
-    "save": "Išsaugoti"
+    "save": "Išsaugoti",
+    "close": "Uždaryti"
   },
   "texts": {
     "logged-in-as": "Prisijungta kaip"
@@ -96,8 +97,10 @@
     "items-per-page": "Ofisų skaičius viename puslapyje",
     "title": "Pavadinimas",
     "max-capacity": "Max talpa"
-  }
+  },
   "error": {
+    "error": "Klaida",
+    "undefined": "Įvyko neapibrėžta klaida",
     "BE_FAILURE": "Įvyko netikėta klaida",
     "OFFICE_VALIDATION_CAPACITY": "Klaida, ofisas privalo turėti dydį",
     "OFFICE_VALIDATION_TITLE": "Klaida, ofisas privalo turėti pavadinimą",

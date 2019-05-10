@@ -19,8 +19,12 @@ export class OfficesComponent {
     this.officeService.deleteOffice(office).subscribe(() => this.getOffices());
   }
 
-  onOfficeAddOfEdit(office: Office) {
-    this.officeService.addOrUpdateOffice(office).subscribe(() => this.getOffices());
+  onOfficeAdd(office: Office) {
+    this.officeService.addOffice(office).subscribe(() => this.getOffices());
+  }
+
+  onOfficeUpdate(office: Office) {
+    this.officeService.updateOffice(office).subscribe(() => this.getOffices());
   }
 
   getOffices() {

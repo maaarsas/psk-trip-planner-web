@@ -1,6 +1,5 @@
 <h1>{{ 'headings.offices' | translate }}</h1>
 
-<app-office-form (submitForm)="onOfficeAddOfEdit($event)"></app-office-form>
+<app-office-form (submitForm)="onOfficeAdd($event)"></app-office-form>
 
-<app-office-list [offices]="offices" (deleteOffice)="onOfficeDelete($event)" (editOffice)="onOfficeAddOfEdit($event)"
-                 (paramsChange)="onParamsChange($event)"></app-office-list>
+<app-office-list [offices]="offices" (deleteOffice)="onOfficeDelete($event)" (editOffice)="onOfficeUpdate($event)"></app-office-list>

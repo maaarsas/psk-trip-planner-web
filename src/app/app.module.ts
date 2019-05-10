@@ -26,7 +26,7 @@ import {UserSearchService} from "./_services/user-search.service";
 import {TripService} from "./_services/trip.service";
 import {TripRejectButtonComponent} from "./trips/trip-list/action-buttons/trip-reject-button.component";
 import {TripFormComponent} from "./forms/trip-form/trip-form.component";
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {JwtInterceptor} from "./_helpers/jwt.interceptor";
 import {NgbModule, NgbTypeaheadModule} from "@ng-bootstrap/ng-bootstrap";
 import {BrowserModule} from "@angular/platform-browser";

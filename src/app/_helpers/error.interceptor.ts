@@ -31,7 +31,7 @@ export class ErrorInterceptor implements HttpInterceptor {
           location.reload(true);
         }
 
-        if (err.status !== 403) {
+        if (err.status !== 403 && err.status !== 200) {
           const modalRef = this.modalService.open(ErrorModalComponent);
           modalRef.componentInstance.errorMessage = err.error.message;
         }

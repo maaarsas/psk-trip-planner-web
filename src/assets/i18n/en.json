@@ -32,7 +32,8 @@
     "logout": "Logout",
     "delete": "Delete",
     "add": "Add",
-    "save": "Save"
+    "save": "Save",
+    "close": "Close"
   },
   "texts": {
     "logged-in-as": "Logged in as"
@@ -98,6 +99,8 @@
     "max-capacity": "Maximum capacity"
   },
   "error": {
+    "error": "Error",
+    "undefined": "An undefined error has occurred",
     "BE_FAILURE": "An unexpected error has occurred",
     "OFFICE_VALIDATION_CAPACITY": "Error, office must have a capacity",
     "OFFICE_VALIDATION_TITLE": "Error, office must have a title",
