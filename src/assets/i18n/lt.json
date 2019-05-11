@@ -108,6 +108,7 @@
   "error": {
     "error": "Klaida",
     "undefined": "Įvyko neapibrėžta klaida",
+    "no-access-rights-error": "Jūs neturite teisių naudotis šia funkcija",
     "BE_FAILURE": "Įvyko netikėta klaida",
     "OFFICE_VALIDATION_CAPACITY": "Klaida, ofisas privalo turėti dydį",
     "OFFICE_VALIDATION_TITLE": "Klaida, ofisas privalo turėti pavadinimą",
