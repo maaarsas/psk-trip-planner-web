@@ -80,7 +80,9 @@
     "reject": "Reject",
     "reject-done": "Rejected",
     "decline": "Decline",
-    "decline-done": "Declined"
+    "decline-done": "Declined",
+    "merge": "Merge with another trip",
+    "merge-done": "Merged"
   },
   "navigation": {
     "primary": {

@@ -80,7 +80,9 @@
     "reject": "Atmesti",
     "reject-done": "Atmesta",
     "decline": "Atsisakyti",
-    "decline-done": "Atsisakyta"
+    "decline-done": "Atsisakyta",
+    "merge": "Sujungti su kita kelione",
+    "merge-done": "Sujungta"
   },
   "navigation": {
     "primary": {
