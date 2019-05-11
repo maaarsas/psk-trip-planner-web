@@ -56,7 +56,7 @@ import { TripDeclineButtonComponent } from './trips/trip-list/action-buttons/tri
     TripTaskStatusComponent,
     TripAcceptButtonComponent,
     TripRejectButtonComponent,
-    TripDeclineButtonComponent
+    TripDeclineButtonComponent,
     OfficeFormComponent,
     OfficeListComponent,
     ErrorModalComponent
