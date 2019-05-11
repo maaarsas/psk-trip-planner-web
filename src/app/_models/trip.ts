@@ -24,7 +24,7 @@ export interface Trip {
   toOffice: Office;
   flightTicketStatus: string;
   carRentalStatus: string;
-  accomodationStatus: string;
+  accommodationStatus: string;
   createdDateTime: string;
   lastEditDateTime: string;
 }

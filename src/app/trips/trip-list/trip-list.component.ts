@@ -136,4 +136,14 @@ export class TripListComponent {
       return null;
     }
   }
+
+  hasTripStarted(trip: Trip){
+    const today = new Date(DEFAULT_START_DATE_FROM);
+    const startDate = new Date(trip.startDate);
+    if(today < startDate){
+      return false;
+    }else{
+      return true;
+    }
+  }
 }

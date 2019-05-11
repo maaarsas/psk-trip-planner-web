@@ -16,8 +16,7 @@ export class MainNavigationComponent {
   readonly primaryNavigationLinks = [
     { route: 'trips', name: 'navigation.primary.trips'},
     { route: 'planning', name: 'navigation.primary.planning'},
-    { route: 'admin', name: 'navigation.primary.administration'},
-    { route: 'statistics', name: 'navigation.primary.statistics'},
+    { route: 'admin', name: 'navigation.primary.administration'}
   ];
 
   readonly secondaryNavigationLinks = [
@@ -33,9 +32,7 @@ export class MainNavigationComponent {
     { route: 'admin', secondaryLinks: [
         { route: 'admin/users', name: 'navigation.secondary.all-users' },
         { route: 'admin/offices', name: 'navigation.secondary.all-offices' },
-      ]},
-    { route: 'statistics', secondaryLinks: [
-      ]},
+      ]}
   ];
 
   currentSecondaryNavigationLinks = [];

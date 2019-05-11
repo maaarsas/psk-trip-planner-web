@@ -61,7 +61,7 @@
     "trip-tasks": "Reservations",
     "flight-ticket-status": "Flight tickets",
     "car-rental-status": "Car rental",
-    "accomodation-status": "Accomodation",
+    "accommodation-status": "Accommodation",
     "trip-participants": "Participants in this trip",
     "trip-participation": {
       "invited": "Waiting for response",
@@ -74,12 +74,19 @@
       "ordered": "Ordered"
     }
   },
+  "trip-list-action": {
+    "accept": "Accept",
+    "accept-done": "Accepted",
+    "reject": "Reject",
+    "reject-done": "Rejected",
+    "decline": "Decline",
+    "decline-done": "Declined"
+  },
   "navigation": {
     "primary": {
       "trips": "Trips",
       "planning": "Planning",
-      "administration": "Administration",
-      "statistics": "Statistics"
+      "administration": "Administration"
     },
     "secondary": {
       "all-offices": "All offices",

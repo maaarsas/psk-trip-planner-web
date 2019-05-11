@@ -42,11 +42,6 @@ const routes: Routes = [
           { path: '', pathMatch: 'full', redirectTo: 'users' }, // default route
         ]
       },
-      {
-        path: 'statistics',
-        children: [
-        ]
-      },
       { path: '', pathMatch: 'full', redirectTo: 'trips' }
     ]
   },
