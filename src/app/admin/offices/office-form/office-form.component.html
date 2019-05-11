@@ -1,0 +1,9 @@
+<h2>{{ 'headings.add-office' | translate }}</h2>
+
+<form [formGroup]="officeForm" (ngSubmit)="onSubmit()">
+    <label for="formControlTitle">{{ 'office.title' | translate }}:</label>
+    <input formControlName="title" type="text" class="form-control" id="formControlTitle">
+    <label for="fromControlMaxCapacity">{{ 'office.max-capacity' | translate }}:</label>
+    <input formControlName="maxCapacity" type="number" type="number" min="0" max="20" class="form-control" id="fromControlMaxCapacity">
+  <button type="submit" class="btn btn-success" [disabled]="officeForm.invalid">{{ 'buttons.add' | translate }}</button>
+</form>

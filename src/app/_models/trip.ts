@@ -1,3 +1,5 @@
+import { Office } from './office';
+
 export interface Person {
   id: number;
   name: string;
@@ -10,12 +12,6 @@ export interface TripParticipation {
   status: string;
   createdDateTime: string;
   lastEditedDateTime: string;
-}
-
-export interface Office {
-  id: number;
-  title: string;
-  maxCapacity: number;
 }
 
 export interface Trip {

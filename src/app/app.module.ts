@@ -3,9 +3,12 @@ import { NgModule } from '@angular/core';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgxdModule } from '@ngxd/core';
+import { OfficeFormComponent } from './admin/offices/office-form/office-form.component';
+import { OfficeListComponent } from './admin/offices/office-list/office-list.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ErrorModalComponent } from './error-modal/error-modal.component';
 import { MainNavigationComponent } from './main-navigation/main-navigation.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -53,12 +56,16 @@ import { TripDeclineButtonComponent } from './trips/trip-list/action-buttons/tri
     TripTaskStatusComponent,
     TripAcceptButtonComponent,
     TripRejectButtonComponent,
-    TripDeclineButtonComponent
+    TripDeclineButtonComponent,
+    OfficeFormComponent,
+    OfficeListComponent,
+    ErrorModalComponent
   ],
   entryComponents: [
     TripAcceptButtonComponent,
     TripRejectButtonComponent,
-    TripDeclineButtonComponent
+    TripDeclineButtonComponent,
+    ErrorModalComponent
   ],
   imports: [
     BrowserModule,
