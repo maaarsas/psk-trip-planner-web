@@ -33,7 +33,8 @@
     "delete": "Ištrinti",
     "add": "Pridėti",
     "save": "Išsaugoti",
-    "close": "Uždaryti"
+    "close": "Uždaryti",
+    "cancel": "Atšaukti"
   },
   "texts": {
     "logged-in-as": "Prisijungta kaip"
@@ -83,6 +84,11 @@
     "decline-done": "Atsisakyta",
     "merge": "Sujungti su kita kelione",
     "merge-done": "Sujungta"
+  },
+  "trip-merge": {
+    "modal-title": "Kelionių jungimas",
+    "to-trip-title": "Pasirinkta kelionė, prie kurios bus jungiama",
+    "mergeable-trips-label": "Iš sąrašo žemiau pasirinkite, kurią kelionę prijungsite. Galima jungti tik tas keliones, kurių datos nesiskiria daugiau kaip 1 diena bei jų vietos sutampa."
   },
   "navigation": {
     "primary": {

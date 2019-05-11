@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <h4 class="modal-title"></h4>
+  <h4 class="modal-title">{{ 'trip-merge.modal-title' | translate }}</h4>
   <button
     type="button"
     class="close"
@@ -10,7 +10,9 @@
   </button>
 </div>
 <div class="modal-body">
-  <p>ggg</p>
+  <p>{{ 'trip-merge.to-trip-title' | translate }}:</p>
+  <p><b>{{ getShortTripSummary(this.toTrip)}}</b></p>
+  <p>{{ 'trip-merge.mergeable-trips-label' | translate }}</p>
 </div>
 <div class="modal-footer">
   <button
@@ -18,6 +20,6 @@
     class="btn btn-outline-dark"
     (click)="activeModal.close('Close click')"
   >
-    {{ "buttons.close" | translate }}
+    {{ "buttons.cancel" | translate }}
   </button>
 </div>
