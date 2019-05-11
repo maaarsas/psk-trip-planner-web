@@ -1,12 +1,8 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Trip, TripParams} from '../../_models/trip';
-import {
-  DEFAULT_PAGE,
-  DEFAULT_START_DATE_FROM,
-  DEFAULT_START_DATE_FROM_MODEL,
-  RESULTS_PER_PAGE_OPTIONS, DEFAULT_RESULTS_PER_PAGE,
-} from '../../_constants/trip-list.const';
-import { TripActionButton } from './action-buttons/trip-action-button';
+import {DEFAULT_START_DATE_FROM, DEFAULT_START_DATE_FROM_MODEL} from '../../_constants/trip-list.const';
+import {TripActionButton} from './action-buttons/trip-action-button';
+import {DEFAULT_PAGE, DEFAULT_RESULTS_PER_PAGE, RESULTS_PER_PAGE_OPTIONS} from '../../_constants/list.const';
 
 @Component({
   selector: 'app-trip-list',

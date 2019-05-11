@@ -9,7 +9,9 @@
     "create-trip": "Create trip",
     "edit-trip": "Edit trip",
     "invitations": "Invitations to trips",
-    "my-trips": "My trips"
+    "my-trips": "My trips",
+    "add-office": "Add a new office",
+    "office-list": "List of offices"
   },
   "page-summaries": {
     "my-trips": "In the list below there are all your accepted trips. You can view both upcoming and past trips.",
@@ -27,7 +29,11 @@
   },
   "buttons": {
     "login": "Login",
-    "logout": "Logout"
+    "logout": "Logout",
+    "delete": "Delete",
+    "add": "Add",
+    "save": "Save",
+    "close": "Close"
   },
   "texts": {
     "logged-in-as": "Logged in as"
@@ -91,5 +97,31 @@
       "invitations": "Invitations",
       "my-trips": "My trips"
     }
+  },
+  "office": {
+    "capacity": "Capacity",
+    "empty-list": "No offices match the selected criteria",
+    "items-per-page": "Items per page",
+    "title": "Title",
+    "max-capacity": "Maximum capacity"
+  },
+  "error": {
+    "error": "Error",
+    "undefined": "An undefined error has occurred",
+    "BE_FAILURE": "An unexpected error has occurred",
+    "OFFICE_VALIDATION_CAPACITY": "Error, office must have a capacity",
+    "OFFICE_VALIDATION_TITLE": "Error, office must have a title",
+    "TRIP_VALIDATION_DATE_NOT_PROVIDED": "Error, trip must have end and start dates",
+    "TRIP_VALIDATION_DATE_END_BEFORE_NOW": "Error, trip end date must be later than now",
+    "TRIP_VALIDATION_DATE_START_BEFORE_NOW": "Error, trip start date must be later than now",
+    "TRIP_VALIDATION_DATE_START_AFTER_END": "Error, trip start date cannot be after end date",
+    "TRIP_VALIDATION_OFFICE_REQUIRED": "Error, office is required",
+    "TRIP_VALIDATION_OFFICE_SAME": "Error, from and to offices cannot be same",
+    "TRIP_VALIDATION_OFFICE_DOES_NOT_EXIST": "Error, office does not exist",
+    "TRIP_VALIDATION_PARTICIPANT_DOES_NOT_EXIST": "Error, trip participant does not exist",
+    "OFFICE_NOT_FOUND": "Error, office not found",
+    "AUTHENTICATION_EMAIL_NOT_FOUND": "Error, email not found",
+    "AUTHENTICATION_INVALID_OR_EXPIRED_TOKEN": "Error, session expired",
+    "AUTHENTICATION_ERROR": "Authentication error"
   }
 }
