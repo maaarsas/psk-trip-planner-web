@@ -88,7 +88,8 @@
   "trip-merge": {
     "modal-title": "Trip merging",
     "to-trip-title": "Chosen trip on which another trip will be merged",
-    "mergeable-trips-label": "Choose a trip to merge from the list below. Only trips with similar dates and same locations can be merged."
+    "mergeable-trips-label": "Choose a trip to merge from the list below. Only trips with similar dates and same locations can be merged.",
+    "modal-no-mergeable-trips": "No trips match the merge criteria"
   },
   "navigation": {
     "primary": {
