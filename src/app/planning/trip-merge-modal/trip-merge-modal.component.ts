@@ -11,6 +11,8 @@ import { TripService } from '../../_services/trip.service';
 })
 export class TripMergeModalComponent implements OnInit {
 
+  private loading = false;
+  private finished = false;
   private mergeableTrips: Trip[];
   private selectedMergeableTrip: Trip;
   private _toTrip: Trip;
@@ -29,7 +31,13 @@ export class TripMergeModalComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit() {
-    this.tripService.mergeTrips(this.toTrip, this.selectedMergeableTrip);
+    this.loading = true;
+    this.tripService.mergeTrips(this.toTrip, this.selectedMergeableTrip).subscribe(
+      data => {
+        this.loading = false;
+        this.finished = true;
+      }
+    );
   }
 
   private loadMergeableTrips() {

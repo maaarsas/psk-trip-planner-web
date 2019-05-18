@@ -53,7 +53,7 @@ export class TripService {
   }
 
   mergeTrips(toTrip: Trip, mergeableTrip: Trip) {
-    return this.http.post(`${environment.apiUrl}/trip/${toTrip.id}/mergeTrips/${mergeableTrip.id}`, null);
+    return this.http.post(`${environment.apiUrl}/trip/${toTrip.id}/mergeTrip/${mergeableTrip.id}`, null);
   }
 
   private getCurrentUserTripParticipationIdFromTrip(trip: Trip): number {

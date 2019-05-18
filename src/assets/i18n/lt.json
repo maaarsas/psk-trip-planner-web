@@ -35,7 +35,8 @@
     "save": "Išsaugoti",
     "close": "Uždaryti",
     "cancel": "Atšaukti",
-    "merge": "Sujungti"
+    "merge": "Sujungti",
+    "finish": "Baigti"
   },
   "texts": {
     "logged-in-as": "Prisijungta kaip"

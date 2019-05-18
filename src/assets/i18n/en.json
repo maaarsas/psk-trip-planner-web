@@ -34,7 +34,8 @@
     "add": "Add",
     "save": "Save",
     "close": "Close",
-    "merge": "Sujungti"
+    "merge": "Merge",
+    "finish": "Finish"
   },
   "texts": {
     "logged-in-as": "Logged in as"
