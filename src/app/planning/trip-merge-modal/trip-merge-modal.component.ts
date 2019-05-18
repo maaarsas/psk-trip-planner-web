@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Trip } from '../../_models/trip';
 import { TripService } from '../../_services/trip.service';
@@ -10,9 +11,9 @@ import { TripService } from '../../_services/trip.service';
 })
 export class TripMergeModalComponent implements OnInit {
 
-  private _toTrip: Trip;
-
   private mergeableTrips: Trip[];
+  private selectedMergeableTrip: Trip;
+  private _toTrip: Trip;
 
   @Input() set toTrip(value: Trip) {
     this._toTrip = value;
@@ -27,12 +28,18 @@ export class TripMergeModalComponent implements OnInit {
 
   ngOnInit() {}
 
+  onSubmit() {
+    this.tripService.mergeTrips(this.toTrip, this.selectedMergeableTrip);
+  }
+
   private loadMergeableTrips() {
     this.tripService.getMergeableTrips(this.toTrip).subscribe(trips => this.mergeableTrips = trips);
   }
 
   public getShortTripSummary(trip: Trip) {
-    return trip.startDate + ' - ' + trip.endDate + ' | ' + trip.fromOffice.title + ' - ' + trip.toOffice.title;
+    return '#' + trip.id + ' '
+      + trip.startDate + ' - ' + trip.endDate + ' | '
+      + trip.fromOffice.title + ' - ' + trip.toOffice.title;
   }
 
 }

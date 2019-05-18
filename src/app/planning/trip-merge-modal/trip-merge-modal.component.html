@@ -13,6 +13,16 @@
   <p>{{ 'trip-merge.to-trip-title' | translate }}:</p>
   <p><b>{{ getShortTripSummary(this.toTrip)}}</b></p>
   <p>{{ 'trip-merge.mergeable-trips-label' | translate }}</p>
+
+  <form (ngSubmit)="onSubmit()">
+    <select formControlName="mergeableTripControl" [(ngModel)]="mergeableTrip">
+      <option [ngValue]="trip" *ngFor="let trip of mergeableTrips">{{ getShortTripSummary(trip)}}</option>
+    </select>
+    <button type="submit" class="btn btn-primary" [disabled]="loading">
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="loading"></span>
+      {{ 'buttons.merge' | translate }}
+    </button>
+  </form>
 </div>
 <div class="modal-footer">
   <button
