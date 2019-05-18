@@ -36,7 +36,7 @@
   <button
     type="button"
     class="btn btn-outline-dark"
-    (click)="activeModal.close('Close click')"
+    (click)="activeModal.dismiss('Close click')"
   >
     <span *ngIf="!finished">{{ "buttons.cancel" | translate }}</span>
     <span *ngIf="finished">{{ "buttons.finish" | translate }}</span>

@@ -12,7 +12,7 @@ import { TripService } from '../../_services/trip.service';
 export class TripMergeModalComponent implements OnInit {
 
   private loading = false;
-  private finished = false;
+  public finished = false;
   private mergeableTrips: Trip[];
   private selectedMergeableTrip: Trip;
   private _toTrip: Trip;

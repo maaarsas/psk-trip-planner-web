@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalOptions, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Trip } from '../../../_models/trip';
 import { TripService } from '../../../_services/trip.service';
 import { TripMergeModalComponent } from '../../../planning/trip-merge-modal/trip-merge-modal.component';
@@ -21,13 +21,19 @@ export class TripMergeButtonComponent implements TripActionButton {
   trip: Trip;
 
   loading = false;
-  done = false;
+  modalRef: NgbModalRef;
 
   constructor(private tripService: TripService, private modalService: NgbModal) { }
 
   onAction() {
-    const modalRef = this.modalService.open(TripMergeModalComponent);
-    modalRef.componentInstance.toTrip = this.trip;
+    const options: NgbModalOptions = { beforeDismiss: () => {
+      if (this.modalRef.componentInstance.finished) {
+        window.location.reload();
+      }
+      return true;
+    }};
+    this.modalRef = this.modalService.open(TripMergeModalComponent, options);
+    this.modalRef.componentInstance.toTrip = this.trip;
   }
 
 }
