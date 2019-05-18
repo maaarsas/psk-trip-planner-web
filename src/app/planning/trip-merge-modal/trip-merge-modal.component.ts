@@ -13,7 +13,7 @@ export class TripMergeModalComponent implements OnInit {
 
   private loading = false;
   public finished = false;
-  private mergeableTrips: Trip[];
+  public mergeableTrips: Trip[];
   private selectedMergeableTrip: Trip;
   private _toTrip: Trip;
 

@@ -21,6 +21,7 @@ export class TripMergeButtonComponent implements TripActionButton {
   trip: Trip;
 
   loading = false;
+  done = false;
   modalRef: NgbModalRef;
 
   constructor(private tripService: TripService, private modalService: NgbModal) { }
