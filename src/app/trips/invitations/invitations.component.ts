@@ -14,7 +14,7 @@ import {DEFAULT_PAGE, DEFAULT_RESULTS_PER_PAGE} from '../../_constants/list.cons
 })
 export class InvitationsComponent implements OnInit {
 
-  invitations: Trip[] = [];
+  invitations: Trip[] = null;
   availableInvitations: number;
   actionButtons: TripActionButton[] = [TripAcceptButtonComponent, TripRejectButtonComponent];
 

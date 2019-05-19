@@ -13,7 +13,7 @@ import { TripMergeButtonComponent } from '../../trips/trip-list/action-buttons/t
 })
 export class MyOrganizedTripsComponent implements OnInit {
 
-  trips: Trip[] = [];
+  trips: Trip[] = null;
   availableTrips: number;
   actionButtons: TripActionButton[] = [TripMergeButtonComponent];
 

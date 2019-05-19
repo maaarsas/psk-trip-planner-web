@@ -13,7 +13,7 @@ import {DEFAULT_PAGE, DEFAULT_RESULTS_PER_PAGE} from '../../_constants/list.cons
 })
 export class MyTripsComponent implements OnInit {
 
-  trips: Trip[] = [];
+  trips: Trip[] = null;
   availableTrips: number;
   actionButtons: TripActionButton[] = [TripDeclineButtonComponent];
 
