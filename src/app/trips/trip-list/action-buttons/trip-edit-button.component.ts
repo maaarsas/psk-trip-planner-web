@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
+import { Router } from '@angular/router';
 import { Trip } from '../../../_models/trip';
-import { TripService } from '../../../_services/trip.service';
 import { TripActionButton } from './trip-action-button';
 
 @Component({
@@ -21,11 +21,12 @@ export class TripEditButtonComponent implements TripActionButton {
   loading = false;
   done = false;
 
-  constructor(private tripService: TripService) { }
+  constructor(private router: Router) { }
 
   onAction() {
     this.loading = true;
-
+    this.router.navigate(['/planning/edit/' + this.trip.id]);
+    this.loading = false;
   }
 
 }
