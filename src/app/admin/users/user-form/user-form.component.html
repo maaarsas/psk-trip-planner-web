@@ -1,0 +1,13 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <label for="formControlName">First name:</label>
+  <input formControlName="name" type="text" class="form-control" id="formControlName">
+  <label for="formControlSurname">Last name:</label>
+  <input formControlName="surname" type="text" class="form-control" id="formControlSurname">
+  <label for="fromControlEmail">Email:</label>
+  <input formControlName="email" autocomplete="new-password" type="text" class="form-control" id="fromControlEmail">
+  <label for="fromControlPassword">Password:</label>
+  <input formControlName="password" autocomplete="new-password" type="password" class="form-control" id="fromControlPassword">
+  <button type="submit" class="btn btn-success" [disabled]="userForm.invalid">{{ 'buttons.add' | translate }}</button>
+  <div *ngIf="userForm.get('email').invalid && userForm.get('email').touched">Email format is invalid</div>
+  <div *ngIf="userForm.get('password').invalid && userForm.get('password').touched">Password format is invalid</div>
+</form>

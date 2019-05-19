@@ -1,0 +1,38 @@
+<h2>Vartotoju sarasas:</h2>
+
+<div *ngIf="!loading && users">
+  <ngb-accordion>
+    <ngb-panel *ngFor="let user of users">
+      <ng-template ngbPanelHeader>
+        <div class="row">
+          <div class="col-12 col-md-3 col-lg-3">
+            <span><b>Name:</b> {{ user.name }}</span>
+          </div>
+          <div class="col-12 col-md-3 col-lg-3">
+            <span><b>Surname:</b> {{ user.surname }}</span>
+          </div>
+          <div class="col-12 col-md-3 col-lg-3">
+            <span><b>Role:</b>
+              <select (change)="onUserEdit($event.target.value, user)">
+                <option selected disabled>{{user.roles.includes("ADMINISTRATOR") ? "ADMINISTRATOR" : user.roles.includes("ORGANIZER") ? "ORGANIZER" : "USER"}}</option>
+                  <option value="USER">USER</option>
+                  <option value="ADMINISTRATOR">ADMINISTRATOR</option>
+                  <option value="ORGANIZER">ORGANIZER</option>
+              </select>
+            </span>
+          </div>
+          <div class="col-12 col-md-3">
+            <div class="float-right">
+              <button (click)="onUserDelete(user)" class="btn btn-sm btn-outline-dark">{{ 'buttons.delete' | translate }}</button>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+
+  <div class="alert alert-warning" *ngIf="users.length === 0">
+    {{ 'office.empty-list' | translate }}
+  </div>
+
+</div>

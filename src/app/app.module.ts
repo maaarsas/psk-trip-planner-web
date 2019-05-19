@@ -36,6 +36,8 @@ import { TripRejectButtonComponent } from './trips/trip-list/action-buttons/trip
 import { TripParticipationStatusComponent } from './trips/trip-list/trip-participation-status.component';
 import { TripTaskStatusComponent } from './trips/trip-list/trip-task-status.component';
 import { TripDeclineButtonComponent } from './trips/trip-list/action-buttons/trip-decline-button.component';
+import { UserListComponent } from './admin/users/user-list/user-list.component';
+import { UserFormComponent } from './admin/users/user-form/user-form.component';
 import { TripMergeModalComponent } from './planning/trip-merge-modal/trip-merge-modal.component';
 
 @NgModule({
@@ -63,6 +65,8 @@ import { TripMergeModalComponent } from './planning/trip-merge-modal/trip-merge-
     OfficeFormComponent,
     OfficeListComponent,
     ErrorModalComponent,
+    UserListComponent,
+    UserFormComponent
     TripMergeModalComponent
   ],
   entryComponents: [

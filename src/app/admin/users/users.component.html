@@ -1,1 +1,5 @@
 <h1>{{ 'headings.users' | translate }}</h1>
+
+<app-user-form (submitForm)="onUserAdd($event)"></app-user-form>
+
+<app-user-list [users]="users" (deleteUser)="onUserDelete($event)" (editUser)="onUserEdit($event)"></app-user-list>
