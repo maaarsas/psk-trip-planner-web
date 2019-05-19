@@ -89,60 +89,71 @@
       </ng-template>
       <ng-template ngbPanelContent>
         <div class="row">
-          <div class="col-12 col-md-6">
+          <div class="col-12">
             <h3>{{ 'trip-list.main-info' | translate }}</h3>
-            <table class="table table-sm table-borderless">
-              <tr>
-                <td>{{ 'trip-list.from-office' | translate }}</td>
-                <td><b>{{trip.fromOffice.title}}</b></td>
-              </tr>
-              <tr>
-                <td>{{ 'trip-list.to-office' | translate }}</td>
-                <td><b>{{trip.toOffice.title}}</b></td>
-              </tr>
-              <tr>
-                <td>{{ 'trip-list.start-date' | translate }}</td>
-                <td><b>{{trip.startDate}}</b></td>
-              </tr>
-              <tr>
-                <td>{{ 'trip-list.end-date' | translate }}</td>
-                <td><b>{{trip.endDate}}</b></td>
-              </tr>
-              <tr>
-                <td>{{ 'trip-list.organizer' | translate }}</td>
-                <td><b>{{trip.organizer.name}} {{trip.organizer.surname}}</b></td>
-              </tr>
-            </table>
-
-            <h3>{{ 'trip-list.trip-tasks' | translate }}</h3>
-            <table class="table table-sm table-borderless">
-              <tr>
-                <td>{{ 'trip-list.flight-ticket-status' | translate }}</td>
-                <td [ngSwitch]="trip.flightTicketStatus">
-                  <app-trip-task-status [taskStatus]="trip.flightTicketStatus"></app-trip-task-status>
-                </td>
-              </tr>
-              <tr>
-                <td>{{ 'trip-list.car-rental-status' | translate }}</td>
-                <td [ngSwitch]="trip.carRentalStatus">
-                  <app-trip-task-status [taskStatus]="trip.carRentalStatus"></app-trip-task-status>
-                </td>
-              </tr>
-              <tr>
-                <td>{{ 'trip-list.accommodation-status' | translate }}</td>
-                <td [ngSwitch]="trip.accommodationStatus">
-                  <app-trip-task-status [taskStatus]="trip.accommodationStatus"></app-trip-task-status>
-                </td>
-              </tr>
-            </table>
+            <div class="row">
+              <div class="col-6">
+                <table class="table table-sm table-borderless">
+                  <tr>
+                    <td>{{ 'trip-list.from-office' | translate }}</td>
+                    <td><b>{{trip.fromOffice.title}}</b></td>
+                  </tr>
+                  <tr>
+                    <td>{{ 'trip-list.to-office' | translate }}</td>
+                    <td><b>{{trip.toOffice.title}}</b></td>
+                  </tr>
+                  <tr>
+                    <td>{{ 'trip-list.organizer' | translate }}</td>
+                    <td><b>{{trip.organizer.name}} {{trip.organizer.surname}}</b></td>
+                  </tr>
+                </table>
+              </div>
+              <div class="col-6">
+                <table class="table table-sm table-borderless">
+                  <tr>
+                    <td>{{ 'trip-list.start-date' | translate }}</td>
+                    <td><b>{{trip.startDate}}</b></td>
+                  </tr>
+                  <tr>
+                    <td>{{ 'trip-list.end-date' | translate }}</td>
+                    <td><b>{{trip.endDate}}</b></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
           </div>
-          <div class="col-12 col-md-6">
+          <div class="col-12">
             <h3>{{ 'trip-list.trip-participants' | translate }} ({{ trip.tripParticipations.length }})</h3>
-            <table class="table table-sm table-borderless">
+            <table class="table table-sm table-bordered">
+              <tr>
+                <th>{{ 'trip-list.participant' | translate }}</th>
+                <th>{{ 'trip-list.participation-status' | translate }}</th>
+                <th>{{ 'trip-list.flight-ticket-status' | translate }}</th>
+                <th>{{ 'trip-list.car-rental-status' | translate }}</th>
+                <th>{{ 'trip-list.accommodation-status' | translate }}</th>
+              </tr>
               <tr *ngFor="let participation of trip.tripParticipations">
                 <td>{{ participation.participant.name }} {{ participation.participant.surname }}</td>
                 <td>
                   <app-trip-participation-status [participationStatus]="participation.status"></app-trip-participation-status>
+                </td>
+                <td [ngSwitch]="participation.flightTicketStatus">
+                  <app-trip-task-status [taskStatus]="participation.flightTicketStatus"></app-trip-task-status>
+                  <span *ngIf="participation.flightTicketPrice != null" class="participation-price">
+                    {{ participation.flightTicketPrice | currency: 'EUR' }}
+                  </span>
+                </td>
+                <td [ngSwitch]="participation.carRentalStatus">
+                  <app-trip-task-status [taskStatus]="participation.carRentalStatus"></app-trip-task-status>
+                  <span *ngIf="participation.carRentalPrice != null" class="participation-price">
+                    {{ participation.carRentalPrice | currency: 'EUR' }}
+                  </span>
+                </td>
+                <td [ngSwitch]="participation.accommodationStatus">
+                  <app-trip-task-status [taskStatus]="participation.accommodationStatus"></app-trip-task-status>
+                  <span *ngIf="participation.accommodationPrice != null" class="participation-price">
+                    {{ participation.accommodationPrice | currency: 'EUR' }}
+                  </span>
                 </td>
               </tr>
             </table>

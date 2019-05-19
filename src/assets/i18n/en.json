@@ -74,7 +74,9 @@
       "not-needed": "Not needed",
       "needed": "Needed, yet not ordered",
       "ordered": "Ordered"
-    }
+    },
+    "participation-status": "Trip participation status",
+    "participant": "Participant"
   },
   "trip-list-action": {
     "accept": "Accept",

@@ -1,5 +1,6 @@
+import { registerLocaleData } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgxdModule } from '@ngxd/core';
@@ -39,6 +40,8 @@ import { TripDeclineButtonComponent } from './trips/trip-list/action-buttons/tri
 import { UserListComponent } from './admin/users/user-list/user-list.component';
 import { UserFormComponent } from './admin/users/user-form/user-form.component';
 import { TripMergeModalComponent } from './planning/trip-merge-modal/trip-merge-modal.component';
+import localeLt from '@angular/common/locales/lt';
+registerLocaleData(localeLt);
 
 @NgModule({
   declarations: [
@@ -98,7 +101,8 @@ import { TripMergeModalComponent } from './planning/trip-merge-modal/trip-merge-
     UserSearchService,
     TripService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: LOCALE_ID, useValue: 'lt-LT' }
   ],
   bootstrap: [AppComponent]
 })
