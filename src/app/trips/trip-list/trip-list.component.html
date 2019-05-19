@@ -163,7 +163,7 @@
     </ngb-panel>
   </ngb-accordion>
 
-  <div class="alert alert-warning" *ngIf="trips.length == 0">
+  <div class="alert alert-warning" *ngIf="trips != null && trips.length == 0">
     {{ 'trip-list.empty-list' | translate }}
   </div>
 
