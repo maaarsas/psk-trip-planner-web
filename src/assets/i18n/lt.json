@@ -85,7 +85,9 @@
     "decline": "Atsisakyti",
     "decline-done": "Atsisakyta",
     "merge": "Sujungti su kita kelione",
-    "merge-done": "Sujungta"
+    "merge-done": "Sujungta",
+    "edit": "Redaguoti",
+    "edit-done": "Redagavimas baigtas"
   },
   "trip-merge": {
     "modal-title": "Kelionių jungimas",

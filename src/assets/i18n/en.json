@@ -84,7 +84,9 @@
     "decline": "Decline",
     "decline-done": "Declined",
     "merge": "Merge with another trip",
-    "merge-done": "Merged"
+    "merge-done": "Merged",
+    "edit": "Edit",
+    "edit-done": "Edited"
   },
   "trip-merge": {
     "modal-title": "Trip merging",

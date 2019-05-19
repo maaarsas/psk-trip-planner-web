@@ -16,6 +16,7 @@ import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { TripAcceptButtonComponent } from './trips/trip-list/action-buttons/trip-accept-button.component';
+import { TripEditButtonComponent } from './trips/trip-list/action-buttons/trip-edit-button.component';
 import { TripMergeButtonComponent } from './trips/trip-list/action-buttons/trip-merge-button.component';
 import { TripListComponent } from './trips/trip-list/trip-list.component';
 import { TripService } from './_services/trip.service';
@@ -62,6 +63,7 @@ import { TripMergeModalComponent } from './planning/trip-merge-modal/trip-merge-
     TripRejectButtonComponent,
     TripDeclineButtonComponent,
     TripMergeButtonComponent,
+    TripEditButtonComponent,
     OfficeFormComponent,
     OfficeListComponent,
     ErrorModalComponent,
@@ -74,6 +76,7 @@ import { TripMergeModalComponent } from './planning/trip-merge-modal/trip-merge-
     TripRejectButtonComponent,
     TripDeclineButtonComponent,
     TripMergeButtonComponent,
+    TripEditButtonComponent,
     ErrorModalComponent,
     TripMergeModalComponent
   ],

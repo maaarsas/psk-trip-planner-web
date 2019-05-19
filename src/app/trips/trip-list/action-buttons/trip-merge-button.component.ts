@@ -27,8 +27,11 @@ export class TripMergeButtonComponent implements TripActionButton {
   constructor(private tripService: TripService, private modalService: NgbModal) { }
 
   onAction() {
+    this.loading = true;
     const options: NgbModalOptions = { beforeDismiss: () => {
+      this.loading = false;
       if (this.modalRef.componentInstance.finished) {
+        this.done = true;
         window.location.reload();
       }
       return true;
