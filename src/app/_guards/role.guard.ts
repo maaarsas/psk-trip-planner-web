@@ -22,7 +22,11 @@ export class RoleGuard implements CanActivateChild {
       if (allowedRoles == null) {
         return true;
       }
-      const matchingAllowedRoles = this.userService.getCurrentUser().roles.filter(
+      const currentUser = this.userService.getCurrentUser();
+      if (currentUser == null) {
+        return true;
+      }
+      const matchingAllowedRoles = currentUser.roles.filter(
         element => allowedRoles.includes(element)
       );
       if (matchingAllowedRoles.length === 0) {

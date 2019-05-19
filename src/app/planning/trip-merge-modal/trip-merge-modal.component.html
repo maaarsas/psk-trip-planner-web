@@ -1,0 +1,44 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{ 'trip-merge.modal-title' | translate }}</h4>
+  <button
+    type="button"
+    class="close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <p>{{ 'trip-merge.to-trip-title' | translate }}:</p>
+  <p><b>{{ getShortTripSummary(this.toTrip)}}</b></p>
+  <p>{{ 'trip-merge.mergeable-trips-label' | translate }}</p>
+
+  <form (ngSubmit)="onSubmit()" *ngIf="mergeableTrips != null">
+    <div class="form-group">
+      <select *ngIf="mergeableTrips.length > 0" name="selectedMergeableTrip" class="form-control"
+              [(ngModel)]="selectedMergeableTrip">
+        <option [ngValue]="trip" *ngFor="let trip of mergeableTrips">{{ getShortTripSummary(trip)}}</option>
+      </select>
+      <div class="alert alert-warning" *ngIf="mergeableTrips.length == 0">
+        {{ 'trip-merge.modal-no-mergeable-trips' | translate }}
+      </div>
+    </div>
+    <button *ngIf="mergeableTrips.length > 0" type="submit" class="btn btn-primary"
+            [disabled]="selectedMergeableTrip == null || loading || finished">
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="loading"></span>
+      <span *ngIf="!finished"> {{ 'buttons.merge' | translate }}</span>
+      <span *ngIf="finished"> {{ 'trip-list-action.merge-done' | translate }}</span>
+    </button>
+  </form>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-outline-dark"
+    (click)="activeModal.dismiss('Close click')"
+  >
+    <span *ngIf="!finished">{{ "buttons.cancel" | translate }}</span>
+    <span *ngIf="finished">{{ "buttons.finish" | translate }}</span>
+  </button>
+</div>

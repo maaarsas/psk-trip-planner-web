@@ -16,6 +16,7 @@ import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { TripAcceptButtonComponent } from './trips/trip-list/action-buttons/trip-accept-button.component';
+import { TripMergeButtonComponent } from './trips/trip-list/action-buttons/trip-merge-button.component';
 import { TripListComponent } from './trips/trip-list/trip-list.component';
 import { TripService } from './_services/trip.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -37,6 +38,7 @@ import { TripTaskStatusComponent } from './trips/trip-list/trip-task-status.comp
 import { TripDeclineButtonComponent } from './trips/trip-list/action-buttons/trip-decline-button.component';
 import { UserListComponent } from './admin/users/user-list/user-list.component';
 import { UserFormComponent } from './admin/users/user-form/user-form.component';
+import { TripMergeModalComponent } from './planning/trip-merge-modal/trip-merge-modal.component';
 
 @NgModule({
   declarations: [
@@ -59,17 +61,21 @@ import { UserFormComponent } from './admin/users/user-form/user-form.component';
     TripAcceptButtonComponent,
     TripRejectButtonComponent,
     TripDeclineButtonComponent,
+    TripMergeButtonComponent,
     OfficeFormComponent,
     OfficeListComponent,
     ErrorModalComponent,
     UserListComponent,
     UserFormComponent
+    TripMergeModalComponent
   ],
   entryComponents: [
     TripAcceptButtonComponent,
     TripRejectButtonComponent,
     TripDeclineButtonComponent,
-    ErrorModalComponent
+    TripMergeButtonComponent,
+    ErrorModalComponent,
+    TripMergeModalComponent
   ],
   imports: [
     BrowserModule,
