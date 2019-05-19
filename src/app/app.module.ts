@@ -66,7 +66,7 @@ import { TripMergeModalComponent } from './planning/trip-merge-modal/trip-merge-
     OfficeListComponent,
     ErrorModalComponent,
     UserListComponent,
-    UserFormComponent
+    UserFormComponent,
     TripMergeModalComponent
   ],
   entryComponents: [
