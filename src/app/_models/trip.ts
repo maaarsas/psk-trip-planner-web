@@ -12,6 +12,12 @@ export interface TripParticipation {
   status: string;
   createdDateTime: string;
   lastEditedDateTime: string;
+  flightTicketStatus: string;
+  carRentalStatus: string;
+  accommodationStatus: string;
+  flightTicketPrice: number;
+  carRentalPrice: number;
+  accommodationPrice: number;
 }
 
 export interface Trip {
@@ -22,9 +28,6 @@ export interface Trip {
   endDate: string;
   fromOffice: Office;
   toOffice: Office;
-  flightTicketStatus: string;
-  carRentalStatus: string;
-  accommodationStatus: string;
   createdDateTime: string;
   lastEditDateTime: string;
 }

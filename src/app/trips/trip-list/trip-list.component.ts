@@ -34,7 +34,7 @@ export class TripListComponent {
   @Output()
   paramsChange = new EventEmitter<TripParams>();
 
-  loading = false;
+  loading = true;
 
   // datePickers' date models
   startDateFromModel = DEFAULT_START_DATE_FROM_MODEL;

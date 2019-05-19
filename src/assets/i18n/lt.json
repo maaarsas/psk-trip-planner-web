@@ -75,7 +75,9 @@
       "not-needed": "Nereikia",
       "needed": "Reikia, dar neužsakyta",
       "ordered": "Užsakyta"
-    }
+    },
+    "participation-status": "Dalyvavimo kelionėje statusas",
+    "participant": "Dalyvis"
   },
   "trip-list-action": {
     "accept": "Priimti",
