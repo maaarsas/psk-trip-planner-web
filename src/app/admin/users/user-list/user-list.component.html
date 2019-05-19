@@ -1,4 +1,4 @@
-<h2>Vartotoju sarasas:</h2>
+<h2>{{ 'users.user-list' | translate }}:</h2>
 
 <div *ngIf="!loading && users">
   <ngb-accordion>
@@ -6,13 +6,13 @@
       <ng-template ngbPanelHeader>
         <div class="row">
           <div class="col-12 col-md-3 col-lg-3">
-            <span><b>Name:</b> {{ user.name }}</span>
+            <span><b>{{ 'users.first-name' | translate }}:</b> {{ user.name }}</span>
           </div>
           <div class="col-12 col-md-3 col-lg-3">
-            <span><b>Surname:</b> {{ user.surname }}</span>
+            <span><b>{{ 'users.last-name' | translate }}:</b> {{ user.surname }}</span>
           </div>
           <div class="col-12 col-md-3 col-lg-3">
-            <span><b>Role:</b>
+            <span><b>{{ 'users.role' | translate }}:</b>
               <select (change)="onUserEdit($event.target.value, user)">
                 <option selected disabled>{{user.roles.includes("ADMINISTRATOR") ? "ADMINISTRATOR" : user.roles.includes("ORGANIZER") ? "ORGANIZER" : "USER"}}</option>
                   <option value="USER">USER</option>
