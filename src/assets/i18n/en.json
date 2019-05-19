@@ -119,6 +119,16 @@
     "title": "Title",
     "max-capacity": "Maximum capacity"
   },
+  "users": {
+    "first-name": "First name",
+    "last-name": "Last name",
+    "email": "Email",
+    "password": "Password",
+    "email-invalid": "Email format is invalid",
+    "password-invalid": "Password format is invalid",
+    "user-list": "User list",
+    "role": "Role"
+  },
   "error": {
     "error": "Error",
     "undefined": "An undefined error has occurred",

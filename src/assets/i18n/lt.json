@@ -120,6 +120,16 @@
     "title": "Pavadinimas",
     "max-capacity": "Max talpa"
   },
+  "users": {
+    "first-name": "Vardas",
+    "last-name": "Pavardė",
+    "email": "El. paštas",
+    "password": "Slaptažodis",
+    "email-invalid": "El.paštas neatitinka formato",
+    "password-invalid": "Slaptažodis neatitinka formato",
+    "user-list": "Vartotojų sąrašas",
+    "role": "Rolė"
+  },
   "error": {
     "error": "Klaida",
     "undefined": "Įvyko neapibrėžta klaida",

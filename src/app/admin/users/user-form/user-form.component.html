@@ -1,13 +1,13 @@
 <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-  <label for="formControlName">First name:</label>
+  <label for="formControlName">{{ 'users.first-name' | translate }}:</label>
   <input formControlName="name" type="text" class="form-control" id="formControlName">
-  <label for="formControlSurname">Last name:</label>
+  <label for="formControlSurname">{{ 'users.last-name' | translate }}:</label>
   <input formControlName="surname" type="text" class="form-control" id="formControlSurname">
-  <label for="fromControlEmail">Email:</label>
+  <label for="fromControlEmail">{{ 'users.email' | translate }}:</label>
   <input formControlName="email" autocomplete="new-password" type="text" class="form-control" id="fromControlEmail">
-  <label for="fromControlPassword">Password:</label>
-  <input formControlName="password" autocomplete="new-password" type="password" class="form-control" id="fromControlPassword">
+  <label for="fromControlPassword">{{ 'users.password' | translate }}:</label>
+  <input formControlName="password" autocomplete="new-password" type="text" class="form-control" id="fromControlPassword">
   <button type="submit" class="btn btn-success" [disabled]="userForm.invalid">{{ 'buttons.add' | translate }}</button>
-  <div *ngIf="userForm.get('email').invalid && userForm.get('email').touched">Email format is invalid</div>
-  <div *ngIf="userForm.get('password').invalid && userForm.get('password').touched">Password format is invalid</div>
+  <div *ngIf="userForm.get('email').invalid && userForm.get('email').touched">{{ 'users.email-invalid' | translate }}</div>
+  <div *ngIf="userForm.get('password').invalid && userForm.get('password').touched">{{ 'users.password' | translate }}</div>
 </form>
