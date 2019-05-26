@@ -64,7 +64,6 @@ export class TripListComponent {
       endDateFrom: this.endDateFrom,
       endDateTo: this.endDateTo
     });
-    console.log(this.actionButtons);
   }
 
   onResultsPerPageChange(resultsPerPage: number) {

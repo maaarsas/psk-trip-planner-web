@@ -35,7 +35,6 @@ export class TripEditComponent {
   }
 
   updateTrip(updatedTrip: Trip) {
-    console.log(updatedTrip);
     this.tripService.updateTrip(updatedTrip).subscribe(trip => {
       this.trip = trip;
     });
