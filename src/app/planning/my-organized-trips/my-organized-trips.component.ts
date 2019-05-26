@@ -3,9 +3,9 @@ import { DEFAULT_START_DATE_FROM } from '../../_constants/trip-list.const';
 import { Trip, TripParams } from '../../_models/trip';
 import { TripService } from '../../_services/trip.service';
 import {DEFAULT_PAGE, DEFAULT_RESULTS_PER_PAGE} from '../../_constants/list.const';
-import { TripActionButton } from '../../trips/trip-list/action-buttons/trip-action-button';
-import { TripEditButtonComponent } from '../../trips/trip-list/action-buttons/trip-edit-button.component';
-import { TripMergeButtonComponent } from '../../trips/trip-list/action-buttons/trip-merge-button.component';
+import {TripActionButton} from '../../trips/trip-list/action-buttons/trip-action-button';
+import {TripEditButtonComponent} from '../../trips/trip-list/action-buttons/trip-edit-button.component';
+
 
 @Component({
   selector: 'app-my-organized-trips',
@@ -14,9 +14,9 @@ import { TripMergeButtonComponent } from '../../trips/trip-list/action-buttons/t
 })
 export class MyOrganizedTripsComponent implements OnInit {
 
-  trips: Trip[] = null;
+  trips: Trip[] = [];
   availableTrips: number;
-  actionButtons: TripActionButton[] = [TripMergeButtonComponent, TripEditButtonComponent];
+  actionButtons: TripActionButton[] = [TripEditButtonComponent];
 
   constructor(private tripService: TripService) {
     this.onParamsChange({resultsPerPage: DEFAULT_RESULTS_PER_PAGE, page: DEFAULT_PAGE, startDateFrom: DEFAULT_START_DATE_FROM});
