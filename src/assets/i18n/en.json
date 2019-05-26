@@ -96,6 +96,11 @@
     "mergeable-trips-label": "Choose a trip to merge from the list below. Only trips with similar dates and same locations can be merged.",
     "modal-no-mergeable-trips": "No trips match the merge criteria"
   },
+  "trip-edit": {
+    "price": "Price",
+    "add-price": "Add price",
+    "mark-as-ordered": "Mark as ordered"
+  },
   "navigation": {
     "primary": {
       "trips": "Trips",

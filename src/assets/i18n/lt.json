@@ -97,6 +97,11 @@
     "mergeable-trips-label": "Iš sąrašo žemiau pasirinkite, kurią kelionę prijungsite. Galima jungti tik tas keliones, kurių datos nesiskiria daugiau kaip 1 diena bei jų vietos sutampa.",
     "modal-no-mergeable-trips": "Nėra kelionių, kurios atitiktų prijungimo sąlygas"
   },
+  "trip-edit": {
+    "price": "Kaina",
+    "add-price": "Pridėti kainą",
+    "mark-as-ordered": "Žymėti kaip užsakytą"
+  },
   "navigation": {
     "primary": {
       "trips": "Kelionės",

@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import { Trip, TripParams, TripParticipation, TripResponse } from '../_models/trip';
 import {environment} from '../../environments/environment';
 import { UserService } from './user.service';
+import {Office} from "../_models/office";
 
 
 @Injectable({
@@ -54,6 +55,14 @@ export class TripService {
 
   mergeTrips(toTrip: Trip, mergeableTrip: Trip) {
     return this.http.post(`${environment.apiUrl}/trip/${toTrip.id}/mergeTrip/${mergeableTrip.id}`, null);
+  }
+
+  updateTrip(trip: Trip): Observable<Trip> {
+    return this.http.put<Trip>(`${environment.apiUrl}/trip`, trip);
+  }
+
+  getTripById(id: number): Observable<Trip> {
+    return this.http.get<Trip>(`${environment.apiUrl}/trip/${id}`);
   }
 
   private getCurrentUserTripParticipationIdFromTrip(trip: Trip): number {

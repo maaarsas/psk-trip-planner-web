@@ -1,1 +1,140 @@
 <h1>{{ 'headings.edit-trip' | translate }}</h1>
+
+<div *ngIf="!trip">
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border" role="status">
+    </div>
+  </div>
+</div>
+
+<div *ngIf="trip" class="row">
+  <div class="col-12">
+    <h3>{{ 'trip-list.main-info' | translate }}</h3>
+    <div class="row">
+      <div class="col-6">
+        <table class="table table-sm table-borderless">
+          <tr>
+            <td>{{ 'trip-list.from-office' | translate }}</td>
+            <td><b>{{trip.fromOffice.title}}</b></td>
+          </tr>
+          <tr>
+            <td>{{ 'trip-list.to-office' | translate }}</td>
+            <td><b>{{trip.toOffice.title}}</b></td>
+          </tr>
+          <tr>
+            <td>{{ 'trip-list.organizer' | translate }}</td>
+            <td><b>{{trip.organizer.name}} {{trip.organizer.surname}}</b></td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-6">
+        <table class="table table-sm table-borderless">
+          <tr>
+            <td>{{ 'trip-list.start-date' | translate }}</td>
+            <td><b>{{trip.startDate}}</b></td>
+          </tr>
+          <tr>
+            <td>{{ 'trip-list.end-date' | translate }}</td>
+            <td><b>{{trip.endDate}}</b></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <h3>{{ 'trip-list.trip-participants' | translate }} ({{ trip.tripParticipations.length }})</h3>
+    <table class="table table-sm table-bordered">
+      <tr>
+        <th>{{ 'trip-list.participant' | translate }}</th>
+        <th>{{ 'trip-list.participation-status' | translate }}</th>
+        <th>{{ 'trip-list.flight-ticket-status' | translate }}</th>
+        <th>{{ 'trip-list.car-rental-status' | translate }}</th>
+        <th>{{ 'trip-list.accommodation-status' | translate }}</th>
+      </tr>
+      <tr *ngFor="let participation of trip.tripParticipations">
+        <td>{{ participation.participant.name }} {{ participation.participant.surname }}</td>
+        <td>
+          <app-trip-participation-status [participationStatus]="participation.status"></app-trip-participation-status>
+        </td>
+        <td [ngSwitch]="participation.flightTicketStatus">
+          <span  class="badge badge-secondary" *ngSwitchCase="'NOT_NEEDED'">{{ 'trip-list.task-status.not-needed' | translate }}</span>
+          <div *ngSwitchCase="'ORDERED'">
+            <span class="badge badge-success">{{ 'trip-list.task-status.ordered' | translate }}</span>
+            <span *ngIf="participation.flightTicketPrice" class="participation-price">{{ 'trip-edit.price' | translate }}: {{ participation.flightTicketPrice | currency: 'EUR' }}</span>
+          </div>
+          <div *ngSwitchCase="'NEEDED'">
+
+            <span class="badge badge-warning">{{ 'trip-list.task-status.needed' | translate }}</span>
+
+            <div *ngIf="participation.flightTicketPrice">
+              <span class="participation-price">{{ 'trip-edit.price' | translate }}: {{ participation.flightTicketPrice | currency: 'EUR' }}</span>
+              <button (click)="setItemAsOrdered(participation, 'flightTickedStatus' )" class="btn btn-sm btn-success">{{ 'trip-edit.mark-as-ordered' | translate }}</button>
+            </div>
+
+            <div *ngIf="!participation.flightTicketPrice">
+              <form (ngSubmit)="updateItemPrice($event, participation, 'flightTickedPrice')">
+                {{ 'trip-edit.price' | translate }} (&euro;):
+                <input class="number-input" type="number" name="price" min="0" value="0">
+                <br>
+                <input class="btn btn-primary btn-sm" type="submit" value="{{ 'trip-edit.add-price' | translate }}">
+              </form>
+            </div>
+
+          </div>
+        </td>
+        <td [ngSwitch]="participation.carRentalStatus">
+          <span  class="badge badge-secondary" *ngSwitchCase="'NOT_NEEDED'">{{ 'trip-list.task-status.not-needed' | translate }}</span>
+          <div *ngSwitchCase="'ORDERED'">
+            <span class="badge badge-success">{{ 'trip-list.task-status.ordered' | translate }}</span>
+            <span *ngIf="participation.carRentalPrice" class="participation-price">{{ 'trip-edit.price' | translate }}: {{ participation.carRentalPrice | currency: 'EUR' }}</span>
+          </div>
+          <div *ngSwitchCase="'NEEDED'">
+
+            <span class="badge badge-warning">{{ 'trip-list.task-status.needed' | translate }}</span>
+
+            <div *ngIf="participation.carRentalPrice">
+              <span class="participation-price">{{ 'trip-edit.price' | translate }}: {{ participation.carRentalPrice | currency: 'EUR' }}</span>
+              <button (click)="setItemAsOrdered(participation, 'carRentalStatus')" class="btn btn-sm btn-success">{{ 'trip-edit.mark-as-ordered' | translate }}</button>
+            </div>
+
+            <div *ngIf="!participation.carRentalPrice">
+              <form (ngSubmit)="updateItemPrice($event, participation, 'carRentalPrice')">
+                {{ 'trip-edit.price' | translate }} (&euro;):
+                <input class="number-input" type="number" name="price" min="0" value="0">
+                <br>
+                <input class="btn btn-primary btn-sm" type="submit" value="{{ 'trip-edit.add-price' | translate }}">
+              </form>
+            </div>
+
+          </div>
+        </td>
+        <td [ngSwitch]="participation.accommodationStatus">
+          <span  class="badge badge-secondary" *ngSwitchCase="'NOT_NEEDED'">{{ 'trip-list.task-status.not-needed' | translate }}</span>
+          <div *ngSwitchCase="'ORDERED'">
+            <span class="badge badge-success">{{ 'trip-list.task-status.ordered' | translate }}</span>
+            <span *ngIf="participation.accommodationPrice" style="display: block" class="participation-price">{{ 'trip-edit.price' | translate }}: {{ participation.accommodationPrice | currency: 'EUR' }}</span>
+          </div>
+          <div *ngSwitchCase="'NEEDED'">
+
+            <span class="badge badge-warning">{{ 'trip-list.task-status.needed' | translate }}</span>
+
+            <div *ngIf="participation.accommodationPrice">
+              <span *ngIf="participation.accommodationPrice" style="display: block" class="participation-price">{{ 'trip-edit.price' | translate }}: {{ participation.accommodationPrice | currency: 'EUR' }}</span>
+              <button (click)="setItemAsOrdered(participation, 'accommodationStatus')" class="btn btn-sm btn-success">{{ 'trip-edit.mark-as-ordered' | translate }}</button>
+            </div>
+
+            <div *ngIf="!participation.accommodationPrice">
+              <form (ngSubmit)="updateItemPrice($event, participation, 'accommodationPrice')">
+                {{ 'trip-edit.price' | translate }} (&euro;):
+                <input class="number-input" type="number" name="price" min="0" value="0">
+                <br>
+                <input class="btn btn-primary btn-sm" type="submit" value="{{ 'trip-edit.add-price' | translate }}">
+              </form>
+            </div>
+
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
