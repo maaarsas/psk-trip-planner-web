@@ -30,7 +30,6 @@ import {AllTripsComponent} from './planning/all-trips/all-trips.component';
 import {UsersComponent} from './admin/users/users.component';
 import {OfficesComponent} from './admin/offices/offices.component';
 import {TripFormComponent} from './forms/trip-form/trip-form.component';
-import {UserSearchComponent} from './user-search/user-search.component';
 import {UserSearchService} from './_services/user-search.service';
 import {NgbTypeaheadModule} from '@ng-bootstrap/ng-bootstrap';
 import {TripRejectButtonComponent} from './trips/trip-list/action-buttons/trip-reject-button.component';
@@ -40,7 +39,6 @@ import {TripDeclineButtonComponent} from './trips/trip-list/action-buttons/trip-
 import {UserListComponent} from './admin/users/user-list/user-list.component';
 import {UserFormComponent} from './admin/users/user-form/user-form.component';
 import {TripMergeModalComponent} from './planning/trip-merge-modal/trip-merge-modal.component';
-import {OfficeSearchComponent} from './office-search/office-search.component';
 import localeLt from '@angular/common/locales/lt';
 
 registerLocaleData(localeLt);
@@ -60,7 +58,6 @@ registerLocaleData(localeLt);
     UsersComponent,
     OfficesComponent,
     TripFormComponent,
-    UserSearchComponent,
     TripParticipationStatusComponent,
     TripTaskStatusComponent,
     TripAcceptButtonComponent,
@@ -73,8 +70,7 @@ registerLocaleData(localeLt);
     ErrorModalComponent,
     UserListComponent,
     UserFormComponent,
-    TripMergeModalComponent,
-    OfficeSearchComponent
+    TripMergeModalComponent
   ],
   entryComponents: [
     TripAcceptButtonComponent,

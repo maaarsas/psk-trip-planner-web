@@ -1,7 +1,14 @@
 <form (ngSubmit)="onSubmit()">
   <div class="trip-form">
-    <app-user-search></app-user-search>
-    <!--display added users-->
+    <label for="formControlSearch">Add people:</label>
+    <input id="formControlSearch"
+           type="text"
+           class="form-control people-input"
+           [ngbTypeahead]="search"/>
+    test
+    <div *ngFor="let pName of personsNames | async">
+      {{pName}}
+    </div>
   </div>
   <div class="dates trip-form d-flex">
     <div>
@@ -15,12 +22,22 @@
   </div>
   <div class="offices trip-form d-flex">
     <div>
-      <label>Office from:</label>
-      <app-office-search></app-office-search>
+      <label for="selectFromOffice" class="control-label">From office:</label>
+      <select class="form-control" id="selectFromOffice" (change)="saveFromSelection($event.target.value)">
+        <option value=""></option>
+        <option *ngFor="let office of offices" value="{{office.title}}">
+          {{office.title}}
+        </option>
+      </select>
     </div>
     <div>
-      <label>Office to:</label>
-      <app-office-search></app-office-search>
+      <label for="selectToOffice" class="control-label">To office:</label>
+      <select class="form-control" id="selectToOffice" (change)="saveToSelection($event.target.value)">
+        <option value=""></option>
+        <option *ngFor="let office of offices" value="{{office.title}}">
+          {{office.title}}
+        </option>
+      </select>
     </div>
   </div>
   <div class="custom-control custom-checkbox">
