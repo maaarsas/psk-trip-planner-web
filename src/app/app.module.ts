@@ -25,13 +25,11 @@ import { AllTripsComponent } from './planning/all-trips/all-trips.component';
 import { UsersComponent } from './admin/users/users.component';
 import { OfficesComponent } from './admin/offices/offices.component';
 import { TripFormComponent } from './forms/trip-form/trip-form.component';
-import { UserSearchComponent } from './user-search/user-search.component';
 import { UserSearchService } from './_services/user-search.service';
 import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import { TripRejectButtonComponent } from './trips/trip-list/action-buttons/trip-reject-button.component';
 import { TripParticipationStatusComponent } from './trips/trip-list/trip-participation-status.component';
 import { TripTaskStatusComponent } from './trips/trip-list/trip-task-status.component';
-import { OfficeSearchComponent } from './office-search/office-search.component';
 
 @NgModule({
   declarations: [
@@ -48,12 +46,10 @@ import { OfficeSearchComponent } from './office-search/office-search.component';
     UsersComponent,
     OfficesComponent,
     TripFormComponent,
-    UserSearchComponent,
     TripParticipationStatusComponent,
     TripTaskStatusComponent,
     TripAcceptButtonComponent,
     TripRejectButtonComponent,
-    OfficeSearchComponent
   ],
   entryComponents: [
     TripAcceptButtonComponent,

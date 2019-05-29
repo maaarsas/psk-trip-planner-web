@@ -12,10 +12,9 @@ export class OfficeService {
   constructor(private httpClient: HttpClient) {
   }
 
-  search(term: string): Observable<Office[]> {
+  getOffices(): Observable<Office[]> {
     return this.httpClient.get<Office[]>(`${environment.apiUrl}/office`, {
       params: new HttpParams()
-        .set('query', term)
     });
   }
 }
