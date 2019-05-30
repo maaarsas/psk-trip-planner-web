@@ -9,6 +9,7 @@ import {UserSearchService} from '../../_services/user-search.service';
 import {UserService} from '../../_services/user.service';
 import {User} from '../../_models/user';
 import {TripService} from '../../_services/trip.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-trip-form',
@@ -38,7 +39,8 @@ export class TripFormComponent implements OnInit {
     private officeService: OfficeService,
     private searchService: UserSearchService,
     private userService: UserService,
-    private tripService: TripService
+    private tripService: TripService,
+    private router: Router
   ) {
   }
 
@@ -139,7 +141,7 @@ export class TripFormComponent implements OnInit {
       fromOffice : this.fromOffice,
       toOffice: this.toOffice};
 
-    this.tripService.createTrip(trip).subscribe(() => { console.log('yay'); }, () => { console.log('nay'); });
+    this.tripService.createTrip(trip).subscribe(() => { this.router.navigate(['/planning/my-organized']); });
   }
 
   format = (x: {id: number, name: string, surname: string}) => x.id + '. ' + x.name + ' ' + x.surname;
