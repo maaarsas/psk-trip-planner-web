@@ -142,5 +142,5 @@ export class TripFormComponent implements OnInit {
     this.tripService.createTrip(trip).subscribe(() => { console.log('yay'); }, () => { console.log('nay'); });
   }
 
-  format = (x: {name: string}) => x.name;
+  format = (x: {id: number, name: string, surname: string}) => x.id + '. ' + x.name + ' ' + x.surname;
 }
