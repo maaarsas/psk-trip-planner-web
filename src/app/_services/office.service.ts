@@ -1,15 +1,16 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Office} from '../_models/office';
-import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Office} from '../_models/office';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OfficeService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getOffices(): Observable<Office[]> {
     return this.http.get<Office[]>(`${environment.apiUrl}/office`);

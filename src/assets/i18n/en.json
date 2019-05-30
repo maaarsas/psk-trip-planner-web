@@ -134,6 +134,20 @@
     "user-list": "User list",
     "role": "Role"
   },
+  "trip-create": {
+    "add-person": "Add person",
+    "name": "Name",
+    "surname": "Surname",
+    "needs-tickets": "Needs plane tickets",
+    "needs-rental": "Needs rental car",
+    "needs-accommodation": "Needs accommodation",
+    "delete": "Delete",
+    "date-from": "Date from",
+    "date-to": "Date to",
+    "from-office": "From office",
+    "to-office": "To office,",
+    "submit": "Submit"
+  },
   "error": {
     "error": "Error",
     "undefined": "An undefined error has occurred",
