@@ -1,13 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {OfficeService} from '../../_services/office.service';
-import {Person, TripParticipation} from '../../_models/trip';
+import {Person, Trip, TripParticipation} from '../../_models/trip';
 import {Office} from '../../_models/office';
 import {Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, map, switchMap} from 'rxjs/operators';
 import {UserSearchService} from '../../_services/user-search.service';
 import {UserService} from '../../_services/user.service';
 import {User} from '../../_models/user';
+import {TripService} from '../../_services/trip.service';
 
 @Component({
   selector: 'app-trip-form',
@@ -23,23 +24,23 @@ export class TripFormComponent implements OnInit {
   offices: Office[];
   toOffice: Office;
   fromOffice: Office;
-  persons: Person[] = new Array();
+  dateTo: string;
+  dateFrom: string;
   columns: string[];
-  tripParticipations: TripParticipation[];
-  isPlane: boolean;
-  isCar: boolean;
-  isAccommodation: boolean;
   organizer: Person;
   user: User;
+
+  searchResults: Person[];
+  participants: TripParticipation[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
     private officeService: OfficeService,
     private searchService: UserSearchService,
-    private userService: UserService
+    private userService: UserService,
+    private tripService: TripService
   ) {
   }
-
 
   search = (text$: Observable<string>) =>
     text$.pipe(
@@ -48,19 +49,47 @@ export class TripFormComponent implements OnInit {
       switchMap(term => {
           if (term.trim() !== '' && term.trim().length >= 2) {
             const persons = this.searchService.search(term.trim()).pipe(map((foundPersons) => {
-              const personsNames = [];
-              for (const person of foundPersons) {
-                personsNames.push(person);
-              }
-              return personsNames;
+              this.searchResults = [...foundPersons].filter(p => !this.participants.map(part => part.id).includes(p.id));
+              return [...this.searchResults];
             }));
             return persons;
           } else {
+            this.searchResults = [];
             return [];
           }
         }
       )
     )
+
+  onTicketStatusChange(event, participation: TripParticipation) {
+    this.participants.forEach(p => {
+      return p.participant.id !== participation.participant.id ? p :
+        ({...p, flightTicketStatus: event.target.checked ? 'NEEDED' : 'NOT_NEEDED' }); });
+  }
+
+  onRentalStatusChange(event, participation: TripParticipation) {
+    this.participants.forEach(p => {
+      return p.participant.id !== participation.participant.id ? p :
+        ({...p, carRentalStatus: event.target.checked ? 'NEEDED' : 'NOT_NEEDED' }); });
+  }
+
+  onAccommodationStatusChange(event, participation: TripParticipation) {
+    this.participants.forEach(p => {
+      return p.participant.id !== participation.participant.id ? p :
+        ({...p, accommodationStatus: event.target.checked ? 'NEEDED' : 'NOT_NEEDED' }); });
+  }
+
+  addPersonToTrip(person: Person) {
+    if (this.model && this.searchResults.map(s => s.id).includes(person.id)) {
+      this.participants.push({participant: person});
+      this.model = null;
+      this.searchResults = [];
+    }
+  }
+
+  removeParticipant(person: Person) {
+    this.participants = this.participants.filter(p => p.participant.id !== person.id);
+  }
 
   ngOnInit() {
     this.createTripForm();
@@ -68,10 +97,7 @@ export class TripFormComponent implements OnInit {
       this.offices = response;
     });
     this.columns = ['Vardas', ''];
-    this.isAccommodation = false;
-    this.isCar = false;
-    this.isPlane = false;
-    this.user = this.userService.getCurrentUser();
+    this.userService.getCurrentUserActually().subscribe(user => this.user = user);
   }
 
   createTripForm() {
@@ -81,40 +107,32 @@ export class TripFormComponent implements OnInit {
   onSubmit() {
   }
 
-  saveFromSelection(selection: Office) {
-    this.fromOffice = selection;
-    console.log(this.fromOffice);
+  saveFromSelection(office: string) {
+    this.fromOffice = this.offices.find(o => o.title === office.trim());
   }
 
-  saveToSelection(selection: Office) {
-    this.toOffice = selection;
-    console.log(this.toOffice);
+  saveToSelection(office: string) {
+    this.toOffice = this.offices.find(o => o.title === office.trim());
   }
 
-  addPerson(item: Person) {
-    let isInList = false;
-    for (const person of this.persons) {
-      if (person.id === item.id) {
-        isInList = true;
-      }
-    }
-    if (!isInList) {
-      this.persons.push(item);
-    }
-  }
-
-  deletePerson(id: number) {
-    for (const person of this.persons) {
-      if (person.id === id) {
-        this.persons = this.persons.filter(item => item !== person);
-      }
-    }
+  isFormDisabled() {
+    return !(this.participants && this.participants.length && this.dateFrom && this.dateTo && this.fromOffice && this.toOffice);
   }
 
   submit() {
-    this.organizer.id = this.user.id;
-    this.organizer.name = this.user.firstName;
-    this.organizer.surname = this.user.lastName;
+
+    this.organizer = {id: this.user.id, name: this.user.firstName, surname: this.user.lastName};
+
+
+    const trip: Trip = {
+      organizer: this.organizer,
+      tripParticipations: this.participants,
+      startDate: this.dateFrom,
+      endDate: this.dateTo,
+      fromOffice : this.fromOffice,
+      toOffice: this.toOffice};
+
+    this.tripService.createTrip(trip).subscribe(() => { console.log('yay'); }, () => { console.log('nay'); });
   }
 
   format = (x: {name: string}) => x.name;

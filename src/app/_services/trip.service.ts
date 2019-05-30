@@ -65,6 +65,10 @@ export class TripService {
     return this.http.get<Trip>(`${environment.apiUrl}/trip/${id}`);
   }
 
+  createTrip(trip: Trip): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/trip`, trip);
+  }
+
   private getCurrentUserTripParticipationIdFromTrip(trip: Trip): number {
     for (const tripParticipation of trip.tripParticipations) {
       if (tripParticipation.participant.id === this.userService.getCurrentUser().id) {

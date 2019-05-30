@@ -7,17 +7,17 @@ export interface Person {
 }
 
 export interface TripParticipation {
-  id: number;
+  id?: number;
   participant: Person;
-  status: string;
-  createdDateTime: string;
-  lastEditedDateTime: string;
-  flightTicketStatus: string;
-  carRentalStatus: string;
-  accommodationStatus: string;
-  flightTicketPrice: number;
-  carRentalPrice: number;
-  accommodationPrice: number;
+  status?: string;
+  createdDateTime?: string;
+  lastEditedDateTime?: string;
+  flightTicketStatus?: string;
+  carRentalStatus?: string;
+  accommodationStatus?: string;
+  flightTicketPrice?: number;
+  carRentalPrice?: number;
+  accommodationPrice?: number;
 }
 
 export interface Trip {
@@ -28,8 +28,8 @@ export interface Trip {
   endDate: string;
   fromOffice: Office;
   toOffice: Office;
-  createdDateTime: string;
-  lastEditDateTime: string;
+  createdDateTime?: string;
+  lastEditDateTime?: string;
 }
 
 export interface  TripResponse {

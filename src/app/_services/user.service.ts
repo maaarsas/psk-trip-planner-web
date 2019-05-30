@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { User } from '../_models/user';
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,10 @@ export class UserService {
       this.updateCurrentUser();
     }
     return this.currentUser;
+  }
+
+  getCurrentUserActually(): Observable<User> {
+    return this.http.get<User>(`${environment.apiUrl}/user/me`);
   }
 
   updateCurrentUser() {
