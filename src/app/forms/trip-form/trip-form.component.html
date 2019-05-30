@@ -1,29 +1,50 @@
-<form (ngSubmit)="onSubmit()">
+<form #tripForm="ngForm" (ngSubmit)="onSubmit()">
   <div class="trip-form">
-    <label for="formControlSearch">Add people:</label>
+    <label for="formControlSearch">Pridėti žmonių:</label>
     <input id="formControlSearch"
            type="text"
            class="form-control people-input"
-           [ngbTypeahead]="search"/>
-    test
-    <div *ngFor="let pName of personsNames | async">
-      {{pName}}
-    </div>
+           name="person"
+           [(ngModel)]="model"
+           [ngbTypeahead]="search"
+           [resultFormatter]="format"
+           [inputFormatter]="format"/>
+    <button class="btn-secondary" (click)="addPerson(model)">
+      Pridėti žmogų
+    </button>
+  </div>
+  <div>
+    Pridėti žmonės:
+    <table>
+      <tr>
+        <th *ngFor="let col of columns">
+          {{col}}
+        </th>
+      </tr>
+      <tr *ngFor="let person of persons">
+        <td>
+          {{person.name}}
+        </td>
+        <td>
+          <button class="btn-secondary" (click)="deletePerson(person.id)">Atmesti</button>
+        </td>
+      </tr>
+    </table>
   </div>
   <div class="dates trip-form d-flex">
     <div>
-      <label for="formControlDateFrom">Date from:</label>
-      <input type="date" class="form-control" id="formControlDateFrom">
+      <label for="formControlDateFrom">Data nuo:</label>
+      <input name="dateFrom" type="date" class="form-control" id="formControlDateFrom" required ngModel>
     </div>
     <div>
-      <label for="formControlDateTo">Date to:</label>
-      <input type="date" class="form-control" id="formControlDateTo">
+      <label for="formControlDateTo">Data iki:</label>
+      <input name="dateTo" type="date" class="form-control" id="formControlDateTo" required ngModel>
     </div>
   </div>
   <div class="offices trip-form d-flex">
     <div>
-      <label for="selectFromOffice" class="control-label">From office:</label>
-      <select class="form-control" id="selectFromOffice" (change)="saveFromSelection($event.target.value)">
+      <label for="selectFromOffice" class="control-label">Iš ofiso:</label>
+      <select name="toOffice" type="text" class="form-control" id="selectFromOffice" (change)="saveFromSelection($event.target.value)" ngModel>
         <option value=""></option>
         <option *ngFor="let office of offices" value="{{office.title}}">
           {{office.title}}
@@ -31,8 +52,8 @@
       </select>
     </div>
     <div>
-      <label for="selectToOffice" class="control-label">To office:</label>
-      <select class="form-control" id="selectToOffice" (change)="saveToSelection($event.target.value)">
+      <label for="selectToOffice" class="control-label">Į ofisą:</label>
+      <select name="toOffice" type="text" class="form-control" id="selectToOffice" (change)="saveToSelection($event.target.value)" ngModel>
         <option value=""></option>
         <option *ngFor="let office of offices" value="{{office.title}}">
           {{office.title}}
@@ -42,17 +63,17 @@
   </div>
   <div class="custom-control custom-checkbox">
     <div>
-      <input type="checkbox" class="custom-control-input" id="formControlPlane">
-      <label class="custom-control-label" for="formControlPlane">Plane tickets required</label>
+      <input name="plane" type="checkbox" class="custom-control-input" id="formControlPlane" ngModel>
+      <label class="custom-control-label" for="formControlPlane">Reikalingi lėktuvo bilietai</label>
     </div>
     <div>
-      <input type="checkbox" class="custom-control-input" id="formControlAuto">
-      <label class="custom-control-label" for="formControlAuto">Rental car required</label>
+      <input name="car" type="checkbox" class="custom-control-input" id="formControlAuto" ngModel>
+      <label class="custom-control-label" for="formControlAuto">Reikalinga nuomuota mašina</label>
     </div>
     <div>
-      <input type="checkbox" class="custom-control-input" id="formControlAccommodation">
-      <label class="custom-control-label" for="formControlAccommodation">Accommodation required</label>
+      <input name="accommodation" type="checkbox" class="custom-control-input" id="formControlAccommodation" ngModel>
+      <label class="custom-control-label" for="formControlAccommodation">Reikalingas apgyvendinimas viešbutije</label>
     </div>
   </div>
-  <button type="submit" class="btn btn-success" [disabled]="!tripForm.valid">Submit</button>
+  <button type="submit" class="btn-secondary" [disabled]="!tripForm.valid" (click)="submit()">Submit</button>
 </form>
