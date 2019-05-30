@@ -50,6 +50,7 @@ export class TripFormComponent implements OnInit {
           if (term.trim() !== '' && term.trim().length >= 2) {
             const persons = this.searchService.search(term.trim()).pipe(map((foundPersons) => {
               this.searchResults = [...foundPersons].filter(p => !this.participants.map(part => part.id).includes(p.id));
+              console.log(this.searchResults);
               return [...this.searchResults];
             }));
             return persons;
@@ -63,20 +64,26 @@ export class TripFormComponent implements OnInit {
 
   onTicketStatusChange(event, participation: TripParticipation) {
     this.participants.forEach(p => {
-      return p.participant.id !== participation.participant.id ? p :
-        ({...p, flightTicketStatus: event.target.checked ? 'NEEDED' : 'NOT_NEEDED' }); });
+      if (p.participant.id === participation.participant.id) {
+        p.flightTicketStatus = event.target.checked ? 'NEEDED' : 'NOT_NEEDED';
+      }
+    });
   }
 
   onRentalStatusChange(event, participation: TripParticipation) {
     this.participants.forEach(p => {
-      return p.participant.id !== participation.participant.id ? p :
-        ({...p, carRentalStatus: event.target.checked ? 'NEEDED' : 'NOT_NEEDED' }); });
+      if (p.participant.id === participation.participant.id) {
+        p.carRentalStatus = event.target.checked ? 'NEEDED' : 'NOT_NEEDED';
+      }
+    });
   }
 
   onAccommodationStatusChange(event, participation: TripParticipation) {
     this.participants.forEach(p => {
-      return p.participant.id !== participation.participant.id ? p :
-        ({...p, accommodationStatus: event.target.checked ? 'NEEDED' : 'NOT_NEEDED' }); });
+      if (p.participant.id === participation.participant.id) {
+        p.accommodationStatus = event.target.checked ? 'NEEDED' : 'NOT_NEEDED';
+      }
+    });
   }
 
   addPersonToTrip(person: Person) {
