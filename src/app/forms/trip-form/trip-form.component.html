@@ -44,18 +44,18 @@
   <div class="offices trip-form d-flex">
     <div>
       <label for="selectFromOffice" class="control-label">Iš ofiso:</label>
-      <select name="toOffice" type="text" class="form-control" id="selectFromOffice" (change)="saveFromSelection($event.target.value)" ngModel>
+      <select name="fromOffice" type="text" class="form-control" id="selectFromOffice">
         <option value=""></option>
-        <option *ngFor="let office of offices" value="{{office.title}}">
+        <option *ngFor="let office of offices" [value]="office" (click)="saveFromSelection(office)">
           {{office.title}}
         </option>
       </select>
     </div>
     <div>
       <label for="selectToOffice" class="control-label">Į ofisą:</label>
-      <select name="toOffice" type="text" class="form-control" id="selectToOffice" (change)="saveToSelection($event.target.value)" ngModel>
+      <select name="toOffice" type="text" class="form-control" id="selectToOffice">
         <option value=""></option>
-        <option *ngFor="let office of offices" value="{{office.title}}">
+        <option *ngFor="let office of offices" value="office" (click)="saveToSelection(office)">
           {{office.title}}
         </option>
       </select>

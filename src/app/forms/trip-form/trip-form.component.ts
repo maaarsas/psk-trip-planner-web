@@ -21,8 +21,8 @@ export class TripFormComponent implements OnInit {
   public model: Person;
 
   offices: Office[];
-  toOffice: string;
-  fromOffice: string;
+  toOffice: Office;
+  fromOffice: Office;
   persons: Person[] = new Array();
   columns: string[];
   tripParticipations: TripParticipation[];
@@ -81,29 +81,26 @@ export class TripFormComponent implements OnInit {
   onSubmit() {
   }
 
-  saveFromSelection(selection: any) {
+  saveFromSelection(selection: Office) {
     this.fromOffice = selection;
+    console.log(this.fromOffice);
   }
 
-  saveToSelection(selection: any) {
+  saveToSelection(selection: Office) {
     this.toOffice = selection;
+    console.log(this.toOffice);
   }
 
   addPerson(item: Person) {
     let isInList = false;
-    console.log('here');
-    console.log(this.persons);
     for (const person of this.persons) {
-      console.log('here');
       if (person.id === item.id) {
-        console.log('already in the list');
         isInList = true;
       }
     }
     if (!isInList) {
       this.persons.push(item);
     }
-    console.log(this.persons);
   }
 
   deletePerson(id: number) {
@@ -115,7 +112,6 @@ export class TripFormComponent implements OnInit {
   }
 
   submit() {
-    this.user = this.userService.getCurrentUser();
     this.organizer.id = this.user.id;
     this.organizer.name = this.user.firstName;
     this.organizer.surname = this.user.lastName;
