@@ -68,11 +68,11 @@
 
             <div *ngIf="participation.flightTicketPrice">
               <span class="participation-price">{{ 'trip-edit.price' | translate }}: {{ participation.flightTicketPrice | currency: 'EUR' }}</span>
-              <button (click)="setItemAsOrdered(participation, 'flightTickedStatus' )" class="btn btn-sm btn-success">{{ 'trip-edit.mark-as-ordered' | translate }}</button>
+              <button (click)="setItemAsOrdered(participation, 'flightTicketStatus' )" class="btn btn-sm btn-success">{{ 'trip-edit.mark-as-ordered' | translate }}</button>
             </div>
 
             <div *ngIf="!participation.flightTicketPrice">
-              <form (ngSubmit)="updateItemPrice($event, participation, 'flightTickedPrice')">
+              <form (ngSubmit)="updateItemPrice($event, participation, 'flightTicketPrice')">
                 {{ 'trip-edit.price' | translate }} (&euro;):
                 <input class="number-input" type="number" name="price" min="0" value="0">
                 <br>
