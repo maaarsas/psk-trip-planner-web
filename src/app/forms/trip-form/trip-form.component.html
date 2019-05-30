@@ -12,7 +12,7 @@
            [resultFormatter]="format"
            [inputFormatter]="format"/>
     <button style="display: inline" class="btn btn-secondary" (click)="addPersonToTrip(model)">
-      Pridėti žmogų
+      {{ 'trip-create.add-person' | translate }}
     </button>
   </div>
 
@@ -21,12 +21,12 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Id</th>
-      <th scope="col">Name</th>
-      <th scope="col">Surname</th>
-      <th scope="col">Needs plane tickets</th>
-      <th scope="col">Needs rental car</th>
-      <th scope="col">Needs hotel</th>
-      <th scope="col">Delete</th>
+      <th scope="col">{{ 'trip-create.name' | translate }}</th>
+      <th scope="col">{{ 'trip-create.surname' | translate }}</th>
+      <th scope="col">{{ 'trip-create.needs-tickets' | translate }}</th>
+      <th scope="col">{{ 'trip-create.needs-car' | translate }}</th>
+      <th scope="col">{{ 'trip-create.needs-hotel' | translate }}</th>
+      <th scope="col">{{ 'trip-create.delete' | translate }}</th>
     </tr>
     </thead>
     <tbody>
@@ -40,26 +40,25 @@
       <td><input type="checkbox" (change)="onTicketStatusChange($event, participant)" name="plane-tickets"></td>
       <td><input type="checkbox" (change)="onRentalStatusChange($event, participant)" name="rental-car"></td>
       <td><input type="checkbox" (change)="onAccommodationStatusChange($event, participant)" name="hotel"></td>
-      <td><button (click)="removeParticipant(participant.participant)" class="btn btn-danger">Delete</button></td>
+      <td><button (click)="removeParticipant(participant.participant)" class="btn btn-danger">{{ 'trip-create.delete' | translate }}</button></td>
     </tr>
     </tbody>
   </table>
 
-
   <div class="dates trip-form d-flex">
     <div>
-      <label for="formControlDateFrom">Data nuo:</label>
+      <label for="formControlDateFrom">{{ 'trip-create.date-from' | translate }}:</label>
       <input name="dateFrom" type="date" class="form-control" id="formControlDateFrom" (change)="dateFrom = $event.target.value">
     </div>
     <div>
-      <label for="formControlDateTo">Data iki:</label>
+      <label for="formControlDateTo">{{ 'trip-create.date-to' | translate }}</label>
       <input name="dateTo" type="date" class="form-control" id="formControlDateTo" (change)="dateTo = $event.target.value">
     </div>
   </div>
 
   <div class="offices trip-form d-flex">
     <div>
-      <label for="selectFromOffice" class="control-label">Iš ofiso:</label>
+      <label for="selectFromOffice" class="control-label">{{ 'trip-create.from-office' | translate }}:</label>
       <select (change)="saveFromSelection($event.target.selectedOptions[0].innerText)" name="fromOffice" type="text" class="form-control" id="selectFromOffice">
         <option disabled value=""></option>
         <option *ngFor="let office of offices" [value]="office">
@@ -68,7 +67,7 @@
       </select>
     </div>
     <div>
-      <label for="selectToOffice" class="control-label">Į ofisą:</label>
+      <label for="selectToOffice" class="control-label">{{ 'trip-create.to-office' | translate }}:</label>
       <select (change)="saveToSelection($event.target.selectedOptions[0].innerText)" name="toOffice" type="text" class="form-control" id="selectToOffice">
         <option disabled value=""></option>
         <option *ngFor="let office of offices" value="office">
@@ -78,5 +77,5 @@
     </div>
   </div>
 
-  <button type="submit" class="btn-secondary" [disabled]="isFormDisabled()" (click)="submit()">Submit</button>
+  <button type="submit" class="btn btn-secondary" [disabled]="isFormDisabled()" (click)="submit()">{{ 'trip-create.submit' | translate }}</button>
 </form>

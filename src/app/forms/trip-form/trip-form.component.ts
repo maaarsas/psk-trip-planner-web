@@ -9,7 +9,7 @@ import {UserSearchService} from '../../_services/user-search.service';
 import {UserService} from '../../_services/user.service';
 import {User} from '../../_models/user';
 import {TripService} from '../../_services/trip.service';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-trip-form',

@@ -135,6 +135,20 @@
     "user-list": "Vartotojų sąrašas",
     "role": "Rolė"
   },
+  "trip-create": {
+    "add-person": "Pridėti žmogų",
+    "name": "Vardas",
+    "surname": "Pavardė",
+    "needs-tickets": "Reikia lėktuvo bilietų",
+    "needs-rental": "Reikia automobilio nuomos",
+    "needs-accommodation": "Reikia apgyvendinimo",
+    "delete": "Ištrinti",
+    "date-from": "Nuo data",
+    "date-to": "Iki data",
+    "from-office": "Iš ofiso",
+    "to-office": "Į ofisą",
+    "submit": "Išsaugoti"
+  },
   "error": {
     "error": "Klaida",
     "undefined": "Įvyko neapibrėžta klaida",
