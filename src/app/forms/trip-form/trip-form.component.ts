@@ -51,8 +51,8 @@ export class TripFormComponent implements OnInit {
       switchMap(term => {
           if (term.trim() !== '' && term.trim().length >= 2) {
             const persons = this.searchService.search(term.trim()).pipe(map((foundPersons) => {
-              this.searchResults = [...foundPersons].filter(p => !this.participants.length ||
-                this.participants.map(part => part.id).includes(p.id));
+              this.searchResults = [...foundPersons].filter(p =>
+                !this.participants.map(part => part.participant.id).includes(p.id));
               return [...this.searchResults];
             }));
             return persons;
