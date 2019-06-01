@@ -137,6 +137,7 @@
   },
   "trip-create": {
     "add-person": "Pridėti žmogų",
+    "add-people": "Pridėti žmonių",
     "name": "Vardas",
     "surname": "Pavardė",
     "needs-tickets": "Reikia lėktuvo bilietų",
@@ -167,6 +168,7 @@
     "OFFICE_NOT_FOUND": "Klaida, ofisas nerastas",
     "AUTHENTICATION_EMAIL_NOT_FOUND": "Klaida, nerastas el. paštas",
     "AUTHENTICATION_INVALID_OR_EXPIRED_TOKEN": "Klaida, baigėsi sesijos laikas",
-    "AUTHENTICATION_ERROR": "Autentikacijos klaida"
+    "AUTHENTICATION_ERROR": "Autentikacijos klaida",
+    "USER_BUSY": "Vartotojas nėra prieinamas pasirinktomis datomis"
   }
 }
