@@ -1,14 +1,15 @@
-.people-input {
-  width: 15%;
+#add-person-btn {
+  display: inline;
+  margin-left: 20px;
+  position: relative;
+  bottom: 2px;
 }
 
-.people-input {
-  width: 15%;
+#form-control-search {
+  width: 200px;
+  display: inline;
 }
-.list-group-item {
-  width: 15%;
-}
-ul {
-  list-style: none;
-  padding-left: 0;
+
+#people-label {
+  display: block;
 }

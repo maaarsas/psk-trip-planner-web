@@ -136,6 +136,7 @@
   },
   "trip-create": {
     "add-person": "Add person",
+    "add-people": "Add people",
     "name": "Name",
     "surname": "Surname",
     "needs-tickets": "Needs plane tickets",
@@ -166,6 +167,7 @@
     "OFFICE_NOT_FOUND": "Error, office not found",
     "AUTHENTICATION_EMAIL_NOT_FOUND": "Error, email not found",
     "AUTHENTICATION_INVALID_OR_EXPIRED_TOKEN": "Error, session expired",
-    "AUTHENTICATION_ERROR": "Authentication error"
+    "AUTHENTICATION_ERROR": "Authentication error",
+    "USER_BUSY": "The user is not available on the selected dates"
   }
 }

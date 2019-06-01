@@ -33,7 +33,7 @@ export class ErrorInterceptor implements HttpInterceptor {
 
         if (err.status !== 403 && err.status !== 200) {
           const modalRef = this.modalService.open(ErrorModalComponent);
-          modalRef.componentInstance.errorMessage = err.error.message;
+          modalRef.componentInstance.errorMessage = err.error.error || err.error.message;
         }
 
         const error = err.error.message || err.statusText;
